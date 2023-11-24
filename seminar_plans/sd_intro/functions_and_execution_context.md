@@ -1,5 +1,7 @@
 # Functions & Execution Contexts
 
+[Figjam]()
+
 The first part of this lecture aims to consolidate students' understanding of how to use functions. Differentiating clearly between when a function is declared and when it is invoked provides valuable context for the second part of the lecture where we introduce the 3 core components of an execution context diagram.
 
 ## Learning Objectives
