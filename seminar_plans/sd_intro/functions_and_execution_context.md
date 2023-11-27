@@ -72,6 +72,8 @@ Should end up with something like this:
 
 ## Applying same logic again: Functions
 
+Cool shit
+
 ## Declaring and Invoking Functions
 
 ## Params & Args
