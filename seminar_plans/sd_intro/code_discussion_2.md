@@ -1,39 +1,29 @@
 # Wednesday Code Discussion
 
-- Thoughts on problem solving tasks?
+# Part 1
 
-Poll, was it helpful?
+**Start by addressing students working into the evenings**
 
-If not, why?
+SKIP SLIDO!!!
 
-If there is time:
+<!-- Slido poll:
 
-```js
-const { check, runTest, skipTest } = require('../test-api/index.js');
+https://admin.sli.do/event/bExaZ1Pk2x3UgBdhN4YpJf/polls
 
-/*
-createPowerSet()
+Get people to tell me their favourite bands/artists in the question box they see.
 
-You will need to implement a function createPowerSet
+- How do they feel about their ability to break down the problems given.
 
-It will need to return an array of all possible sub-arrays given some starting array
+- Any particular problem solving methods they found particularly helpful today or previously. -->
 
-For example,
-createPowerSet(['a', 'b', 'c']) should return
+## Mob problem solve - Section Two Challenges
 
-[[], ['a'], ['b'], ['c'], ['a', 'b'], ['b', 'c'] ,['a', 'c'], ['a', 'b', 'c'] ]
+Ask if people made it to this section an note down a few names:
 
-all the possible sub-arrays that can be constructed from 3 distinct elements
-There should be 2**3 = 8 different subsets in total
+Start by running file and picking on people to help debug problems as they arise.
 
-You will need to write your own tests for this task to prove your function is working correctly
-- use the runTest, skipTest functions that are available in this file
-*/
+## Finish Up
 
-runTest(
-	'returns an array including empty array when passed an empty array',
-	function () {
-		check(createPowerSet([])).isEqualTo([[]]);
-	}
-);
-```
+Any particular problem solving methods they found particularly helpful today or previously?
+
+- How do they feel about their ability to break down the problems given.

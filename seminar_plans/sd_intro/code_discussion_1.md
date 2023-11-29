@@ -17,7 +17,7 @@ Industry:
 - Code reviews are an important way to ensure you ship high-quality code and quality software.
 - A human who knows your code base can notice code quality issues that automated tests may miss.
 
-REPO: https://github.com/northcoders/intro-functions/tree/main
+REPO: /Users/danika/nc/teaching/seminar_repos/sd_intro/code_discussion_1
 
 My function from intro week January 2021:
 
