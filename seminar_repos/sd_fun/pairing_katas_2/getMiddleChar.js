@@ -8,6 +8,9 @@ function getMiddleChar(str) {
 	if (str.length < 3) {
 		return str;
 	}
+	const midIndex = Math.floor(str.length / 2);
+
+	return str.charAt(midIndex);
 }
 
 module.exports = getMiddleChar;

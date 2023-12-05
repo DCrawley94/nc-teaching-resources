@@ -35,16 +35,24 @@ Introduce the problem:
 Explain that the function is currently in a semi-complete state:
 
 - two tests
-- code written to pass those tests
+- code written to pass first test, I have identified second behaviour to test
 
 Simplest behaviours being tested:
 
 - empty string/ single character/ two character. Behaviour: less than length of 3 = return string
 - odd length string >= 3
 
-We will now be building up the test suite 👯‍♂️
+**POINT OUT THAT I'M USING toBe INSTEAD OF toEqual, IS THIS OKAY AND WHY?**
+
+**RUN TESTS**
+
+We will now be working towards a solution 👯‍♂️
 
 ## Test 1:
+
+**Warmup exercise: pick someone to suggest a possible solution to pass test**
+
+> ✨pseudocode✨
 
 🧑‍🎓 Ask for a volunteer or pick on someone to identify the next possible test - increase in complexity 🧑‍🎓
 
@@ -77,18 +85,18 @@ Bring up FigJam with an execution context diagram.
 Get students to help me fill it out for the given function invo with prompts:
 
 - What's the first thing that happens? (global)
-- Next thing (function invo)
+- Next thing (function invo) - **Mention that JEST etc. will be on the stack but we won't be concerned with it as we're focusing on the code we are writing**
 - What happens in the thread/VE whe the function is invoked?
   - VE: str ('code')
   - conditional check
     - evaluate condition
     - false: continue down
-  - what is default return value of function?
+  - middleIndex is index 2 - therefore 4rd character is returned
     **BOOM - WE SOLVED IT**
 
 **CHECKPOINT - DO STUDENTS UNDERSTAND WHAT WE HAVE BEEN TALKING ABOUT**
 
-> Point out that we don't expect them to write out a whole diagram for every problem
+> Point out that we don't expect them to write out a whole diagram for every problem BUT it can be helpful to take the time to understand the code you're writing and looking at how it executes for a given argument.
 
 ## Solution
 
