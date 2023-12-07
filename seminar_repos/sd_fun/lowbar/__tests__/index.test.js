@@ -18,13 +18,16 @@ describe('copyArrayAndDoSomething', () => {
 		expect(copyArrayAndDoSomething(input, multiplyBy4)).toEqual([12]);
 	});
 	test.skip('will implement the provided functions behaviour on an array of values', () => {
-		const input = [1, 2, 3, 4];
-		const add2andMultiplyBy3 = (n) => {
-			return (n + 2) * 3;
+		const input = ['August', 'Chon', 'Simon', 'Mick'];
+		const greetMentor = (mentor) => {
+			return `Hello ${mentor}!`;
 		};
 
-		expect(copyArrayAndDoSomething(input, add2andMultiplyBy3)).toEqual([
-			9, 12, 15, 18
+		expect(copyArrayAndDoSomething(input, greetMentor)).toEqual([
+			'Hello August!',
+			'Hello Chon!',
+			'Hello Simon!',
+			'Hello Mick!'
 		]);
 	});
 	test.skip('function does not mutate original array input', () => {
