@@ -5,6 +5,14 @@
 
  - the output of those invocations will be added to a new array
  */
-function copyArrayAndDoSomething(array, func) {}
+function copyArrayAndDoSomething(array, func) {
+	const results = [];
+
+	for (let i = 0; i < array.length; i++) {
+		results.push(func(array[i]));
+	}
+
+	return results;
+}
 
 module.exports = copyArrayAndDoSomething;

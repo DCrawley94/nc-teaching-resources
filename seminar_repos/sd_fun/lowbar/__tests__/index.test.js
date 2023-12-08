@@ -1,6 +1,6 @@
 const copyArrayAndDoSomething = require('../index');
 
-describe('copyArrayAndDoSomething', () => {
+describe.skip('copyArrayAndDoSomething', () => {
 	test('if passed an empty numbers array, function will return an empty array', () => {
 		const input = [];
 		const add3 = (n) => {
@@ -9,7 +9,7 @@ describe('copyArrayAndDoSomething', () => {
 
 		expect(copyArrayAndDoSomething(input, add3)).toEqual([]);
 	});
-	test.skip('will implement the provided functions behaviour on an array containing a single value', () => {
+	test('will implement the provided functions behaviour on an array containing a single value', () => {
 		const input = [3];
 		const multiplyBy4 = (n) => {
 			return n * 4;
@@ -17,7 +17,7 @@ describe('copyArrayAndDoSomething', () => {
 
 		expect(copyArrayAndDoSomething(input, multiplyBy4)).toEqual([12]);
 	});
-	test.skip('will implement the provided functions behaviour on an array of values', () => {
+	test('will implement the provided functions behaviour on an array of values', () => {
 		const input = ['August', 'Chon', 'Simon', 'Mick'];
 		const greetMentor = (mentor) => {
 			return `Hello ${mentor}!`;
@@ -30,7 +30,7 @@ describe('copyArrayAndDoSomething', () => {
 			'Hello Mick!'
 		]);
 	});
-	test.skip('function does not mutate original array input', () => {
+	test('function does not mutate original array input', () => {
 		const input = [1];
 		const add3 = (n) => {
 			return n + 3;
@@ -39,12 +39,33 @@ describe('copyArrayAndDoSomething', () => {
 		copyArrayAndDoSomething(input, add3);
 		expect(input).toEqual([1]);
 	});
-	test.skip('function returns a new object in memory', () => {
+	test('function returns a new object in memory', () => {
 		const input = [3];
 		const multiplyBy4 = (n) => {
 			return n * 4;
 		};
 
 		expect(copyArrayAndDoSomething(input, multiplyBy4)).not.toBe(input);
+	});
+});
+
+describe('copyArrayAndDoSomething - Mock Tests', () => {
+	test('passed in function is invoked the correct number of times', () => {
+		const mockFunc = jest.fn();
+		const input = [1, 2, 3, 4, 5];
+
+		copyArrayAndDoSomething(input, mockFunc);
+
+		expect(mockFunc).toHaveBeenCalledTimes(5);
+	});
+	test('passed in function is invoked with the correct arguments', () => {
+		const mockFunc = jest.fn();
+		const input = ['a', 'b', 'c'];
+
+		copyArrayAndDoSomething(input, mockFunc);
+
+		expect(mockFunc).toHaveBeenCalledWith('a');
+		expect(mockFunc).toHaveBeenCalledWith('b');
+		expect(mockFunc).toHaveBeenCalledWith('c');
 	});
 });

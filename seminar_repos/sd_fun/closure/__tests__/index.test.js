@@ -1,0 +1,1 @@
+const shoppingList = require('../index');
