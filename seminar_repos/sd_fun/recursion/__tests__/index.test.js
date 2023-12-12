@@ -7,11 +7,11 @@ describe('countIceCreams()', () => {
 		expect(countIceCreams(iceCreamArray)).toBe(1);
 		expect(countIceCreams(notIceCreamArray)).toBe(0);
 	});
-	test.skip('given array only containing strings will count occurrences of iceCream', () => {
+	test('given array only containing strings will count occurrences of iceCream', () => {
 		const someIceCreams = ['iceCream', 'banana', 'iceCream', 'apple'];
 		expect(countIceCreams(someIceCreams)).toBe(2);
 	});
-	test.skip('should count number of iceCreams in nested arrays', () => {
+	test('should count number of iceCreams in nested arrays', () => {
 		const nestedIceCream1 = [['iceCream']];
 		expect(countIceCreams(nestedIceCream1)).toBe(1);
 

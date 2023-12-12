@@ -152,6 +152,24 @@ function countIceCreams(arr) {
 }
 ```
 
+Highlight the base case:
+
+```js
+if (item === 'iceCream')
+```
+
+The recursive case:
+
+```js
+if (Array.isArray(item))
+```
+
+The recursive call:
+
+```js
+count += countIceCreams(item);
+```
+
 ## EC Diagram
 
 Use this input:
