@@ -1,4 +1,17 @@
-function createPlaylist() {}
+function createPlaylist(playlistName) {
+	const playlist = {
+		name: playlistName,
+		tracks: [],
+		addTrack: addTrack
+	};
+
+	return playlist;
+}
+
+function addTrack(trackName) {
+	// "this" is the playlist oject
+	this.tracks.push(trackName);
+}
 
 module.exports = createPlaylist;
 
@@ -15,7 +28,7 @@ Your users should:
 
 const partyAnthems = createPlaylist('absolute bangers');
 
-partyAnthems.name; // 'absolute bangers'
+partyAnthems.name; // 'absolute bangers' ✅
 
 partyAnthems.addTrack('superstition');
 partyAnthems.addTrack('uptown girl');
