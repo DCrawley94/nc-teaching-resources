@@ -90,27 +90,11 @@ Show the students what has been created so far:
     {
       name: 'customer name',
       address: 'customer address',
-      orderDetails: {
-        item1: {
-          price: 10,
-          quantity: 1
-        },
-        item2: {
-          price: 20,
-          quantity: 2
-        }
-      },
+      orderDetails: ['item1', 'item2']
       total: // number: total cost
     }
     ```
   - multiple items, quantity 1
-  - single item, quantity > 1
-  - multiple items, quantity > 1
-
-**if there is time**:
-
-- cart
-  - Test that it's only added when it's the correct type of instance? why do we need this?
 
 ---
 

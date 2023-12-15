@@ -1,6 +1,6 @@
 // ShoppingBasket class:
 //   - everything done ✅
-// ShoppingBasket class:
+// Customer class:
 //   - name  ✅
 //   - address ✅
 //   - cart
@@ -13,24 +13,30 @@ class ShoppingBasket {
 		this.storage = {};
 	}
 
-	addItem(itemName, itemPrice, quantity) {
-		const itemDetails = { price: itemPrice, quantity: quantity };
-		this.storage[itemName] = itemDetails;
+	addItem(itemName, itemPrice) {
+		this.storage[itemName] = itemPrice;
 	}
 
 	deleteItem(itemName) {
 		delete this.storage[itemName];
 	}
 
-	updateItemAmount(itemName, quantity) {
-		this.storage[itemName].quantity = quantity;
+	getItems() {
+		return Object.keys(this.storage);
+	}
+
+	calculateTotalCost() {
+		const prices = Object.values(this.storage);
+
+		return prices.reduce((totalPrice, nextPrice) => totalPrice + nextPrice, 0);
 	}
 }
 
 class Customer {
-	constructor(name, address) {
+	constructor(name, address, cart) {
 		this.name = name;
 		this.address = address;
+		this.cart = cart;
 	}
 
 	updateName(newName) {
@@ -42,7 +48,16 @@ class Customer {
 	}
 
 	createInvoice() {
-		// implement this method
+		// should create invoice object
+		// invoiceObject should have customer name, address, list of items, totalCost
+		const invoice = {
+			name: this.name,
+			address: this.address,
+			items: this.cart.getItems(),
+			totalCost: this.cart.calculateTotalCost()
+		};
+
+		return invoice;
 	}
 }
 
