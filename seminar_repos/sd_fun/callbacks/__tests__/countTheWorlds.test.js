@@ -3,7 +3,7 @@ const countTheWorlds = require('../countTheWorlds');
 jest.setTimeout(1000);
 
 describe('countTheWorlds', () => {
-	test.only('should invoke the callback with null if there is no error', (done) => {
+	test('should invoke the callback with null if there is no error', (done) => {
 		function testCB(err, data) {
 			expect(err).toBe(null);
 			done();
