@@ -26,6 +26,17 @@ Point out that the server has already been created and there is a pre-existing e
 
 Show how we can set up the POST request by editing the body.
 
+Body:
+
+```json
+{
+	"artworkId": 5,
+	"title": "Starry Night",
+	"artistId": 4,
+	"worthInDollars": 15000000
+}
+```
+
 Show that the body will be a JSON object with the same properties as the ones in the `artworks.json` file.
 
 **Pick a student to help write the conditional logic for the POST request.**
