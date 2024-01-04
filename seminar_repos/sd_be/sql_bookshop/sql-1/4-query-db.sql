@@ -1,0 +1,2 @@
+-- Focus: syntax, conditional clauses, and ordering of statements
+-- AS, WHERE, AND, OR, NOT, UPDATE, DELETE

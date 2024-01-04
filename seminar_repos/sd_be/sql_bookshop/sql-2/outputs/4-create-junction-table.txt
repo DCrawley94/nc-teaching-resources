@@ -1,0 +1,4 @@
+You are now connected to database "imdb_2" as user "danika".
+DROP TABLE
+CREATE TABLE
+INSERT 0 24
