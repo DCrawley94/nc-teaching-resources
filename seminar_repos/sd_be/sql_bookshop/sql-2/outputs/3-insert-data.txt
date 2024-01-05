@@ -1,4 +1,0 @@
-You are now connected to database "imdb_2" as user "danika".
-INSERT 0 8
-INSERT 0 26
-INSERT 0 9

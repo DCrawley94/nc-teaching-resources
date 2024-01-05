@@ -1,4 +1,28 @@
+DROP DATABASE IF EXISTS imdb_2;
+CREATE DATABASE imdb_2;
+
 \c imdb_2
+
+-- directors table
+CREATE TABLE directors (
+    director_id SERIAL PRIMARY KEY,
+    director_name VARCHAR(255) NOT NULL
+);
+
+-- actors table
+CREATE TABLE actors (
+    actor_id SERIAL PRIMARY KEY,
+    actor_name VARCHAR(255) NOT NULL
+);
+
+-- movies table
+CREATE TABLE films (
+        film_id SERIAL PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        release_date DATE NOT NULL,
+        rating INT NOT NULL,
+        director_id INT REFERENCES directors(director_id)
+);
 
 -- insert data into directors, actors, awards, and movies tables
 INSERT INTO directors (director_name) VALUES
@@ -49,3 +73,14 @@ INSERT INTO films (title, director_id, release_date, rating) VALUES
     ('Interstellar', 1, '2014-11-05', 8),
     ('Barbie', 7, '2023-07-21', 8),
     ('The Room', 5, '2003-06-27', 2);
+
+\! echo "\n\nActors table:"
+SELECT * FROM actors;
+
+
+\! echo "Films table:"
+SELECT * FROM films;
+
+
+\! echo "Directors table:"
+SELECT * FROM directors;

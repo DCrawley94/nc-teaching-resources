@@ -1,7 +1,0 @@
-You are now connected to database "imdb_2" as user "danika".
-DROP TABLE
-DROP TABLE
-DROP TABLE
-CREATE TABLE
-CREATE TABLE
-CREATE TABLE

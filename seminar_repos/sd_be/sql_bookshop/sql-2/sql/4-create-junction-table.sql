@@ -4,10 +4,10 @@
 DROP TABLE IF EXISTS film_actors;
 
 -- film_actors junction table (to manage the many-to-many relationship between films and actors), recap foreign key
-CREATE TABLE IF NOT EXISTS film_actors (
+CREATE TABLE film_actors (
     film_actor_id SERIAL PRIMARY KEY,
-    film_id INT REFERENCES films(film_id) ON DELETE CASCADE,
-    actor_id INT REFERENCES actors(actor_id) ON DELETE CASCADE
+    film_id INT REFERENCES films(film_id),
+    actor_id INT REFERENCES actors(actor_id)
 );
 
 INSERT INTO film_actors (film_id, actor_id) VALUES
@@ -19,3 +19,6 @@ INSERT INTO film_actors (film_id, actor_id) VALUES
     (6, 13), (6, 14), (7, 15),
     (7, 16), (7, 17), (8, 4),
     (8, 18), (8, 19), (9, 22);
+
+\! echo "\nJunction table:"
+SELECT * FROM film_actors;
