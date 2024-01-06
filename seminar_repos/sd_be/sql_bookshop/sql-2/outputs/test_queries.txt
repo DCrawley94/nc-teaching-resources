@@ -1,17 +1,4 @@
 You are now connected to database "imdb_2" as user "danika".
-          title           | release_date |   director_name   
---------------------------+--------------+-------------------
- Inception                | 2010-07-16   | Christopher Nolan
- La La Land               | 2016-12-09   | Damien Chazelle
- The Shawshank Redemption | 1994-09-10   | Frank Darabont
- Jurassic Park            | 1993-06-11   | Steven Spielberg
- Leprechaun               | 1993-01-08   | Mark Jones
- Seven                    | 1995-09-22   | David Fincher
- Interstellar             | 2014-11-05   | Christopher Nolan
- Barbie                   | 2023-07-21   | Greta Gerwig
- The Room                 | 2003-06-27   | Tommy Wiseau
-(9 rows)
-
           title           |      actor_name      
 --------------------------+----------------------
  Inception                | Leonardo DiCaprio
@@ -40,18 +27,16 @@ You are now connected to database "imdb_2" as user "danika".
  The Room                 | Tommy Wiseau
 (24 rows)
 
-   actor_name   
-----------------
- Elijah Wood
- Viola Davis
- Angelina Jolie
- John Hurt
+ title |   actor_name   
+-------+----------------
+       | Elijah Wood
+       | Viola Davis
+       | Angelina Jolie
+       | John Hurt
 (4 rows)
 
-    actor_name    
-------------------
- Jennifer Aniston
- Warwick Davis
- Tommy Wiseau
-(3 rows)
+ actor_count 
+-------------
+           3
+(1 row)
 

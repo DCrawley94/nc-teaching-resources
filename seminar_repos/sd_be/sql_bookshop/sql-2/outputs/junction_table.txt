@@ -1,9 +1,8 @@
 You are now connected to database "imdb_2" as user "danika".
-DROP TABLE
 CREATE TABLE
 INSERT 0 24
 
-Junction table:
+ Junction Table:
  film_actor_id | film_id | actor_id 
 ---------------+---------+----------
              1 |       1 |        1

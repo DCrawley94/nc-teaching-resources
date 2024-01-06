@@ -27,6 +27,8 @@ Therefore I can use this to _JOIN_ the tables and get the data I'd like - **film
 
 ## JOIN Demo
 
+**Show DB Diagram of Database I am using**
+
 Demo how to create a join in the repo:
 
 Describe the task:
@@ -113,6 +115,8 @@ Ask student to help write SQL to create the Junction table - refer back to DB Di
 Aim to end up with something like this:
 
 ```sql
+DROP TABLE IF EXISTS film_actors;
+
 CREATE TABLE film_actors (
     film_actor_id SERIAL PRIMARY KEY,
     film_id INT REFERENCES films(film_id),
@@ -134,9 +138,16 @@ INSERT INTO film_actors (film_id, actor_id) VALUES
     (8, 18), (8, 19), (9, 22);
 ```
 
+Add in an echo statement so we can see what it looks like:
+
+```sql
+\! echo "\nJunction table:"
+SELECT * FROM film_actors;
+```
+
 ## Further queries to show more JOINS an intro Aggregates
 
-select all the films and all the actors using the junction table
+1. Select all the films and all the actors using the junction table
 
 ```sql
 SELECT title, actor_name
@@ -145,7 +156,7 @@ JOIN films ON films.film_id = film_actors.film_id
 JOIN actors ON actors.actor_id = film_actors.actor_id;
 ```
 
-select all the actors that are not in any movies
+2. Select all the actors that are not in any movies
 
 ```sql
 SELECT actor_name
@@ -155,9 +166,7 @@ RIGHT OUTER JOIN actors ON actors.actor_id = film_actors.actor_id
 WHERE title IS NULL;
 ```
 
--- using an aggregate function, list the names of all the associated actors in the db for each film with a rating less than 5
-
-Count the number of actors that have been in a film that has a rating less than 5
+3. Count the number of actors that have been in a film that has a rating less than 5
 
 ```sql
 SELECT Count(actor_name) as actor_count
@@ -166,3 +175,9 @@ JOIN films ON films.film_id = film_actors.film_id
 JOIN actors ON actors.actor_id = film_actors.actor_id
 WHERE rating < 5;
 ```
+
+**TRY AND FINISH HERE**
+
+## If asked: GROUP BY
+
+The GROUP BY statement groups rows that have the same values into summary rows, like "find the number of customers in each country"
