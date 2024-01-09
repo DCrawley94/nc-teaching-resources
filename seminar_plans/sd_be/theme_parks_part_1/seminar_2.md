@@ -4,7 +4,8 @@ Use data found [here](https://github.com/northcoders/team-curriculum/tree/main/c
 
 ## Learning Objectives
 
-- Know when
+- Be to identify when data needs to be manipulated before inserted into a database
+- Know how to isolate a unit of logic in the seed function and test it
 
 ## Intro
 
@@ -44,11 +45,15 @@ Whiteboard out the solution:
 - ask students what the function should take accept as arguments
 - put previous pseudocode in the function
 - Ask students to think about what tests they might write for this, take suggestions and note them down
-- If not mentioned query students if there's any extra tests we might need as we're dealing with non-primitive data > if this has been mentioned ask why.
+- **If not mentioned query students if there's any extra tests we might need as we're dealing with non-primitive data > if this has been mentioned ask why.**
 
 ## Actual Code
 
-Show students repo with partial seed function, data, etc. Show the created utils file and test suite ready to go.
+Show students repo with partial seed function, data, etc.
+
+**Highlight the package.json script**
+
+Show the created utils file and test suite ready to go.
 
 With students help build up function with TDD.
 
@@ -57,38 +62,254 @@ With students help build up function with TDD.
 - empty array
 - single review
 
-data:
-
 ```js
-const reviewTestData = [
-	{
-		username: 'fola',
-		game_title: 'Mario Kart 64',
-		comment: 'gingerbread',
-		rating: 5
-	}
-];
-const gameTestData = [
-	{
-		game_id: 1,
-		game_title: 'Mario Kart 64',
-		release_year: 1996,
-		image_url:
-			'https://coverproject.sfo2.cdn.digitaloceanspaces.com/nintendo_64/n64_mariokart64gold_thumb.jpg',
-		console_name: 'N64'
-	}
-];
-const expectedData = [
-	{
-		username: 'fola',
-		game_id: 1,
-		comment: 'gingerbread',
-		rating: 5
-	}
-];
+test('single review', () => {
+	const reviewTestData = [
+		{
+			username: 'fola',
+			game_title: 'Mario Kart 64',
+			comment: 'gingerbread',
+			rating: 5
+		}
+	];
+	const gameTestData = [
+		{
+			game_id: 1,
+			game_title: 'Mario Kart 64',
+			release_year: 1996,
+			image_url:
+				'https://coverproject.sfo2.cdn.digitaloceanspaces.com/nintendo_64/n64_mariokart64gold_thumb.jpg',
+			console_name: 'N64'
+		}
+	];
+	const expectedData = [
+		{
+			username: 'fola',
+			game_id: 1,
+			comment: 'gingerbread',
+			rating: 5
+		}
+	];
+
+	expect(formatReviewsData(reviewTestData, gameTestData)).toEqual(expectedData);
+});
 ```
 
 - multi review - single game
+
+```js
+test('multiple reviews - single game id', () => {
+	const reviewTestData = [
+		{
+			username: 'fola',
+			game_title: 'Mario Kart 64',
+			comment: 'gingerbread',
+			rating: 5
+		},
+		{
+			username: 'rogersop',
+			game_title: 'Mario Kart 64',
+			comment: 'Skate',
+			rating: 4
+		},
+		{
+			username: 'izzi',
+			game_title: 'Mario Kart 64',
+			comment: 'Zombies',
+			rating: 5
+		}
+	];
+	const gameTestData = [
+		{
+			game_id: 1,
+			game_title: 'Mario Kart 64',
+			release_year: 1996,
+			image_url:
+				'https://coverproject.sfo2.cdn.digitaloceanspaces.com/nintendo_64/n64_mariokart64gold_thumb.jpg',
+			console_name: 'N64'
+		}
+	];
+	const expectedData = [
+		{
+			username: 'fola',
+			game_id: 1,
+			comment: 'gingerbread',
+			rating: 5
+		},
+		{
+			username: 'rogersop',
+			game_id: 1,
+			comment: 'Skate',
+			rating: 4
+		},
+		{
+			username: 'izzi',
+			game_id: 1,
+			comment: 'Zombies',
+			rating: 5
+		}
+	];
+
+	expect(formatReviewsData(reviewTestData, gameTestData)).toEqual(expectedData);
+});
+```
+
 - multi review - multi game
+
+```js
+test('multiple reviews - multiple game ids', () => {
+	const reviewTestData = [
+		{
+			username: 'fola',
+			game_title: 'Mario Kart 64',
+			comment: 'gingerbread',
+			rating: 5
+		},
+		{
+			username: 'rogersop',
+			game_title: 'Donkey Kong',
+			comment: 'Skate',
+			rating: 4
+		},
+		{
+			username: 'izzi',
+			game_title: 'Mario Bros',
+			comment: 'Zombies',
+			rating: 5
+		}
+	];
+	const gameTestData = [
+		{
+			game_id: 1,
+			game_title: 'Mario Kart 64',
+			release_year: 1996,
+			image_url:
+				'https://coverproject.sfo2.cdn.digitaloceanspaces.com/nintendo_64/n64_mariokart64gold_thumb.jpg',
+			console_name: 'N64'
+		},
+		{
+			game_id: 2,
+			game_title: 'Donkey Kong',
+			release_year: 1983,
+			image_url:
+				'https://coverproject.sfo2.cdn.digitaloceanspaces.com/nes/nes_donkeykong_thumb.jpg',
+			console_name: 'NES'
+		},
+		{
+			game_id: 3,
+			game_title: 'Mario Bros',
+			release_year: 1985,
+			image_url:
+				'https://coverproject.sfo2.cdn.digitaloceanspaces.com/nes/nes_mariobros_thumb.jpg',
+			console_name: 'NES'
+		}
+	];
+	const expectedData = [
+		{
+			username: 'fola',
+			game_id: 1,
+			comment: 'gingerbread',
+			rating: 5
+		},
+		{
+			username: 'rogersop',
+			game_id: 2,
+			comment: 'Skate',
+			rating: 4
+		},
+		{
+			username: 'izzi',
+			game_id: 3,
+			comment: 'Zombies',
+			rating: 5
+		}
+	];
+
+	expect(formatReviewsData(reviewTestData, gameTestData)).toEqual(expectedData);
+});
+```
+
 - mutation
+
+```js
+test('input should not be mutated', () => {
+	const reviewTestData = [
+		{
+			username: 'fola',
+			game_title: 'Mario Kart 64',
+			comment: 'gingerbread',
+			rating: 5
+		}
+	];
+	const gameTestData = [
+		{
+			game_id: 1,
+			game_title: 'Mario Kart 64',
+			release_year: 1996,
+			image_url:
+				'https://coverproject.sfo2.cdn.digitaloceanspaces.com/nintendo_64/n64_mariokart64gold_thumb.jpg',
+			console_name: 'N64'
+		}
+	];
+
+	formatReviewsData(reviewTestData, gameTestData);
+
+	expect(reviewTestData).toEqual([
+		{
+			username: 'fola',
+			game_title: 'Mario Kart 64',
+			comment: 'gingerbread',
+			rating: 5
+		}
+	]);
+
+	expect(gameTestData).toEqual([
+		{
+			game_id: 1,
+			game_title: 'Mario Kart 64',
+			release_year: 1996,
+			image_url:
+				'https://coverproject.sfo2.cdn.digitaloceanspaces.com/nintendo_64/n64_mariokart64gold_thumb.jpg',
+			console_name: 'N64'
+		}
+	]);
+});
+```
+
 - reference?
+
+Possible Solution:
+
+```js
+function formatReviewsData(rawReviewData, insertedGameData) {
+	const formattedReviewsData = rawReviewData.map((review) => {
+		const gameWithID = insertedGameData.find((game) => {
+			return game.game_title === review.game_title;
+		});
+
+		const reviewCopy = { ...review };
+		reviewCopy.game_id = gameWithID.game_id;
+		delete reviewCopy.game_title;
+		return reviewCopy;
+	});
+	return formattedReviewsData;
+}
+
+module.exports = formatReviewsData;
+```
+
+**If using find talk about a refactor to lookup object as it's more efficient**
+
+```js
+// seed.js
+.then((gameInsertionResult) => {
+			console.log('games inserted', gameInsertionResult);
+			const insertedGames = gameInsertionResult.rows;
+			const formattedReviewData = formatReviewsData(reviewData, insertedGames);
+
+			return insertReviews(formattedReviewData);
+		})
+		.then(({ rows }) => {
+			console.log({ rows });
+		});
+```

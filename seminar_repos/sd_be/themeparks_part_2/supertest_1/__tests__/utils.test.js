@@ -1,7 +1,7 @@
 const formatReviewsData = require('../db/utils');
 
 describe('formatReviewsData', () => {
-	test('when passed empty array of reviews, returns empty array', () => {
+	test('no reviews - return empty array', () => {
 		expect(formatReviewsData([], [])).toEqual([]);
 	});
 	test('single review', () => {
@@ -23,7 +23,8 @@ describe('formatReviewsData', () => {
 				console_name: 'N64'
 			}
 		];
-		const expectedData = [
+
+		const expected = [
 			{
 				username: 'fola',
 				game_id: 1,
@@ -32,11 +33,9 @@ describe('formatReviewsData', () => {
 			}
 		];
 
-		expect(formatReviewsData(reviewTestData, gameTestData)).toEqual(
-			expectedData
-		);
+		expect(formatReviewsData(reviewTestData, gameTestData)).toEqual(expected);
 	});
-	test('multiple reviews - single game id', () => {
+	test('multiple reviews - same game id', () => {
 		const reviewTestData = [
 			{
 				username: 'fola',
@@ -87,7 +86,6 @@ describe('formatReviewsData', () => {
 				rating: 5
 			}
 		];
-
 		expect(formatReviewsData(reviewTestData, gameTestData)).toEqual(
 			expectedData
 		);
@@ -194,7 +192,6 @@ describe('formatReviewsData', () => {
 				rating: 5
 			}
 		]);
-
 		expect(gameTestData).toEqual([
 			{
 				game_id: 1,

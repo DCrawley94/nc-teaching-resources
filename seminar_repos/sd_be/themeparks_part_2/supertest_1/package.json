@@ -1,0 +1,23 @@
+{
+	"name": "pg_themeparks_2",
+	"version": "1.0.0",
+	"description": "",
+	"main": "seed.js",
+	"scripts": {
+		"setup-db": "psql -f ./db/db-setup.sql",
+		"seed": "PGDATABASE=nc_games node db/run-seed.js",
+		"test": "PGDATABASE=nc_games jest"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.18.2",
+		"pg": "^8.11.3"
+	},
+	"devDependencies": {
+		"jest": "^29.7.0",
+		"pg-format": "^1.0.4",
+		"supertest": "^6.3.3"
+	}
+}

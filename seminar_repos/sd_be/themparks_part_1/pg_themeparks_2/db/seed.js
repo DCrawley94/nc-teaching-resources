@@ -1,7 +1,7 @@
 const db = require('./connection');
 const format = require('pg-format');
 
-const formatReviewsData = require('./utils.js');
+const formatReviewsData = require('./utils');
 
 function seed({ gameData, reviewData }) {
 	return db
@@ -20,15 +20,13 @@ function seed({ gameData, reviewData }) {
 			console.log('reviews table created');
 			return insertGames(gameData);
 		})
-		.then((gameInsertionResult) => {
-			console.log('games inserted');
-			const insertedGames = gameInsertionResult.rows;
-			const formattedReviewData = formatReviewsData(reviewData, insertedGames);
+		.then((result) => {
+			console.log(result.rows);
+			// data manipulation function call
+			// formatReviewsData(rawReviewsData, insertedGamesData)
+			const formattedReviews = formatReviewsData(reviewData, result.rows);
 
-			return insertReviews(formattedReviewData);
-		})
-		.then(({ rows }) => {
-			console.log({ rows });
+			return insertReviews(formattedReviews);
 		});
 }
 
@@ -68,7 +66,7 @@ function insertGames(gameData) {
 			(game_title, release_year, image_url, console_name)
 			VALUES
 			%L
-			RETURNING *;`,
+		RETURNING *;`,
 		gamesToInsert
 	);
 	return db.query(queryStr);
