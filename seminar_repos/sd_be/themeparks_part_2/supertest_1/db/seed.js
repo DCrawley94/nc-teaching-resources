@@ -16,16 +16,12 @@ function seed({ gameData, reviewData }) {
 			return createReviews();
 		})
 		.then(() => {
-			console.log('Games and Reviews table created');
 			return insertGames(gameData);
 		})
 		.then(({ rows: insertedGamesData }) => {
 			const formattedReviews = formatReviewsData(reviewData, insertedGamesData);
 
 			return insertReviews(formattedReviews);
-		})
-		.then(() => {
-			console.log('Inserted data into Games and Reviews tables');
 		});
 }
 
@@ -86,7 +82,6 @@ function insertReviews(reviewData) {
 			RETURNING *;`,
 		reviewsToInsert
 	);
-	console.log(queryStr);
 	return db.query(queryStr);
 }
 

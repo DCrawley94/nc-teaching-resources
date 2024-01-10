@@ -15,20 +15,23 @@ Explain that some people may be familiar with it but essentially it has the foll
 - a `seed` function that has been used to `seed` the database with data about
   - **video games**
   - **reviews** for those video games
+- Show DB structure in `db.png`
 
-Explain that we will be creating an API that will be accessing the `nc_games` database.
+Explain that we will now be creating an API that will be accessing the `nc_games` database.
 
-During the lecture we will be writing the following two endpoints:
+During the seminar we will be writing the following two endpoints:
 
 - `/api/games`
 - `/api/games/:gameId`
 
-## Discuss tests for first endpoint - `/api/games`:
-
-Ask students to think about what we could test and note down ideas in the test file:
+Ask about the things we could test to make sure these enpoints are working:
 
 - status code
 - response body contents
+
+## Discuss tests for first endpoint - `/api/games`:
+
+Ask students to think about what we could test and note down ideas in the test file:
 
 ```js
 /// tests
