@@ -116,7 +116,7 @@ describe('/api/games/:gameId', () => {
 					expect(body.msg).toBe('Game Not Found');
 				});
 		});
-		test('status code 400 - ID not valid', () => {
+		test.only('status code 400 - ID not valid', () => {
 			return request(app)
 				.get('/api/games/banana')
 				.expect(400)

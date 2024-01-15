@@ -22,6 +22,7 @@ function getGameById(req, res, next) {
 			res.status(200).send({ game });
 		})
 		.catch((err) => {
+			// console.log(err);
 			next(err);
 		});
 }

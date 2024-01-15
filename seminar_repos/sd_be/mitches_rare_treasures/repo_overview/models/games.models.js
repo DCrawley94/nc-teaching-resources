@@ -13,6 +13,7 @@ function fetchGameById(id) {
 			if (rows.length === 0) {
 				return Promise.reject({ status: 404, msg: 'Game Not Found' });
 			}
+
 			return rows[0];
 		});
 }
