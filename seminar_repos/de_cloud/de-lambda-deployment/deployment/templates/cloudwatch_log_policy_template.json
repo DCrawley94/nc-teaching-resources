@@ -10,7 +10,7 @@
 			"Effect": "Allow",
 			"Action": ["logs:CreateLogStream", "logs:PutLogEvents"],
 			"Resource": [
-				"arn:aws:logs:eu-west-2:026894960533:log-group:/aws/lambda/s3-file-reader-1706611277:*"
+				"arn:aws:logs:eu-west-2:026894960533:log-group:/aws/lambda/s3-file-reader-1706692395:*"
 			]
 		}
 	]

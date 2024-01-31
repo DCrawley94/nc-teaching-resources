@@ -6,8 +6,8 @@
 			"Effect": "Allow",
 			"Action": ["s3:GetObject"],
 			"Resource": [
-				"arn:aws:s3:::nc-de-dc-data-1706611277/*",
-				"arn:aws:s3:::nc-de-dc-code-1706611277/*"
+				"arn:aws:s3:::nc-de-dc-code-1706692395/*",
+				"arn:aws:s3:::nc-de-dc-data-1706692395/*"
 			]
 		}
 	]
