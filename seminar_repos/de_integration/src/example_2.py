@@ -3,7 +3,7 @@ from pg8000.native import Connection
 
 def get_games():
     '''
-    Function will get superheroes from the marvel database and return
+    Function will get game from the nc_games database and return
     a list in the following form:
 
     [
