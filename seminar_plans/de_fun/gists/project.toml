@@ -1,0 +1,11 @@
+[project]
+name = "python-skeleton"
+description = "Python project skeleton"
+authors = [
+  {name = "Alberto Donato", email = "alberto.donato@gmail.com"},
+]
+requires-python = ">=3.11"
+
+[project.entry-points.console_scripts]
+run-tests = "your_package.module:run_pytest"
+
