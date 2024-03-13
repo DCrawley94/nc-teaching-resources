@@ -9,7 +9,7 @@
 - Understand how we can use Mock functions to clearly define the behaviours being tested
 - Know how to create a basic mock function
 
-## First task - TDD refresher and show `testdox`
+## First Task - TDD refresher and show `testdox`
 
 **`copy_dict_and_update_values`**
 
@@ -19,31 +19,67 @@ Have some tests pre-written:
 
 - empty dict
 - single key
+- multi key
 
 And have start to a solution:
 
 ```py
-def copy_dict_and_update_values(given_dict, given_func):
-    new_dict = {}
-    for k, v in given_dict.items():
-        new_dict[k] = given_func(v)
+def copy_dict_and_update_values(dict_to_update, func):
+    for k, v in dict_to_update.items():
+        dict_to_update[k] = func(v)
 
-    # Can do a refactor job if you want to show off comprehensions again:
-    # {k: given_func(v) for k, v in given_dict.items()}
-
-    return new_dict
+    return dict_to_update
 
 ```
 
-Get students to help write the next test and help solve it:
+Get students to help write the next tests and help solve it:
+
+**They might need a refresher on how to do these tests**
 
 ```py
-def test_example_1_multiple_keys():
+def test_copy_dict_and_update_values_returns_new_dict():
     def test_fn(x):
         return f"Hello {x}"
 
     test_dict = {"name_1": "Poonam", "name_2": "Danika"}
 
-    assert copy_dict_and_do_something(test_dict, test_fn) == {
-        "name_1": "Hello Poonam", "name_2": "Hello Danika"}
+    assert copy_dict_and_do_something(test_dict, test_fn) is not test_dict
 ```
+
+```py
+def test_copy_dict_and_update_values_does_not_mutate_original():
+    def test_fn(x):
+        return f"Hello {x}"
+
+    test_dict = {"name_1": "Poonam", "name_2": "Danika"}
+
+    copy_dict_and_do_something(test_dict, test_fn)
+
+    assert test_dict == {"name_1": "Poonam", "name_2": "Danika"}
+
+```
+
+After writing these tests ask students if these tests are enough or if they could be improved?
+
+Hopefully students suggest using mock functions but if not:
+
+- The tests we've written so far give us reasonable confidence that our code is working as hoped.
+
+- However we could improve confidence by adding tests asserting that the functions that's passed in is used correctly.
+
+> How could we do that? 🤔 🤔 🤔 🤔 🤔
+
+- Mock/Spy. Checking that function is invoked the correct number of times and with the correct arguments
+
+- Depending on time can implement these tests but can also skip and use them for the next function
+
+## Second Task - Mocks are required
+
+Introduce second task: `iterate_and_do_work`
+
+Explain clearly how the function could be used.
+
+Ask students to identify what we could test to ensure that `iterate_and_do_work` is working properly.
+
+- Test number of invocations
+- Test how the function was invoked
