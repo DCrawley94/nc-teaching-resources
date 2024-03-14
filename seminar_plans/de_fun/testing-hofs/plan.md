@@ -15,51 +15,9 @@
 
 Introduce the problem on figjam
 
-Have some tests pre-written:
+Talk about the kind of tests we could write - note these down and separate them into testing output vs. testing implementation.
 
-- empty dict
-- single key
-- multi key
-
-And have start to a solution:
-
-```py
-def copy_dict_and_update_values(dict_to_update, func):
-    for k, v in dict_to_update.items():
-        dict_to_update[k] = func(v)
-
-    return dict_to_update
-
-```
-
-Get students to help write the next tests and help solve it:
-
-**They might need a refresher on how to do these tests**
-
-```py
-def test_copy_dict_and_update_values_returns_new_dict():
-    def test_fn(x):
-        return f"Hello {x}"
-
-    test_dict = {"name_1": "Poonam", "name_2": "Danika"}
-
-    assert copy_dict_and_do_something(test_dict, test_fn) is not test_dict
-```
-
-```py
-def test_copy_dict_and_update_values_does_not_mutate_original():
-    def test_fn(x):
-        return f"Hello {x}"
-
-    test_dict = {"name_1": "Poonam", "name_2": "Danika"}
-
-    copy_dict_and_do_something(test_dict, test_fn)
-
-    assert test_dict == {"name_1": "Poonam", "name_2": "Danika"}
-
-```
-
-After writing these tests ask students if these tests are enough or if they could be improved?
+- Are these tests are enough or if they could be improved?
 
 Hopefully students suggest using mock functions but if not:
 
@@ -81,5 +39,57 @@ Explain clearly how the function could be used.
 
 Ask students to identify what we could test to ensure that `iterate_and_do_work` is working properly.
 
+- Test that passed function is invoked
 - Test number of invocations
 - Test how the function was invoked
+
+```py
+def iterate_and_do_work(given_list, iteratee_func):
+    for el in given_list:
+        iteratee_func(el)
+
+# Hammer home that for this we really don't care what the function is doing
+# It just needs to be invoked correctly
+
+
+def test_iterate_and_do_work_invokes_passed_function():
+    is_invoked = False
+
+    def test_fn(x):
+        nonlocal is_invoked
+        is_invoked = True
+        # Don't need to specify a return as we won't be checking it
+
+    test_list = [1]
+
+    iterate_and_do_work(test_list, test_fn)
+    assert is_invoked
+
+
+def test_example_2_passed_func_is_invoked_correct_number_of_times():
+    call_count = 0
+
+    def test_fn(x):
+        nonlocal call_count
+        call_count += 1
+        # Don't need to specify a return as we won't be checking it
+
+    test_list = [1, 2, 3, 4, 5]
+
+    iterate_and_do_work(test_list, test_fn)
+    assert call_count == 5
+
+
+def test_example_2_passed_func_is_invoked_with_correct_args():
+    args = []
+
+    def test_fn(x):
+        args.append(x)
+        # Don't need to specify a return as we won't be checking it
+
+    test_list = [1, 2, 3, 4, 5]
+
+    iterate_and_do_work(test_list, test_fn)
+    assert args == [1, 2, 3, 4, 5]
+
+```
