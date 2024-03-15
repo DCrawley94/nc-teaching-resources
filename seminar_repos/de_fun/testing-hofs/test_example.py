@@ -1,42 +1,61 @@
 from example import iterate_and_do_work
 
 
-def test_iterate_and_do_work_invokes_passed_function():
-    is_invoked = False
+def test_input_is_not_mutated():
+    input_1 = [1, 2, 3]
+    expected = [1, 2, 3]
 
-    def test_fn(x):
-        nonlocal is_invoked
-        is_invoked = True
-        # Don't need to specify a return as we won't be checking it
+    def test_func(arg):
+        pass
 
-    test_list = [1]
+    iterate_and_do_work(input_1, test_func)
 
-    iterate_and_do_work(test_list, test_fn)
-    assert is_invoked
+    assert input_1 == expected
 
 
-def test_example_2_passed_func_is_invoked_correct_number_of_times():
-    call_count = 0
+def test_function_returns_none():
+    input_1 = [1, 2, 3]
 
-    def test_fn(x):
-        nonlocal call_count
-        call_count += 1
-        # Don't need to specify a return as we won't be checking it
+    def test_func(arg):
+        pass
 
-    test_list = [1, 2, 3, 4, 5]
-
-    iterate_and_do_work(test_list, test_fn)
-    assert call_count == 5
+    assert iterate_and_do_work(input_1, test_func) == None
 
 
-def test_example_2_passed_func_is_invoked_with_correct_args():
+def test_passed_function_is_invoked():
+    input_1 = [1, 2, 3]
+    counter = 0
+
+    def test_func(arg):
+        nonlocal counter
+        counter += 1
+
+    iterate_and_do_work(input_1, test_func)
+
+    assert counter > 0
+
+
+def test_passed_function_is_invoked_once_for_each_element():
+    input_1 = [1, 2, 3]
+    counter = 0
+
+    def test_func(arg):
+        nonlocal counter
+        counter += 1
+
+    iterate_and_do_work(input_1, test_func)
+
+    assert counter == len(input_1)
+
+
+def test_passed_function_is_invoked_with_correct_arguments():
+    input_1 = [1, 2, 3]
     args = []
 
-    def test_fn(x):
-        args.append(x)
-        # Don't need to specify a return as we won't be checking it
+    def test_func(arg):
+        nonlocal args
+        args.append(arg)
 
-    test_list = [1, 2, 3, 4, 5]
+    iterate_and_do_work(input_1, test_func)
 
-    iterate_and_do_work(test_list, test_fn)
-    assert args == [1, 2, 3, 4, 5]
+    assert args == [1, 2, 3]
