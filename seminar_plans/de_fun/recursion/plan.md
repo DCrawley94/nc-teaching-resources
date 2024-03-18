@@ -55,9 +55,9 @@ Take a look at the following example:
 create a function that accepts an list as an argument, this list will either contain strings or lists which can also contain strings. The function should count the number of times a string of "ice cream" appears inside these lists.
 
 ```py
-count_ice_creams(['banana', 'ice cream']); // 1
+count_ice_creams(['banana', 'ice cream']) # 1
 
-count_ice_creams(['banana', 'ice cream', ['tofu', ['ice cream']], 'ice cream']); // 3
+count_ice_creams(['banana', 'ice cream', ['tofu', ['ice cream']], 'ice cream']) # 3
 ```
 
 **❗ After talking through ask students why we might need recursion here ❗**
@@ -72,10 +72,11 @@ count_ice_creams(['banana', 'ice cream', ['tofu', ['ice cream']], 'ice cream']);
 
 Before moving to VSCode ask students what they think the base case/ recursive case/ recursive step might be.
 
-Base case: when there are no nested lists - the counting occurs within the for loop
-Recursive case: when there is a nested list - perform a recursive step to count values in that list and add to the total
-Recursive step: by passing a nested list each time, we eventually get closer to the lowest level of nesting (our base case)
+**Base case**: when there are no nested lists - the counting occurs within the for loop
+**Recursive case**: when there is a nested list - perform a recursive step to count values in that list and add to the total
+**Recursive step**: by passing a nested list each time, we eventually get closer to the lowest level of nesting (our base case)
 ay.
+**Recursive call**: call self
 
 ### Test 1: Single element list returns 1 or 0
 
