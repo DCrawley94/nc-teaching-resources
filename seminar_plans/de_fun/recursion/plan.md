@@ -62,6 +62,8 @@ count_ice_creams(['banana', 'ice cream', ['tofu', ['ice cream']], 'ice cream']) 
 
 **❗ After talking through ask students why we might need recursion here ❗**
 
+Explain that any recursive solution can be written instead in an iterative way - it's just that this can quickly get out of hand.
+
 ---
 
 **🏁 CHECKPOINT 🏁**
@@ -129,11 +131,44 @@ def count_ice_creams(food_list):
 
 ```py
 def test_nested_list_single_item():
+    nested_ice_cream = [["ice cream"]]
+    assert count_ice_creams(nested_ice_cream) == 1
+```
+
+### Test 4: Extra Nested single Ice Creams
+
+```py
+def test_extra_nested_list_single_item():
     nested_ice_cream = [[["ice cream"]]]
     assert count_ice_creams(nested_ice_cream) == 1
 ```
 
-Possible Solution:
+**Ask if students want to see a nested for loop solution**
+
+Possible for loop solution:
+
+```py
+def count_ice_creams(food_list):
+    count = 0
+
+    for el in food_list:
+        if el == 'ice cream':
+            count += 1
+        elif isinstance(el, list):
+            nested_food_list = el
+            for nested_el in nested_food_list:
+                if nested_el == 'ice cream':
+                    count += 1
+                elif isinstance(nested_el, list):
+                    extra_nested_food_list = nested_el
+                    for extra_nested_el in extra_nested_food_list:
+                        if extra_nested_el == 'ice cream':
+                            count += 1
+
+    return count
+```
+
+**Let's refactor this:**
 
 ```py
 def count_ice_creams(food_list):
@@ -150,7 +185,7 @@ def count_ice_creams(food_list):
 
 **Can work step through this test with the debugger if students are confused**
 
-### Test 3: Varied nested Ice Creams
+### Test 5: Varied nested Ice Creams
 
 ```py
 def test_multiple_nested_items_varied_nesting():

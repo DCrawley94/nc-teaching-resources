@@ -9,4 +9,15 @@
 
 
 def count_ice_creams(food_list):
-    pass
+    count = 0
+
+    for el in food_list:
+        if el == 'ice cream':
+            count += 1
+        elif isinstance(el, list):
+            count += count_ice_creams(el)
+
+    return count
+
+
+# count_ice_creams([["ice cream"], ["ice cream"]])
