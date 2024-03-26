@@ -4,23 +4,23 @@ import pytest
 # Re-implement functools.repeat: https://docs.python.org/3/library/itertools.html#itertools.repeat
 class Repeat:
     def __init__(self, repeat_obj, times=None):
-        self.repeat_obj = repeat_obj
-        self.times = times
+        self._repeat_obj = repeat_obj
+        self._times = times
         # As this is tied to implementation can set this as a private attribute as a throwback to the previous week
-        self.__call_count = 0
+        self._call_count = 0
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        if self.times:
+        if self._times:
             # If a repeat limit is set then check the call count
-            if self.__call_count < self.times:
+            if self.__call_count < self._times:
                 self.__call_count += 1
-                return self.repeat_obj
+                return self._repeat_obj
             else:
                 raise StopIteration
-        return self.repeat_obj
+        return self._repeat_obj
 
 
 @pytest.mark.it('Repeat instance has the correct attributes')
