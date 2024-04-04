@@ -69,6 +69,7 @@ function insertGames(gameData) {
 		RETURNING *;`,
 		gamesToInsert
 	);
+	console.log(queryStr);
 	return db.query(queryStr);
 }
 
