@@ -1,11 +1,11 @@
-from db.seed import seed 
-from db.connection import conn 
-from db.data.index import data 
+from db.seed import seed
+from db.connection import conn
+from db.data.index import data
 
 
 try:
-	seed(**data)
+    seed(**data)
 except Exception as e:
-	print(e, '<<<')
+    print(e, '<<<')
 finally:
-	conn.close()
+    conn.close()

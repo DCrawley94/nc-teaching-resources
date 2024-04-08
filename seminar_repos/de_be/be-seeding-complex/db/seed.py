@@ -1,60 +1,64 @@
 from db.connection import conn
-from db.utils import create_games_lookup, format_reviews
-from pprint import pprint
 
 
 def seed(games, reviews):
+    '''
+        DROP ✅
+
+        CREATE ✅
+
+        INSERT
+    '''
+
     # Drop tables
-    conn.run("DROP TABLE IF EXISTS reviews;")
-    conn.run("DROP TABLE IF EXISTS games;")
+    conn.run('DROP TABLE IF EXISTS reviews;')
+    conn.run('DROP TABLE IF EXISTS games;')
 
     # Create tables
-    conn.run("""
-	CREATE TABLE games (
-			game_id SERIAL PRIMARY KEY,
-			game_title VARCHAR NOT NULL,
-			release_year INT,
-			console_name VARCHAR NOT NULL,
-			image_url VARCHAR
-			);
-	""")
+    create_games_table()
+    create_reviews_table()
 
-    conn.run("""
-	CREATE TABLE reviews (
-			review_id SERIAL PRIMARY KEY,
-			game_id INT NOT NULL REFERENCES games(game_id),
-			username VARCHAR NOT NULL,
-			comment VARCHAR NOT NULL,
-			rating INT
-			);
-	""")
+    # Insert data
+    insert_games(games)
 
-    # Insert games
+
+def create_games_table():
+    conn.run("""
+    CREATE TABLE games (
+        game_id SERIAL PRIMARY KEY,
+        game_title VARCHAR(50) NOT NULL,
+        release_year INT NOT NULL,
+        console_name VARCHAR(50) NOT NULL,
+        image_url VARCHAR NOT NULL
+    );
+    """)
+
+
+def create_reviews_table():
+    conn.run("""
+    CREATE TABLE reviews (
+        review_id SERIAL PRIMARY KEY,
+        game_id INT REFERENCES games(game_id) NOT NULL,
+        username VARCHAR(50) NOT NULL,
+        comment VARCHAR NOT NULL,
+        rating INT NOT NULL
+    );
+    """)
+
+
+def insert_games(games):
+    # loop through games
+    # run an SQL insert for each game
+    # Use pramaterised queries to insert the values
     for game in games:
-        insert_query = f"""
+        conn.run("""
         INSERT INTO games
         (game_title, release_year, console_name, image_url)
         VALUES
         (:game_title, :release_year, :console_name, :image_url);
-        """
-        conn.run(insert_query, **game)
-
-    inserted_games = conn.run('SELECT * FROM games;')
-
-    # Create games_id lookup for formatting reviews
-    games_id_lookup = create_games_lookup(inserted_games)
-
-    # Format them to get game_id instead of game_title
-    formatted_reviews = format_reviews(reviews, games_id_lookup)
-
-    # insert prepared reviews data - another horrible for loop
-    for review in formatted_reviews:
-        insert_query = f"""
-        INSERT INTO reviews
-        (game_id, username, comment, rating)
-        VALUES
-        (:game_id, :username, :comment, :rating)
-        """
-
-        conn.run(insert_query, **review)
-
+        """,
+                 game_title=game['game_title'],
+                 release_year=game['release_year'],
+                 console_name=game['console_name'],
+                 image_url=game['image_url']
+                 )
