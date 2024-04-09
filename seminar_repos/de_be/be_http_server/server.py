@@ -3,7 +3,9 @@ from db.connection import conn
 import json
 import re
 
-GET_GAME_BY_ID_REGEX = re.compile(r"/api/games/\d+")
+GET_GAME_BY_ID_REGEX = re.compile(r"/api/games/(\d+)")
+
+
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -19,42 +21,46 @@ class Handler(BaseHTTPRequestHandler):
             # write body to response
             self.wfile.write(data.encode("utf-8"))
 
-        # check url - how do we match the url when the ID could be anything - Regex?
-        if re.fullmatch(GET_GAME_BY_ID_REGEX, self.path):
-            # Get game ID from url
-            game_id = re.search(r"\d+", self.path)[0]
+        # GET /api/games/:game_id
+        # - check the endpoint
+        if re.match(GET_GAME_BY_ID_REGEX, self.path):
+            # - extract the game_id from the url
+            game_id = int(re.match(GET_GAME_BY_ID_REGEX, self.path).group(1))
 
-            # Query the DB to get the game with correct ID - what format will this return?
+            # - query the DB for the game with game_id
             query_result = conn.run("""
-            SELECT *
-            FROM games
-            WHERE game_id = :game_id;
+            SELECT * FROM games
+            WHERE game_id = :game_id
             """, game_id = game_id)[0]
 
-            game_columns =  [col['name'] for col in conn.columns]
+            game_table_columns = [col['name'] for col in conn.columns]
 
-            print(query_result)
-            print(game_columns)
-
-            # Format response into more something more helpful
-            game_data = {}
-
-            for i in range(len(game_columns)):
-                game_data[game_columns[i]] = query_result[i]
-
-            print(game_data)
-
-            # Build up response and send
-            # prepare response
+            # - format the data for the response
+            formatted_game = dict(zip(game_table_columns, query_result))
+        
+            # - build and send response
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')
             self.end_headers()
 
-            # prepare response body
-            response_body = json.dumps({"game": game_data})
+            response_body = json.dumps({"game": formatted_game})
 
-            # write body to response
-            self.wfile.write(response_body.encode("utf-8"))
+            self.wfile.write(response_body.encode('utf-8'))
+
+    def do_POST(self):
+        # Check url
+        
+
+        # extract the request body
+        content_length = int(self.headers['Content-Length'])
+        request_body = self.rfile.read(content_length)
+
+        new_game = json.loads(request_body)
+
+        
+        # Insert data from request
+        # Format response body
+        # Build up response and send
 
 
 server_address = ('', 8000)

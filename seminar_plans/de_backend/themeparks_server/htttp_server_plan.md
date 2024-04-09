@@ -1,5 +1,7 @@
 # Python HTTP server
 
+Figjam: https://www.figma.com/file/Ps3GlZgxKAM84cLEVmiSeZ/HTTP-Servers?type=whiteboard&t=XBS1TZhMYdVoPrpT-6
+
 ## Introduce the Repo
 
 Explain that it's the same repo I was working in on Friday:
@@ -48,7 +50,7 @@ Possible pseudocode:
 ```py
 # check url - how do we match the url when the ID could be anything - Regex?
 # Query the DB to get the game with correct ID - what format will this return?
-# Format response into more something more helpful
+# Format response into more something more helpful - we will need column names - we can hardcode these but is there a better way?
 # Build up response and send
 ```
 
@@ -61,9 +63,18 @@ Possible pseudocode:
 Pick on people as I'm working through the solution, thing like:
 
 - How can I match any number of digits with regex?
--
+- how can I pull the game id from the url?
+- Ask someone to guide me through writing the SQL
+- How should we deal with column names? We can hardcode these but is there a better way?
+- WHat response code should I send?
+- What content type should I specify?
+- What dod I need to do once I've finished setting headers? - end headers
+- What data type should the response body be? - string therefore `json.dumps`
+- What encoding should it be in? - utf-8, should default to that but we can make sure with the `.encode` method
 
 Possible solution:
+
+**TRY TO SHOW ZIP FUNCTION FOR BUILDING RESPONSE**
 
 ```py
 # check url - how do we match the url when the ID could be anything - Regex?
@@ -81,10 +92,11 @@ if re.fullmatch(GET_GAME_BY_ID_REGEX, self.path): # fullmatch will match the who
     game_columns =  [col['name'] for col in conn.columns]
 
     # Format response into more something more helpful
-    game_data = {}
+    game_data = dict(zip(game_columns, query_result))
 
-    for i in range(len(game_columns)):
-        game_data[game_columns[i]] = query_result[i]
+    # IF zip doesn't work can use this
+    # for i in range(len(game_columns)):
+    #     game_data[game_columns[i]] = query_result[i]
 
     # Build up response and send
     # prepare response
@@ -112,6 +124,47 @@ Possible pseudocode:
 # Query the DB to INSERT the game - and return the newly inserted data to be sent back
 # Format response into more something more helpful
 # Build up response and send
+```
+
+Possible solution:
+
+```py
+def do_POST(self):
+    if self.path == '/api/games':
+        # This gets the size of data
+        content_length = int(self.headers['Content-Length'])
+        # This gets the data itself
+        request_body = self.rfile.read(content_length).decode(
+            'utf-8')
+
+        # parse request body
+        new_game = json.loads(request_body)
+
+        insert_query_str = """
+        INSERT INTO games
+        (game_title, release_year, console_name, image_url)
+        VALUES
+        (:game_title, :release_year, :console_name, :image_url)
+        RETURNING *;
+        """
+
+        inserted_game = conn.run(insert_query_str, **new_game)[0]
+
+        # More formatting of data returned from the query
+        game_columns = [col['name'] for col in conn.columns]
+        formatted_game = {game_columns[i]: inserted_game[i]
+                          for i in range(len(game_columns))}
+
+          # prepare response
+        self.send_response(200)
+        self.send_header('Content-Type', 'application/json')
+        self.end_headers()
+
+        # prepare response body
+        data = json.dumps({"ride": formatted_game})
+
+        # write body to response
+        self.wfile.write(data.encode("utf-8"))
 ```
 
 ## Glossary
