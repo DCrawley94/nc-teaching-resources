@@ -1,0 +1,31 @@
+export PYTHON_INTERPRETER := "python"
+export PIP := "pip"
+export PYTHONPATH := `pwd`
+
+create-environment:
+  @echo ">>> Setting up VirtualEnv."
+  {{PYTHON_INTERPRETER}} -m venv venv
+
+run_in_venv command:
+  source venv/bin/activate && {{command}}
+
+install_requirements: create-environment
+	@echo ">>> Installing requirements."
+	just run_in_venv "{{PIP}} install -r ./requirements.txt"
+
+install_code_quality_tools: create-environment
+  @echo ">>> Installing code quality tools"
+  just run_in_venv "{{PIP}} install bandit safety flake8"
+
+run_unit_test:
+	just run_in_venv "PYTHONPATH={{PYTHONPATH}} pytest -vvv"
+
+security-checks:
+	just run_in_venv "safety check -r ./requirements.txt"
+	just run_in_venv "bandit -lll */*.py *c/*.py"
+
+run-checks: run_unit_test security-checks
+
+do-it:
+  #!/usr/bin/env bash
+  cat ./shia.txt

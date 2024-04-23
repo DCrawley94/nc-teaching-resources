@@ -19,7 +19,7 @@ create-environment:
 # ~~~~~ Install requirements ~~~~~
 install-requirements-simple: create-environment
 	@echo ">>> Installing requirements."
-	source venv/bin/activate && $(PIP) install -r ./requirements.txt
+	source venv/bin/activate; $(PIP) install -r ./requirements.txt
 
 # ~~~~~ Install code quality tools ~~~~~
 install-dev-tools:
@@ -50,7 +50,7 @@ install-requirements-better: create-environment
 	$(call execute_in_env, $(PIP) install -r ./requirements.txt)
 
 install-dev-tools-better:
-	$(call execute_in_env, $(PIP) install bandit safety)
+	$(call execute_in_env, $(PIP) install bandit safety flake8)
 
 unit-test-better:
 	$(call execute_in_env, PYTHONPATH=$(PYTHONPATH) pytest -vvv)
