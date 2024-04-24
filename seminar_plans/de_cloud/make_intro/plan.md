@@ -2,7 +2,7 @@
 
 ## Intro
 
-We're going to be looking at a tool called Make.
+Remind students that we have recently seen Makefiles and used a tool called `make` to run commands from said file. Throwback to the start of last week where students were given a sample server to deploy.
 
 What is `Make`?
 
@@ -19,7 +19,11 @@ It's a old piece of software that can be used for a lot of complex things. Howev
 - `python -m venv venv`
 - `source venv/bin/activate`
 - `pip install` / `pip install -r requirements.txt`
-- `pytest`
+- `pytest` - PYTHONPATH?
+
+Other examples:
+
+- `flake8`/ `security`/ `bandit`
 
 **Explain that I have a Python repo pre-made and we're going to automate some of the regularly used commands**
 
@@ -39,10 +43,17 @@ Talk through the syntax for writing a `makefile` rule.
 
 ```make
 create-environment:
-  $(PYTHON_INTERPRETER) -m venv venv
+	python -m venv venv
 ```
 
-Show that this would work if we just used `python` but re-iterate that if I want to change to executable to something else I'd prefer to only need to change it in one place.
+**`** missing separator. Stop.`\*\* -> this happens when you use spaces instead of tabs.
+
+Show that this would work if we just used `python` but re-iterate that if I want to change to executable to something else I'd prefer to only need to change it in one place:
+
+```make
+create-environment:
+	$(PYTHON_INTERPRETER) -m venv venv
+```
 
 **pause and ask for thoughts**
 
@@ -63,9 +74,9 @@ install-requirements:
 
 Show that this now work by running `make install-requirements`.
 
-Talk about how this is currently quite slow and we're still having to do things step by step. It would be nice if we can automate this a bit more.
+Talk about how this is currently quite manual and we're still having to do things step by step. It would be nice if we can automate this a bit more.
 
-And we can by making use of dependencies for specific rules. For example if we need the environment to be created we can list it as a dependency.
+<!-- And we can by making use of dependencies for specific rules. For example if we need the environment to be created we can list it as a dependency. -->
 
 **Delete the venv and try to run `make install-requirements` without the dependency. And then add the dependency and watch it working.**
 
