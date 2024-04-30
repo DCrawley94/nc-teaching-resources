@@ -11,7 +11,8 @@
 
 We saw a couple of different types of subquery this morning. What were they?
 
-There are different types of subquery - we'll take a look at a couple of them.
+- single value: Scalar subquery
+- multi-row
 
 ## Scalar:
 
@@ -67,6 +68,8 @@ WHERE collector_id IN (
 After solving ask students to tell me how many rows are being returned from the subquery?
 
 - multiple -> this is a multi-row subquery
+
+**point out that this a a multi-row/single column subquery. There can be subqueries that returns multiple columns and multiple rows but we won't look at them here**
 
 ## Brief mention of other types of subqueries
 
@@ -134,5 +137,11 @@ ORDER BY price_diff_from_average DESC;
 
 Encourage students to look at both solutions, can they see any major benefits to the CTE approach?
 
-- Can give the CTE a meaningful name (admittedly aliases could help with this as well)
+- Can give the CTE a meaningful name (admittedly aliases could help with this as well) - enhance readability
 - CTEs are reusable within a query
+- Allow you to break down complex queries into smaller more manageable parts - multiple CTEs
+- Recursion, should you wish 👀
+
+Possible drawbacks:
+
+- can't be used in a separate query, only available for the current query.
