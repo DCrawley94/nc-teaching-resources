@@ -49,6 +49,9 @@ Talk through the following:
 - create patcher and print, show that it is a `patch` object.
 - explain that currently it's not doing anything, show the dir and how it has a **start** and **stop** method.
 - show how we use these methods to enable and disable the mock.
+- the target is imported when the test is executed
+
+**Before starting and stopping the patcher print it to show it's a patch object - also print `load_data` to show that it isn't mocked until we call start**
 
 ```py
 def test_process_data_1():
@@ -84,17 +87,13 @@ def test_process_data_2():
         assert process_data() == 15
 ```
 
-Highlight that the `with` context will call patcher start and stop
+Highlight that the `with` context will call patcher start and stop.
+
+**Alias the patcher and print in tests - compare this to the print of `load_data` notice it is the same - therefore we can add functionality the the mock if we desire**
 
 ### Test 3: Decorator
 
-Explain that we could use what is known as a **decorator**.
-
-This is syntactic sugar for a higher order function
-
-- **Essentially it just wraps the test function, for the duration of the test the `load_data` function will be patched**
-
-- The decorator indicates that there is a function which wraps the start/stop behaviour of the patch.
+Explain that we could use a **decorator**.
 
 ```py
 @patch('src.example_1.load_data', return_value=8)
@@ -122,7 +121,27 @@ Querying the actual database isn't something I want to do for the following reas
 
 Therefore I can patch the connection in order to control what is returned by the `run` method.
 
+**ask students preference between context manager and decorator - if there's time we can always do a refactor at the end**
+
 ### Test 1: Handles case of no data returned:
+
+**start by asking students for help in creating the mock functionality - hopefully the struggle and we can work towards a solution together**
+
+Start off by creating a mock connection class and using that and the return value:
+
+```py
+class MockConnection:
+    def run(self, query):
+        return []
+
+@patch('src.example_2.Connection', return_value = MockConnection())
+def test_get_games_no_data(mock_conn):
+    # I can leverage the functionality of the `mock`
+    # This is essentially saying that Connection will return a Mock and that Mock will have a `run` method`
+    assert get_games() == []
+```
+
+❗ Refactor to **lazy attributes**!
 
 ```py
 @patch('src.example_2.Connection')

@@ -1,4 +1,5 @@
 from pg8000.native import Connection
+from pg8000.exceptions import DatabaseError
 
 
 def get_games():
@@ -16,21 +17,22 @@ def get_games():
       }, ...
     ]
     '''
+    try:
+        conn = Connection(
+            host='localhost',
+            user='danika',
+            database='nc_games'
+        )
+        rows = conn.run('SELECT * FROM games;')
 
-    conn = Connection(
-        host='localhost',
-        user='danika',
-        database='nc_games'
-    )
-    rows = conn.run('SELECT * FROM games;')
+        columns = [
+            'games_id', 'game_title', 'release_year', 'image_url', 'console_name']
+        response = []
 
-    columns = ['games_id', 'game_title',
-               'release_year', 'image_url', 'console_name']
+        for row in rows:
+            formatted_row = {columns[i]: val for i, val in enumerate(row)}
+            response.append(formatted_row)
 
-    response = []
-
-    for row in rows:
-        formatted_row = {columns[i]: val for i, val in enumerate(row)}
-        response.append(formatted_row)
-
-    return response
+        return response
+    except DatabaseError:
+        return "Error querying the database"

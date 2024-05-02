@@ -1,6 +1,8 @@
 DROP DATABASE IF EXISTS nc_games;
 CREATE DATABASE nc_games;
 
+\c nc_games
+
 DROP TABLE IF EXISTS reviews;
 DROP TABLE IF EXISTS games;
 
