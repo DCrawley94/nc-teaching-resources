@@ -13,6 +13,8 @@ Why do we need mocks?
 - However when writing unit tests we want to test **in isolation**
 - Using mocks we can simulate the behaviour of certain objects and control the necessary things in order to enable our testing
 
+The purpose of mocking is to isolate and focus on the code being tested and not on the behaviors or state of external dependencies.
+
 ## Introduce the problem:
 
 I want to test the `process_data` function, however it has some dependancies that are currently outside of my control.
@@ -158,12 +160,12 @@ def test_get_games_no_data(mock_conn):
 @patch('src.example_2.Connection')
 def test_get_games_single_row(mock_conn):
     mock_conn().run.return_value = [
-        [1, 'game', 1999, 'www.website.com', 'PS2']]
+        [1, 'Skyrim 2', 1999, 'www.website.com', 'PS2']]
 
     assert get_games() == [
         {
             'games_id': 1,
-            'game_title': 'game',
+            'game_title': 'Skyrim 2',
             'release_year': 1999,
             'image_url': 'www.website.com',
             'console_name': 'PS2'
@@ -171,7 +173,21 @@ def test_get_games_single_row(mock_conn):
     ]
 ```
 
-### Test 3: Multiple returned rows
+### Test 3: Test error handling
+
+```py
+from pg8000.exceptions import DatabaseError
+
+# ~~~~~
+
+def test_get_games_handles_db_error():
+    with patch('src.example_2.Connection') as mock_conn:
+        mock_conn().run.side_effect = DatabaseError
+
+        assert get_games() == 'Error querying the database'
+```
+
+### Test 4: Multiple returned rows (only if there's time)
 
 ```py
 @patch('src.example_2.Connection')

@@ -18,13 +18,20 @@ def get_games():
     ]
     '''
     try:
+        print(Connection.run)
         conn = Connection(
             host='localhost',
             user='danika',
             database='nc_games'
         )
+        print(conn)
+        print(dir(conn))
+        print(conn.run, '  1')
+        # print(conn, type(conn), '1')
+        print(conn.run, '  2')
+        print(type(conn.run), '   3')
         rows = conn.run('SELECT * FROM games;')
-
+        print(rows, 'rows')
         columns = [
             'games_id', 'game_title', 'release_year', 'image_url', 'console_name']
         response = []
