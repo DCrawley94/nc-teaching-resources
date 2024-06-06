@@ -27,6 +27,7 @@ Pick a few challenges, ask who's seen it/solved it and ask how they did it and a
 
 - can show `not` - e.g. `return not x`
 - https://docs.python.org/3/reference/expressions.html#not -> "The operator not yields True if its argument is false, False otherwise."
+  **WILL LIKELY BE ASKED ABOUT TRUTHY/FALSY VALUES AND WHAT THIS MEANS**
 
 ### **4**: check_if_key_exists
 
