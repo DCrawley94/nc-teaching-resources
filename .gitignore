@@ -3,3 +3,4 @@ package-lock.json
 venv
 __pycache__
 .pytest_cache
+data_eng_resources_jm
