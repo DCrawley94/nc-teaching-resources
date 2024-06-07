@@ -25,3 +25,5 @@ Start by looking at the first debugging problem - but focus on imports
 ## Ext 3:
 
 - get students to identify what has happened based on the assert output
+
+**THIS ONE LEADS TO A NICE DISCUSSION ABOUT NOT USING BUILTINS AS NAMES FOR YOUR ARGUMENTS - e.g overwRiting `list`**

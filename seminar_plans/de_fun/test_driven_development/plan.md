@@ -28,7 +28,7 @@ Ask students to guide me through the initial set up steps:
 
 ## TDD Time
 
-Ask for student input - hands raised
+Pick on students
 
 What would first test be etc.
 
@@ -38,10 +38,6 @@ Possible order of tests:
 - single char
 - multiple chars
 - ignores none lowercase letters
-
-**after first test talk about how test names can be quite longwinded and awakward**
-
-Show [pytest-testdox](https://pypi.org/project/pytest-testdox/) and use for test descriptions.
 
 ```py
 from src.example_kata import sum_alphabet_indices
@@ -68,4 +64,17 @@ def test_sum_alphabet_indices_ignores_capitalised_letters():
 
 def test_sum_alphabet_indices_ignores_non_alphabet_chars():
     assert sum_alphabet_indices('a dog 3!') == 23
+```
+
+Possible solution:
+
+```py
+def sum_alphabet_indices(sentence):
+    total = 0
+
+    for char in sentence:
+        if char in ascii_lowercase:
+            total += ascii_lowercase.index(char)
+
+    return total
 ```
