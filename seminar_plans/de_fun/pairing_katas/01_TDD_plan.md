@@ -44,17 +44,41 @@ from src.example_kata import sum_alphabet_indices
 
 
 def test_sum_alphabet_indices_returns_0_when_passed_empty_string():
-    assert sum_alphabet_indices('') == 0
+    # ARRANGE
+    test_str = ''
+    expected_result = 0
+
+    # ACT
+    result = sum_alphabet_indices(test_str)
+
+    # ASSERT
+    assert result == expected_result
 
 
 def test_sum_alphabet_indices_returns_single_index_when_passed_single_char():
-    assert sum_alphabet_indices('a') == 0
-    assert sum_alphabet_indices('h') == 7
+    test_str = "b"
+    expected_result = 1
+
+    result = sum_alphabet_indices(test_str)
+
+    assert result == expected_result
+
+
+    test_str_2 = "z"
+    expected_result_2 = 25
+
+    result_2 = sum_alphabet_indices(test_str_2)
+
+    assert result_2 == expected_result_2
 
 
 def test_sum_alphabet_indices_returns_sum_of_indices_when_passed_multiple_chars():
-    assert sum_alphabet_indices('abc') == 3
-    assert sum_alphabet_indices('hello') == 47
+    test_str = 'cat'
+    expected_result = 21
+
+    result = sum_alphabet_indices(test_str)
+
+    assert result == expected_result
 
 
 def test_sum_alphabet_indices_ignores_capitalised_letters():
@@ -63,12 +87,20 @@ def test_sum_alphabet_indices_ignores_capitalised_letters():
 
 
 def test_sum_alphabet_indices_ignores_non_alphabet_chars():
-    assert sum_alphabet_indices('a dog 3!') == 23
+    test_str = 'cat!'
+    expected_result = 21
+
+    result = sum_alphabet_indices(test_str)
+
+    assert result == expected_result
+
 ```
 
 Possible solution:
 
 ```py
+from string import ascii_lowercase
+
 def sum_alphabet_indices(sentence):
     total = 0
 
