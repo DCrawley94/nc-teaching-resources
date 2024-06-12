@@ -1,3 +1,11 @@
+#################################################################################
+#
+# Example Justfile
+#
+#################################################################################
+
+# Useful Variables
+
 export PYTHON_INTERPRETER := "python"
 export PIP := "pip"
 export PYTHONPATH := `pwd`

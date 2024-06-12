@@ -1,10 +1,12 @@
-from copy import deepcopy, copy
+from copy import copy, deepcopy
+
 '''
 correct_language takes a list of dictionary profiles
 and returns a new list of profiles where each "language" value is changed to
 "Python".
+
 If the language is already "Python" no change occurs.
-The original dictionary should not be mutated.
+The original list and dictionaries should not be mutated.
 e.g.
 correct_language([
                     { "name" : "Kyle", "language" : "Javascript" },
@@ -20,7 +22,9 @@ correct_language([
 
 
 def correct_language(profiles):
-    new_profiles = deepcopy(profiles)
-    for profile in new_profiles:
-        profile["language"] = "Python"
-    return new_profiles
+    profiles_copy = deepcopy(profiles)
+
+    for profile in profiles_copy:
+        if profile['language'] != 'Python':
+            profile['language'] = 'Python'
+    return profiles_copy

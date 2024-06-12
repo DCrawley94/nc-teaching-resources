@@ -1,71 +1,40 @@
 from src.correct_language import correct_language
-import pytest
 
+def test_correct_language_returns_empty_list_when_passed_empty_list():
+    test_list = []
+    result = correct_language(test_list)
 
-def test_correct_language_returns_a_new_list():
-    # arrange
-    input1 = [
-        {"name": "Kyle", "language": "Javascript"},
-        {"name": "Liam", "language": "Go"}
-    ]
-    # act
-    result = correct_language(input1)
+    assert result == []
 
-    # assert
-    assert result is not input1
+def test_correct_language_returns_single_user_with_language_already_set_to_python():
+    test_list = [{ "name" : "Kyle", "language" : "Python" }]
 
+    expected_return = [{ "name" : "Kyle", "language" : "Python" }]
+
+    result = correct_language(test_list)
+
+    assert result == expected_return
+
+def test_correct_language_returns_single_user_with_language_changed_to_python():
+    test_list = [{ "name" : "Kyle", "language" : "Javascript" }]
+
+    expected_return = [{ "name" : "Kyle", "language" : "Python" }]
+
+    result = correct_language(test_list)
+
+    assert result == expected_return
 
 def test_correct_language_does_not_mutate_input():
-    # arrange
-    input1 = [
-        {"name": "Kyle", "language": "Javascript"},
-        {"name": "Liam", "language": "Go"}
-    ]
-    expected_input = [
-        {"name": "Kyle", "language": "Javascript"},
-        {"name": "Liam", "language": "Go"}
-    ]
-    # act
-    correct_language(input1)
+    test_list = [{ "name" : "Kyle", "language" : "Javascript" }]
 
-    # assert
-    assert input1 == expected_input
+    correct_language(test_list)
 
+    assert test_list == [{ "name" : "Kyle", "language" : "Javascript" }]
 
-def test_correct_language_does_not_change_profiles_when_language_is_python():
-    # arrange
-    input1 = [{"name": "Kyle", "language": "Python"}]
-    expected = [{"name": "Kyle", "language": "Python"}]
-    # act
-    result = correct_language(input1)
+# check reference of return value
+def test_correct_language_returns_new_reference_in_memory():
+    test_list = [{ "name" : "Kyle", "language" : "Javascript" }]
 
-    # assert
-    assert result == expected
+    result = correct_language(test_list)
 
-
-def test_changes_language_of_single_non_Python_profile():
-    # arrange
-    input1 = [{"name": "Liam", "language": "Javascript"}]
-    expected = [{"name": "Liam", "language": "Python"}]
-    # act
-    result = correct_language(input1)
-
-    # assert
-    assert result == expected
-
-
-def test_changes_language_of_multiple_non_Python_profiles():
-    # arrange
-    input1 = [
-        {"name": "Kyle", "language": "Javascript"},
-        {"name": "Liam", "language": "Go"}
-    ]
-    expected = [
-        {"name": "Kyle", "language": "Python"},
-        {"name": "Liam", "language": "Python"}
-    ]
-    # act
-    result = correct_language(input1)
-
-    # assert
-    assert result == expected
+    assert result is not test_list
