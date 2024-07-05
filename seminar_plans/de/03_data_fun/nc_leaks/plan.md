@@ -109,3 +109,7 @@ Break down the problem into steps and pick on students to help write it:
 **Round it off by talking about improvements we could make - lots of synchronous blocking requests - use `aiohttp` instead**
 
 https://docs.aiohttp.org/en/stable/
+
+**FINALLY: CHECK IF ANYONE HAS MADE A HELPDESK**
+
+Go over first task getting instructions

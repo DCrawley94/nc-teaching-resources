@@ -15,6 +15,12 @@ Resources:
 - DB Diagram showing DB structure - use a screenshot in repo
 - example data ready for insertion
 
+## DB structure
+
+Show image with DB structure - we can see two tables, one has a foreign key that relies on the games table.
+
+Therefore that will need to be the first we create (and also insert data when we get to that part)
+
 Ask students to think about what we have and what we need to do.
 
 **Can they foresee a problem if we were to insert the reviews data as is?**
@@ -71,6 +77,28 @@ Pseudocode out the solution:
 **Highlight that this is just one solution and if anyone has done it a different way that is fine!**
 
 - **If not mentioned query students if there's any extra tests we might need as we're dealing with non-primitive data > if this has been mentioned ask why.**
+
+Insert Games:
+
+```py
+def insert_games(games):
+    # loop through games
+    # run an SQL insert for each game
+    # Use paramterised queries to insert the values
+    for game in games:
+        conn.run("""
+        INSERT INTO games
+        (game_title, release_year, console_name, image_url)
+        VALUES
+        (:game_title, :release_year, :console_name, :image_url);
+        """,
+        game_title=game['game_title'],
+        release_year=game['release_year'],
+        console_name=game['console_name'],
+        image_url=game['image_url']
+        )
+
+```
 
 ## Lookup Object Code
 

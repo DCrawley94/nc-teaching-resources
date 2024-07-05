@@ -1,5 +1,4 @@
-from db.connection import conn
-
+from connection import conn
 
 def seed(games, reviews):
     '''
@@ -19,7 +18,9 @@ def seed(games, reviews):
     create_reviews_table()
 
     # Insert data
-    insert_games(games)
+    # inserted_games = insert_games(games)
+    # print(inserted_games, ' <<< 1')
+    print(conn.run("SELECT * FROM games;"), ' <<< 2')
 
 
 def create_games_table():
@@ -57,8 +58,8 @@ def insert_games(games):
         VALUES
         (:game_title, :release_year, :console_name, :image_url);
         """,
-                 game_title=game['game_title'],
-                 release_year=game['release_year'],
-                 console_name=game['console_name'],
-                 image_url=game['image_url']
-                 )
+        game_title=game['game_title'],
+        release_year=game['release_year'],
+        console_name=game['console_name'],
+        image_url=game['image_url']
+        )
