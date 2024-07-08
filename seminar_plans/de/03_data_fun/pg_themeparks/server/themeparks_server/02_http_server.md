@@ -56,9 +56,9 @@ Possible pseudocode:
 
 ## Starting writing out code:
 
-- `import re` - we'll need this for checking the path
+- `import re` - we'll need this for checking the path - might not be nece
 - `from db.connection import conn` - we'll need this for querying the DB
-- `GET_GAME_BY_ID_REGEX = re.compile(r"/api/games/\d+")` - define a REGEX for matching the path
+- `GET_GAME_BY_ID_REGEX = re.compile(r"/api/games/(\d+)")` - define a REGEX for matching the path
 
 Pick on people as I'm working through the solution, thing like:
 
@@ -76,13 +76,17 @@ Possible solution:
 
 **TRY TO SHOW ZIP FUNCTION FOR BUILDING RESPONSE**
 
+Possible solution:
+
 ```py
 # check url - how do we match the url when the ID could be anything - Regex?
-if re.fullmatch(GET_GAME_BY_ID_REGEX, self.path): # fullmatch will match the whole string/could possibly use normal match instead
+if re.match(GET_GAME_BY_ID_REGEX, self.path):
     # Get game ID from url
-    game_id = re.search(r"\d+", self.path)[0]
+    game_id = int(re.match(GET_GAME_BY_ID_REGEX, self.path).group(1))
 
     # Query the DB to get the game with correct ID - what format will this return?
+    conn = create_connection()
+
     query_result = conn.run("""
     SELECT *
     FROM games

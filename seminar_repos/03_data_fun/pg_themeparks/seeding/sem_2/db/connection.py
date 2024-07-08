@@ -1,6 +1,4 @@
-import pg8000.native
-import os
+from pg8000.native import Connection
 
-PG_PASSWORD = os.environ['PGPASS']
 
-conn = pg8000.native.Connection('danika', database="nc_games")
+conn = Connection('danika', database="nc_games")

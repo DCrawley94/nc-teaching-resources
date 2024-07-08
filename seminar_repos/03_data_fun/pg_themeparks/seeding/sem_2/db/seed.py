@@ -1,14 +1,7 @@
 from connection import conn
 
 def seed(games, reviews):
-    '''
-        DROP ✅
-
-        CREATE ✅
-
-        INSERT
-    '''
-
+    print('seeding data ...')
     # Drop tables
     conn.run('DROP TABLE IF EXISTS reviews;')
     conn.run('DROP TABLE IF EXISTS games;')
@@ -17,10 +10,6 @@ def seed(games, reviews):
     create_games_table()
     create_reviews_table()
 
-    # Insert data
-    # inserted_games = insert_games(games)
-    # print(inserted_games, ' <<< 1')
-    print(conn.run("SELECT * FROM games;"), ' <<< 2')
 
 
 def create_games_table():
@@ -48,18 +37,5 @@ def create_reviews_table():
 
 
 def insert_games(games):
-    # loop through games
-    # run an SQL insert for each game
-    # Use pramaterised queries to insert the values
-    for game in games:
-        conn.run("""
-        INSERT INTO games
-        (game_title, release_year, console_name, image_url)
-        VALUES
-        (:game_title, :release_year, :console_name, :image_url);
-        """,
-        game_title=game['game_title'],
-        release_year=game['release_year'],
-        console_name=game['console_name'],
-        image_url=game['image_url']
-        )
+    """Should insert games data into the games table"""
+    pass
