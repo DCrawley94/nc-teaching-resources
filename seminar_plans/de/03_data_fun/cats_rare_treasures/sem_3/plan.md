@@ -64,6 +64,8 @@ Possible solution:
 - can insert manually with f strings or even better use the `identifier` function to escape the values and avoid SQL injection.
 
 ```py
+from pg8000.native import identifier
+
 app = FastAPI()
 
 
@@ -139,3 +141,71 @@ def get_reviews(sort_by=None, order="DESC"):
 **at this point see if students can see any issues with the code written - hopefully they point out the risk of SQL injection from order**
 
 Talk about how we could handle this - leading towards Pydantic typing
+
+## Typing
+
+Write some tests for 422 errors:
+
+```py
+# 1:
+def test_422_invalid_sort_by_query():
+    """Tests that the reviews returned are sorted by the given key in
+    descending order"""
+    client = TestClient(app)
+
+    response = client.get("/api/reviews?sort_by=banana")
+
+    assert response.status_code == 422
+
+# 2:
+def test_422_invalid_order_query():
+    """Tests that the reviews returned are sorted by the given key in
+    descending order"""
+    client = TestClient(app)
+
+    response = client.get("/api/reviews?sort_by=rating&order=NONE")
+
+    assert response.status_code == 422
+
+```
+
+Ask students if they come across any ways of typing the querys:
+
+- FastApi's `query`:
+  - https://fastapi.tiangolo.com/tutorial/query-params/
+  - https://fastapi.tiangolo.com/tutorial/query-params-str-validations/
+
+Start by using query like it is show in the docs - explore how we can use some general validation like character length etc but it still leave us open to issues like `sort_by=banana`:
+
+```py
+from fastapi import FastAPI, Query
+from typing import Annotated
+
+SortByType = Annotated[str | None, Query(max_length=9)]
+OrderType = Annotated[str | None, Query(max_length=4)]
+
+
+@app.get("/api/reviews")
+def get_reviews(sort_by: SortByType = None, order: OrderType = "DESC"):
+    ...
+
+```
+
+What if instead I was extra specific about what I wanted, and gave a list of exactly what could be used. Ask students if they have done anything like this, lead into a solution that looks like this:
+
+```py
+from fastapi import FastAPI, Query
+from typing import Annotated, Literal
+
+SortByType = Annotated[
+    Literal["review_id", "game_id", "username", "comment", "rating"],
+    Query(max_length=9),
+]
+OrderType = Annotated[Literal["ASC", "DESC"], Query(max_length=4)]
+```
+
+---
+
+Round off by saying I might want to check more than just the status code, in fact I probably should as we expect some kind of error sent back to the user.
+
+This also serves as a bit of documentation for other developers who might want to work on the code.

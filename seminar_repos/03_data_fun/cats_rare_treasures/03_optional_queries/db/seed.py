@@ -1,6 +1,5 @@
 from db.connection import connect_to_db
-from db.utils import create_games_lookup, format_reviews, games_query_builder_example
-from pprint import pprint
+from db.utils import create_games_lookup, format_reviews
 
 
 def seed(games, reviews):
