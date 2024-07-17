@@ -45,39 +45,46 @@ Lot's of options for credentials and config:
 
 **We are gonna use the credentials file** - highlight that this can be created with `aws configure`
 
-We're gonna use an IAM user - click into auth/iam user - mention warning on the top (security risks - we don't want people to get hold of my laptop and have full control over my infrastructure)
+Run the `aws configure` command and seen that it wants an access key - to get this lets create a user:
 
----
+IAM > Users > Create User > Name > AdminAccess (BAD) > Click on user > Create Access Key > CLI access (WARNING: BAD) > copy and past access keys into aws configure
 
-Create IAM user - give admin access + talk about why this is a terrible idea in reality
+- give admin access + talk about why this is a terrible idea in reality
+- mention warning on the top (security risks - we don't want people to get hold of my laptop and have full control over my infrastructure)
 
-- `aws configure`
-- `aws sts get-caller-identity` - to check
+Once this is done we can check if its set up correctly using the command `aws sts get-caller-identity`:
+
+> From the docs: Returns details about the IAM user or role whose credentials are used to call the operation.
 
 ## First Commands
 
-https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html
+Get to command reference from the the AWS cli doc page
 
-- keep in mind that often when you search for specific cli documentation it will give you
-
----
+**HIGHLIGHT THAT WE'RE USING V2 - OFTEN WHEN YOU SEARCH FOR AWS COMMANDS IT WILL GIVE YOU RESULTS FOR V1!!!**
 
 breakdown of initial doc page:
 
 - command structure
 - global options
+- long list of all available commands
+
+Switch to Figjam and breakdown command
 
 ![command structure](./Screenshot%202024-07-15%20at%2015.02.00.png)
 
-e.g: `aws sts get-caller-identity --output=json`
+e.g: `aws sts get-caller-identity --output json`
 
 ---
 
-### First example: s3
+**PAUSE FOR QUESTIONS**
+
+## Look at some more relevant commands:
 
 - search for s3 with `cmd` + `f`
 
 ### Overview of command page:
+
+Look at the s3 command overview page.
 
 - Talk about s3 paths
 - Briefly skim over other information
@@ -85,10 +92,20 @@ e.g: `aws sts get-caller-identity --output=json`
 
 ### `aws s3 ls`
 
-- differentiate between normal args and flags
+- differentiate between normal args and parameters
 - point out that the basic command is `ls` on it's own or called on a bucket.
 - run `aws s3 ls` and compare output to that of console view.
-- `aws s3 ls s3://bucket_name`
+
+Just like we can take a look at whats in the bucket on the console we can do the same with the cli:
+
+- `aws s3 ls s3://dc-aws-cli-demo`
+
+We can also list things inside nested folders:
+
+- `aws s3 ls s3://dc-aws-cli-demo/more_stuff/`
+
+Or easier we can use the `--recursive` flag to just list everything inside the bucket:
+
 - `aws s3 ls s3://bucket_name --recursive`
 
 Pause for vibe check and highlight the importance of documentation reading for this tool.
@@ -103,34 +120,58 @@ Move back to root `s3` page and ask students to try and guess the command that m
 
 Look at documentation and run the following command:
 
-`aws s3 cp s3://bucket/key ./local-file.extension`
+**This is a good opportunity to show how to run commands on multi lines with backticks**
+
+```sh
+aws s3 cp \
+  s3://dc-aws-cli-demo/profile.json \
+  path/to/save/profile.json
+```
+
+Take a look at the contents:
 
 `cat local-file`
 
 ## `s3api`
 
+Explain that the `s3` command is useful for general `s3` stuff but if we want more specific stuff we can look at the `s3api` command.
+
 This can be used for more specific commands.
 
 ### `get-object-attributes`
 
-Show `\` for breaking up commands over multiple lines
+Again show `\` for breaking up commands over multiple lines
 
 ```sh
 aws s3api get-object-attributes \
---bucket "bucket name"
---key "object key"
---object-attributes "StorageClass" "Objectsize"
+--bucket "dc-aws-cli-demo" \
+--key "profile.json" \
+--object-attributes "StorageClass" "ObjectSize"
 ```
 
-**I'm sure this could be useful to someone**
+**I'm not sure what this particular command would be used for but it's probably useful to someone!**
+
+**Pause to take questions - give time for typing.**
 
 ## `jq`
 
-Pause to take questions - give time for typing.
-
 As we're working in the terminal you might find that you sometimes want to interact or manipulate data like you would in Python.
 
+This would be doable with text manipulation in bash but it would be a massive faff.
+
+Luckily there is a useful tool called `jq` that will make our lives a lot easier.
+
+**Explain that like the aws cli tool, this should have been installed - can check with** `which jq`
+
 Briefly show accessing data from JSON file.
+
+`.` references the json object and from there you can access properties with dot notation and use array indexing like we've seen in python.
+
+```sh
+cat profile.json | jq ".name"
+cat profile.json | jq ".likes.bands"
+cat profile.json | jq ".likes.bands[0]"
+```
 
 ## End
 

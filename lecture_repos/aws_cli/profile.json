@@ -1,0 +1,11 @@
+{
+    "name": "Danika",
+    "age": 30,
+    "likes": {
+        "bands": [
+            "Bikini Kill",
+            "Fidlar",
+            "The Clash"
+        ]
+    }
+}
