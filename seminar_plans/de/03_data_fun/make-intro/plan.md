@@ -55,9 +55,11 @@ create-environment:
 	$(PYTHON_INTERPRETER) -m venv venv
 ```
 
-**pause and ask for thoughts**
+**switch back to figjam to breakdown the structure of a rule**
 
 - Explain that `make` has it's own syntax so it might look weird but for what we need there only a few odd bits of syntax.
+
+**pause and ask for thoughts**
 
 ## Second rule - introduce dependencies for rules
 
@@ -76,9 +78,11 @@ Show that this now work by running `make install-requirements`.
 
 Talk about how this is currently quite manual and we're still having to do things step by step. It would be nice if we can automate this a bit more.
 
-<!-- And we can by making use of dependencies for specific rules. For example if we need the environment to be created we can list it as a dependency. -->
+**Ask students what might happen if we were to remove the venv and try to run** `make install-requirements` - try it and see it fail
 
-**Delete the venv and try to run `make install-requirements` without the dependency. And then add the dependency and watch it working.**
+Explain that the `create-environment` rule is therefore a dependency of the `install-requirements` - we need to run the first before we can run the second.
+
+Show how to list a rule as a dependency and link back to figjam screenshot.
 
 ```make
 install-requirements: create-environment
@@ -113,7 +117,7 @@ $(info PYTHONPATH: $(PYTHONPATH))
 **Now lets use it in a rule:**
 
 ```make
-unit-test-simple:
+unit-test:
 	source venv/bin/activate && PYTHONPATH=$(PYTHONPATH) pytest -vvv
 ```
 
@@ -136,6 +140,8 @@ security-checks:
 check-pep8-compliance:
 	source venv/bin/activate && flake8 src test
 ```
+
+**Can force pep 8 to fail by adding a couple of extra lines**
 
 Briefly talk through what they're doing and then explain that we can bring together multiple rules - again with dependencies:
 
