@@ -1,21 +1,13 @@
 You are now connected to database "nc_art_gallery" as user "danika".
- sales_price |  min  |   max   | average | price_diff_from_average 
--------------+-------+---------+---------+-------------------------
-     4000.00 | 50.00 | 4000.00 | 1558.33 |                 2441.67
-     2500.00 | 50.00 | 4000.00 | 1558.33 |                  941.67
-     2300.00 | 50.00 | 4000.00 | 1558.33 |                  741.67
-      300.00 | 50.00 | 4000.00 | 1558.33 |                -1258.33
-      200.00 | 50.00 | 4000.00 | 1558.33 |                -1358.33
-       50.00 | 50.00 | 4000.00 | 1558.33 |                -1508.33
-(6 rows)
+Paintings that are above average price:
+Painting that sold for the the least amount of money:
+ sales_id | sale_date  | painting_id | artist_id | collector_id | sales_price | painting_id |    artwork_name    | artist_id | listed_price | artist_id | first_name | last_name 
+----------+------------+-------------+-----------+--------------+-------------+-------------+--------------------+-----------+--------------+-----------+------------+-----------
+        6 | 2024-04-22 |           7 |         3 |            3 |       50.00 |           7 | Black square #1000 |         3 |        50.00 |         3 | Nigel      | Dataman
+(1 row)
 
- sales_price |  min  |   max   | average | price_diff_from_average 
--------------+-------+---------+---------+-------------------------
-     2500.00 | 50.00 | 4000.00 | 1558.33 |                  941.67
-     2300.00 | 50.00 | 4000.00 | 1558.33 |                  741.67
-      300.00 | 50.00 | 4000.00 | 1558.33 |                -1258.33
-     4000.00 | 50.00 | 4000.00 | 1558.33 |                 2441.67
-      200.00 | 50.00 | 4000.00 | 1558.33 |                -1358.33
-       50.00 | 50.00 | 4000.00 | 1558.33 |                -1508.33
-(6 rows)
+   ?column?    |    artwork_name    
+---------------+--------------------
+ Nigel Dataman | Black square #1000
+(1 row)
 

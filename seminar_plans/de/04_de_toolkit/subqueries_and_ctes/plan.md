@@ -21,11 +21,11 @@ We saw a couple of different types of subquery this morning. What were they?
 Showing the DB Diagram and ask for someone the help me with a solution.
 
 ```sql
-SELECT painting_name, listed_price
+SELECT artwork_name, listed_price
 FROM paintings
 WHERE listed_price > (
-    SELECT AVG(listed_price)
-    FROM paintings
+  SELECT AVG(listed_price)
+  FROM paintings
 );
 ```
 
@@ -33,11 +33,13 @@ WHERE listed_price > (
 
 Similar to the first, ask for help with a solution.
 
+**CAREFUL NOT TO JOIN ON SALES.ARTIST_ID AS THIS WILL LEAD TO DUPLICATE ROWS (MULTIPLE ARTWORKS PER ARTIST)**
+
 ```sql
-SELECT first_name, last_name, painting_name, sales_price
+SELECT first_name, last_name, artwork_name, sales_price
 FROM sales
-JOIN paintings ON sales.painting_id = paintings.painting_id
-JOIN artists on sales.artist_id = artists.artist_id
+JOIN paintings ON paintings.painting_id = sales.painting_id
+JOIN artists ON sales.artist_id = artists.artist_id
 WHERE sales_price = (
   SELECT MIN(sales_price)
   FROM sales
@@ -84,7 +86,7 @@ Solution with inner join for comparison:
 SELECT DISTINCT collectors.first_name, collectors.last_name
 FROM collectors
 JOIN sales
-  ON collectors.id = sales.collector_id;
+ON collectors.collector_id = sales.collector_id;
 ```
 
 Possible question: When to use joins vs subqueries? 🤔 🤔 🤔 - I believe JOINs are more optimal but defer until tomorrows lecture.
@@ -106,7 +108,7 @@ ORDER BY price_diff_from_average DESC;
 
 Explain what this is doing, showing the result of running a query.
 
-❓ Ask students if they can spot anything that might be a bit inefficient. ❓
+❓ Ask students if they can spot any repetition ❓
 
 **If no answers point out that I'm currently calculating the average twice, I'd like to rewrite my current solution to use a Common Table Expression:**
 
@@ -117,11 +119,11 @@ Work towards this solution:
 ```sql
 WITH sales_details AS (
   SELECT
-    sales_price,
-    (SELECT MIN(sales_price) FROM sales) AS min,
-    (SELECT MAX(sales_price) FROM sales) AS max,
-    ROUND((SELECT AVG(sales_price) FROM sales), 2) AS average
-    FROM sales
+  sales_price,
+  (SELECT MIN(sales_price) FROM sales) AS min,
+  (SELECT MAX(sales_price) FROM sales) AS max,
+  ROUND((SELECT AVG(sales_price) FROM sales), 2) AS average
+  FROM sales
 )
 SELECT
   sales_price,
@@ -139,7 +141,7 @@ Encourage students to look at both solutions, can they see any major benefits to
 
 - Can give the CTE a meaningful name (admittedly aliases could help with this as well) - enhance readability
 - CTEs are reusable within a query
-- Allow you to break down complex queries into smaller more manageable parts - multiple CTEs
+- Allow you to break down complex queries into smaller more manageable parts - multiple CTEs stacked up
 - Recursion, should you wish 👀
 
 Possible drawbacks:

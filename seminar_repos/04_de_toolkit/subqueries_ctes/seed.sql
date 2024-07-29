@@ -12,7 +12,7 @@ CREATE TABLE artists (
 
 CREATE TABLE paintings (
   painting_id SERIAL PRIMARY KEY,
-  painting_name VARCHAR,
+  artwork_name VARCHAR,
   artist_id INT REFERENCES artists(artist_id),
   listed_price NUMERIC(1000, 2)
 );
@@ -24,7 +24,7 @@ CREATE TABLE collectors (
 );
 
 CREATE TABLE sales (
-  id SERIAL PRIMARY KEY,
+  sales_id SERIAL PRIMARY KEY,
   sale_date DATE,
   painting_id INT REFERENCES paintings(painting_id),
   artist_id INT REFERENCES artists(artist_id),
@@ -41,7 +41,7 @@ VALUES
 ('Francesco', 'Benelli');
 
 INSERT INTO paintings
-(painting_name, artist_id, listed_price)
+(artwork_name, artist_id, listed_price)
 VALUES
 ('Miracle', 1, 300.00),
 ('Sunshine', 1, 700.00),
