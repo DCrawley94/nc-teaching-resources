@@ -1,13 +1,19 @@
 You are now connected to database "nc_art_gallery" as user "danika".
+
 Paintings that are above average price:
+
+ artwork_name  | listed_price 
+---------------+--------------
+ Pretty Woman  |      2800.00
+ Handsome Man  |      2300.00
+ Cool painting |      5000.00
+(3 rows)
+
+
 Painting that sold for the the least amount of money:
+
  sales_id | sale_date  | painting_id | artist_id | collector_id | sales_price | painting_id |    artwork_name    | artist_id | listed_price | artist_id | first_name | last_name 
 ----------+------------+-------------+-----------+--------------+-------------+-------------+--------------------+-----------+--------------+-----------+------------+-----------
         6 | 2024-04-22 |           7 |         3 |            3 |       50.00 |           7 | Black square #1000 |         3 |        50.00 |         3 | Nigel      | Dataman
-(1 row)
-
-   ?column?    |    artwork_name    
----------------+--------------------
- Nigel Dataman | Black square #1000
 (1 row)
 

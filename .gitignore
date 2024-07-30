@@ -7,3 +7,4 @@ data_eng_resources
 **/.terraform
 *.tfstate
 .ruff_cache
+.DS_Store
