@@ -1,0 +1,657 @@
+- name: Mount Everest
+  location: Nepal/China
+  elevation_m: 8848
+  prominence_m: 8848
+  first_ascent: 1953-05-29
+  first_ascenders:
+    - Edmund Hillary
+    - Tenzing Norgay
+  notable_features:
+    - Highest mountain in the world
+
+- name: K2
+  location: Pakistan/China
+  elevation_m: 8611
+  prominence_m: 4017
+  first_ascent: 1954-07-31
+  first_ascenders:
+    - Lino Lacedelli
+    - Achille Compagnoni
+  notable_features:
+    - Second highest mountain in the world
+
+- name: Kangchenjunga
+  location: Nepal/India
+  elevation_m: 8586
+  prominence_m: 3922
+  first_ascent: 1955-05-25
+  first_ascenders:
+    - Joe Brown
+    - George Band
+  notable_features:
+    - Third highest mountain in the world
+
+- name: Lhotse
+  location: Nepal/China
+  elevation_m: 8516
+  prominence_m: 610
+  first_ascent: 1956-05-18
+  first_ascenders:
+    - Fritz Luchsinger
+    - Ernst Reiss
+  notable_features:
+    - Fourth highest mountain in the world
+
+- name: Makalu
+  location: Nepal/China
+  elevation_m: 8485
+  prominence_m: 2386
+  first_ascent: 1955-05-15
+  first_ascenders:
+    - Lionel Terray
+    - Jean Couzy
+  notable_features:
+    - Fifth highest mountain in the world
+
+- name: Cho Oyu
+  location: Nepal/China
+  elevation_m: 8188
+  prominence_m: 2340
+  first_ascent: 1954-10-19
+  first_ascenders:
+    - Herbert Tichy
+    - Joseph Jöchler
+    - Pasang Dawa Lama
+  notable_features:
+    - Sixth highest mountain in the world
+
+- name: Dhaulagiri
+  location: Nepal
+  elevation_m: 8167
+  prominence_m: 3357
+  first_ascent: 1960-05-13
+  first_ascenders:
+    - Kurt Diemberger
+    - Peter Diener
+    - Ernst Forrer
+    - Albin Schelbert
+    - Nawang Dorje
+    - Nyima Dorje
+  notable_features:
+    - Seventh highest mountain in the world
+
+- name: Manaslu
+  location: Nepal
+  elevation_m: 8163
+  prominence_m: 3092
+  first_ascent: 1956-05-09
+  first_ascenders:
+    - Toshio Imanishi
+    - Gyalzen Norbu
+  notable_features:
+    - Eighth highest mountain in the world
+
+- name: Nanga Parbat
+  location: Pakistan
+  elevation_m: 8126
+  prominence_m: 4608
+  first_ascent: 1953-07-03
+  first_ascenders:
+    - Hermann Buhl
+  notable_features:
+    - Ninth highest mountain in the world
+
+- name: Annapurna I
+  location: Nepal
+  elevation_m: 8091
+  prominence_m: 2984
+  first_ascent: 1950-06-03
+  first_ascenders:
+    - Maurice Herzog
+    - Louis Lachenal
+  notable_features:
+    - Tenth highest mountain in the world
+
+- name: Gasherbrum I
+  location: Pakistan/China
+  elevation_m: 8080
+  prominence_m: 2155
+  first_ascent: 1958-07-05
+  first_ascenders:
+    - Andrew Kauffman
+    - Pete Schoening
+  notable_features:
+    - Eleventh highest mountain in the world
+
+- name: Broad Peak
+  location: Pakistan/China
+  elevation_m: 8051
+  prominence_m: 1701
+  first_ascent: 1957-06-09
+  first_ascenders:
+    - Fritz Wintersteller
+    - Marcus Schmuck
+    - Kurt Diemberger
+    - Hermann Buhl
+  notable_features:
+    - Twelfth highest mountain in the world
+
+- name: Gasherbrum II
+  location: Pakistan/China
+  elevation_m: 8035
+  prominence_m: 1524
+  first_ascent: 1956-07-07
+  first_ascenders:
+    - Fritz Moravec
+    - Josef Larch
+    - Hans Willenpart
+  notable_features:
+    - Thirteenth highest mountain in the world
+
+- name: Shishapangma
+  location: China
+  elevation_m: 8027
+  prominence_m: 2897
+  first_ascent: 1964-05-02
+  first_ascenders:
+    - Xu Jing
+  notable_features:
+    - Fourteenth highest mountain in the world
+
+- name: Gyachung Kang
+  location: Nepal/China
+  elevation_m: 7952
+  prominence_m: 700
+  first_ascent: 1964-04-10
+  first_ascenders:
+    - Y. Kato
+    - K. Sakaizawa
+    - Pasang Phutar
+  notable_features:
+    - Fifteenth highest mountain in the world
+
+- name: Annapurna II
+  location: Nepal
+  elevation_m: 7937
+  prominence_m: 2437
+  first_ascent: 1960-05-17
+  first_ascenders:
+    - Jimmy Roberts
+    - Ang Nyima
+  notable_features:
+    - Sixteenth highest mountain in the world
+
+- name: Gasherbrum III
+  location: Pakistan/China
+  elevation_m: 7946
+  prominence_m: 400
+  first_ascent: 1975-08-11
+  first_ascenders:
+    - Wanda Rutkiewicz
+    - Alison Chadwick-Onyszkiewicz
+    - Janusz Onyszkiewicz
+    - Krzysztof Zdzitowiecki
+  notable_features:
+    - Seventeenth highest mountain in the world
+
+- name: Gasherbrum IV
+  location: Pakistan/China
+  elevation_m: 7925
+  prominence_m: 431
+  first_ascent: 1958-08-06
+  first_ascenders:
+    - Walter Bonatti
+    - Carlo Mauri
+  notable_features:
+    - Eighteenth highest mountain in the world
+
+- name: Himalchuli
+  location: Nepal
+  elevation_m: 7893
+  prominence_m: 1333
+  first_ascent: 1960-05-24
+  first_ascenders:
+    - Hisashi Tanabe
+    - Masahiro Harada
+    - Heitaro Takahashi
+  notable_features:
+    - Nineteenth highest mountain in the world
+
+- name: Distaghil Sar
+  location: Pakistan
+  elevation_m: 7885
+  prominence_m: 2160
+  first_ascent: 1960-06-09
+  first_ascenders:
+    - Günther Stärker
+    - Diether Marchart
+    - Ludwig Schmaderer
+  notable_features:
+    - Twentieth highest mountain in the world
+
+- name: Nuptse
+  location: Nepal
+  elevation_m: 7861
+  prominence_m: 319
+  first_ascent: 1961-05-16
+  first_ascenders:
+    - Dennis Davis
+    - Tashi
+  notable_features:
+    - Part of the Everest massif
+
+- name: Kunyang Chhish
+  location: Pakistan
+  elevation_m: 7852
+  prominence_m: 1700
+  first_ascent: 1971-08-26
+  first_ascenders:
+    - Andrzej Zawada
+    - Janusz Kuliś
+    - Ryszard Szafirski
+    - Marek Kęsicki
+  notable_features:
+    - One of the highest unclimbed peaks for many years
+
+- name: Masherbrum
+  location: Pakistan
+  elevation_m: 7821
+  prominence_m: 2347
+  first_ascent: 1960-07-06
+  first_ascenders:
+    - George Bell
+    - Willi Unsoeld
+  notable_features:
+    - Also known as K1
+
+- name: Nanda Devi
+  location: India
+  elevation_m: 7816
+  prominence_m: 3139
+  first_ascent: 1936-08-29
+  first_ascenders:
+    - Bill Tilman
+    - Noel Odell
+  notable_features:
+    - Highest mountain entirely within India
+
+- name: Chomo Lonzo
+  location: China
+  elevation_m: 7804
+  prominence_m: 951
+  first_ascent: 1954-10-30
+  first_ascenders:
+    - Jean Couzy
+    - Lionel Terray
+  notable_features:
+    - Close to Makalu
+
+- name: Batura Sar
+  location: Pakistan
+  elevation_m: 7795
+  prominence_m: 2945
+  first_ascent: 1976-06-30
+  first_ascenders:
+    - Hubert Bleicher
+    - Herbert Oberhofer
+    - Hans Schell
+  notable_features:
+    - Part of the Batura Muztagh subrange
+
+- name: Kanjut Sar
+  location: Pakistan
+  elevation_m: 7760
+  prominence_m: 1760
+  first_ascent: 1959-06-19
+  first_ascenders:
+    - Camillo Pellissier
+    - Giuseppe Pirovano
+  notable_features:
+    - Lies in the Hispar Muztagh subrange
+
+- name: Rakaposhi
+  location: Pakistan
+  elevation_m: 7788
+  prominence_m: 2808
+  first_ascent: 1958-06-25
+  first_ascenders:
+    - Mike Banks
+    - Tom Patey
+  notable_features:
+    - Part of the Karakoram range
+
+- name: Namcha Barwa
+  location: China
+  elevation_m: 7782
+  prominence_m: 4103
+  first_ascent: 1992-10-30
+  first_ascenders:
+    - Bill Denz
+  notable_features:
+    - Located in the eastern Himalayas
+
+- name: Kamet
+  location: India
+  elevation_m: 7756
+  prominence_m: 2825
+  first_ascent: 1931-06-21
+  first_ascenders:
+    - Frank Smythe
+    - Eric Shipton
+    - Lewa Sherpa
+    - R.L. Holdsworth
+    - D.G. Oliver
+  notable_features:
+    - Second highest mountain in India
+
+- name: Saltoro Kangri
+  location: Pakistan/India
+  elevation_m: 7742
+  prominence_m: 2160
+  first_ascent: 1962-07-24
+  first_ascenders:
+    - Y. Takamura
+    - A. Saito
+  notable_features:
+    - Part of the Saltoro Mountains
+
+- name: Jannu
+  location: Nepal
+  elevation_m: 7710
+  prominence_m: 1020
+  first_ascent: 1962-04-28
+  first_ascenders:
+    - René Desmaison
+    - Paul Keller
+  notable_features:
+    - Known for its steep north face
+
+- name: Molamenqing
+  location: China
+  elevation_m: 7703
+  prominence_m: 573
+  first_ascent: 1981-05-28
+  first_ascenders:
+    - Yukihiro Yanagisawa
+    - Katsutoshi Hirabayashi
+  notable_features:
+    - Lies near Shishapangma
+
+- name: Saser Kangri
+  location: India
+  elevation_m: 7672
+  prominence_m: 1757
+  first_ascent: 1973-06-18
+  first_ascenders:
+    - E. Arning
+    - P. Scholz
+  notable_features:
+    - Part of the Saser Muztagh range
+
+- name: Chogolisa
+  location: Pakistan
+  elevation_m: 7665
+  prominence_m: 500
+  first_ascent: 1975-08-02
+  first_ascenders:
+    - Fred Pressl
+    - Gustav Ammerer
+  notable_features:
+    - Known for its sharp summit ridges
+
+- name: K12
+  location: Pakistan
+  elevation_m: 7428
+  prominence_m: 1928
+  first_ascent: 1974-08-22
+  first_ascenders:
+    - Shinichi Takagi
+    - Tsuneo Shigehiro
+  notable_features:
+    - Part of the Saltoro Mountains
+
+- name: Tirich Mir
+  location: Pakistan
+  elevation_m: 7708
+  prominence_m: 3908
+  first_ascent: 1950-07-21
+  first_ascenders:
+    - Arne Næss
+    - P. Kvernberg
+  notable_features:
+    - Highest mountain in the Hindu Kush
+
+- name: Gangkhar Puensum
+  location: Bhutan/China
+  elevation_m: 7570
+  prominence_m: 2995
+  first_ascent: Unclimbed
+  notable_features:
+    - Highest unclimbed mountain in the world
+
+- name: Khunyang Chhish
+  location: Pakistan
+  elevation_m: 7852
+  prominence_m: 1040
+  first_ascent: 1971-08-26
+  first_ascenders:
+    - Andrzej Zawada
+    - Janusz Kuliś
+    - Marek Kęsicki
+    - Ryszard Szafirski
+  notable_features:
+    - Lies in the Hispar Muztagh subrange
+
+- name: Ngadi Chuli
+  location: Nepal
+  elevation_m: 7871
+  prominence_m: 500
+  first_ascent: 1970-04-22
+  first_ascenders:
+    - Hiroshi Watanabe
+    - Lhakpa Tsering
+  notable_features:
+    - Also known as Peak 29
+
+- name: Silverthrone
+  location: Canada
+  elevation_m: 2855
+  prominence_m: 2555
+  first_ascent: 1958
+  first_ascenders:
+    - Don Hubbard
+    - George Whitmore
+    - John Clarke
+  notable_features:
+    - A large stratovolcano
+
+- name: Mount Logan
+  location: Canada
+  elevation_m: 5959
+  prominence_m: 5248
+  first_ascent: 1925-06-23
+  first_ascenders:
+    - A.H. MacCarthy
+    - H.F. Lambart
+    - A. Carpe
+    - W.W. Foster
+    - N. Read
+    - R. Weiss
+  notable_features:
+    - Highest mountain in Canada
+
+- name: Mount Saint Elias
+  location: USA/Canada
+  elevation_m: 5489
+  prominence_m: 4265
+  first_ascent: 1897-07-31
+  first_ascenders:
+    - Duke of the Abruzzi
+    - Vittorio Sella
+  notable_features:
+    - Second highest mountain in both Canada and the USA
+
+- name: Denali
+  location: USA
+  elevation_m: 6190
+  prominence_m: 6144
+  first_ascent: 1913-06-07
+  first_ascenders:
+    - Hudson Stuck
+    - Harry Karstens
+    - Walter Harper
+    - Robert Tatum
+  notable_features:
+    - Highest mountain in North America
+
+- name: Mount Kilimanjaro
+  location: Tanzania
+  elevation_m: 5895
+  prominence_m: 5885
+  first_ascent: 1889-10-06
+  first_ascenders:
+    - Hans Meyer
+    - Ludwig Purtscheller
+  notable_features:
+    - Highest mountain in Africa
+
+- name: Mount Elbrus
+  location: Russia
+  elevation_m: 5642
+  prominence_m: 4741
+  first_ascent: 1874-07-10
+  first_ascenders:
+    - Florence Crauford Grove
+    - Frederick Gardner
+    - Horace Walker
+    - Peter Knubel
+  notable_features:
+    - Highest mountain in Europe
+
+- name: Mount Vinson
+  location: Antarctica
+  elevation_m: 4892
+  prominence_m: 4892
+  first_ascent: 1966-12-18
+  first_ascenders:
+    - Nicholas Clinch
+    - Barry Corbet
+    - John Evans
+    - Charles Hollister
+    - Samuel Silverstein
+  notable_features:
+    - Highest mountain in Antarctica
+
+- name: Puncak Jaya
+  location: Indonesia
+  elevation_m: 4884
+  prominence_m: 4884
+  first_ascent: 1962-02-13
+  first_ascenders:
+    - Heinrich Harrer
+    - Philip Temple
+    - Russell Kippax
+    - Bert Huizenga
+  notable_features:
+    - Highest mountain in Oceania
+
+- name: Mount Kosciuszko
+  location: Australia
+  elevation_m: 2228
+  prominence_m: 2228
+  first_ascent: 1840-03-12
+  first_ascenders:
+    - Paweł Strzelecki
+  notable_features:
+    - Highest mountain in Australia
+
+- name: Mount Wilhelm
+  location: Papua New Guinea
+  elevation_m: 4509
+  prominence_m: 2959
+  first_ascent: 1938
+  first_ascenders:
+    - Leigh Vial
+    - Ken Simms
+  notable_features:
+    - Highest mountain in Papua New Guinea
+
+- name: Aconcagua
+  location: Argentina
+  elevation_m: 6960
+  prominence_m: 6960
+  first_ascent: 1897-01-14
+  first_ascenders:
+    - Matthias Zurbriggen
+  notable_features:
+    - Highest mountain in South America
+
+- name: Ojos del Salado
+  location: Chile/Argentina
+  elevation_m: 6893
+  prominence_m: 3688
+  first_ascent: 1937-02-26
+  first_ascenders:
+    - Jan Alfred Szczepański
+    - Justyn Wojsznis
+  notable_features:
+    - Highest volcano in the world
+
+- name: Mount Kenya
+  location: Kenya
+  elevation_m: 5199
+  prominence_m: 3825
+  first_ascent: 1899-09-13
+  first_ascenders:
+    - Halford Mackinder
+    - César Ollier
+    - Josef Brocherel
+  notable_features:
+    - Second highest mountain in Africa
+
+- name: Mount Meru
+  location: Tanzania
+  elevation_m: 4565
+  prominence_m: 3214
+  first_ascent: 1904-07-19
+  first_ascenders:
+    - Fritz Jaeger
+  notable_features:
+    - Active stratovolcano
+
+- name: Mont Blanc
+  location: France/Italy
+  elevation_m: 4808
+  prominence_m: 4695
+  first_ascent: 1786-08-08
+  first_ascenders:
+    - Jacques Balmat
+    - Michel-Gabriel Paccard
+  notable_features:
+    - Highest mountain in the Alps
+
+- name: Mount Matterhorn
+  location: Switzerland/Italy
+  elevation_m: 4478
+  prominence_m: 1042
+  first_ascent: 1865-07-14
+  first_ascenders:
+    - Edward Whymper
+    - Charles Hudson
+    - Lord Francis Douglas
+    - Douglas Hadow
+    - Michel Croz
+    - Peter Taugwalder
+    - Peter Taugwalder Jr.
+  notable_features:
+    - Famous for its distinctive pyramid shape
+
+- name: Mount Fuji
+  location: Japan
+  elevation_m: 3776
+  prominence_m: 3776
+  first_ascent: 663
+  first_ascender:
+    - En no Ozuno
+  notable_features:
+    - Japan's highest mountain and iconic symbol

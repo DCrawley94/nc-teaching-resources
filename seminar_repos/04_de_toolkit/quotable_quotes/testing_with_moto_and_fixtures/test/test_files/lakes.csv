@@ -1,0 +1,81 @@
+Name,Country,Area_sq_km,Max_Depth_m,Primary_Inflow,Primary_Outflow
+Lake Superior,Canada/USA,82100,406,Nipigon River,St. Marys River
+Lake Victoria,Uganda/Kenya/Tanzania,69485,83,Kagera River,White Nile
+Lake Huron,Canada/USA,59596,229,Saint Marys River,Saint Clair River
+Lake Michigan,USA,58000,281,Various tributaries,Straits of Mackinac
+Lake Tanganyika,Burundi/Tanzania/Zambia/DR Congo,32900,1470,Ruzizi River,Lukuga River
+Lake Baikal,Russia,31500,1642,Selengha River,Angara River
+Great Bear Lake,Canada,31153,446,Various tributaries,Great Bear River
+Lake Malawi,Malawi/Mozambique/Tanzania,30044,706,Ruhuhu River,Shire River
+Great Slave Lake,Canada,28600,614,Various tributaries,Mackenzie River
+Lake Erie,Canada/USA,25700,64,Detroit River,Niagara River
+Lake Winnipeg,Canada,24514,36,Saskatchewan River,Nelson River
+Lake Ontario,Canada/USA,18960,244,Niagara River,Saint Lawrence River
+Lake Balkhash,Kazakhstan,16400,26,Ili River,Evaporation
+Lake Ladoga,Russia,17600,230,Volkhov River,Neva River
+Lake Titicaca,Bolivia/Peru,8372,281,Ramis River,Desaguadero River
+Lake Nicaragua,Nicaragua,8264,26,Tipitapa River,San Juan River
+Lake Athabasca,Canada,7850,124,Various tributaries,River of the same name
+Lake Albert,Uganda/DR Congo,5300,51,Semliki River,Albert Nile
+Lake Turkan,Kenya/Ethiopia,6405,109,Omo River,Evaporation
+Lake Maracaibo,Venezuela,13820,60,Catulbo River,Gulf of Venezuela
+Lake Van,Turkey,3755,450,Numerous small streams,Evaporation
+Lake Tana,Ethiopia,3500,15,Various tributaries,Blue Nile
+Dead Sea,Israel/Jordan,605,306,Jordan River,Evaporation
+Caspian Sea,Kazakhstan/Turkmenistan/Iran/Russia/Azerbaijan,371000,1025,Volga River,Ural River
+Aral Sea,Kazakhstan/Uzbekistan,68000 (formerly),69 (formerly),Amu Darya,Evaporation
+Lake Chad,Chad/Niger/Nigeria/Cameroon,13500 (varies),10 (varies),Chari River,Evaporation
+Lake Urmia,Iran,5200 (varies),16 (varies),Various small streams,Evaporation
+Issyk-Kul,Kyrgyzstan,6236,668,Various small streams,Evaporation
+Lake Volta,Ghana,8502,75,Volta River,Volta River
+Lake Kariba,Zambia/Zimbabwe,5580,97,Zambezi River,Zambezi River
+Lake Mead,USA,640,162,Colorado River,Colorado River
+Lake Powell,USA,658,170,Colorado River,Colorado River
+Lake Okeechobee,USA,1900,4,Kissimmee River,Everglades
+Lake Pontchartrain,USA,1630,20,Various tributaries,Gulf of Mexico
+Lake Eyre,Australia,9500 (varies),15 (varies),Warburton River,Evaporation
+Lake Gairdner,Australia,4340,1.5 (dry),None,Evaporation
+Lake Torrens,Australia,5745,1.5 (dry),None,Evaporation
+Lake Frome,Australia,2596,1 (dry),None,Evaporation
+Lake Disappointment,Australia,330,2,Various small streams,Evaporation
+Lake Mackay,Australia,3494,3,Various small streams,Evaporation
+Great Salt Lake,USA,4400,10 (varies),Bear River,Evaporation
+Lake Tai,China,2250,2,Various small streams,Wusong River
+Poyang Lake,China,3000 (varies),25 (varies),Gan River,Yangtze River
+Dongting Lake,China,2800 (varies),30 (varies),Xiang River,Yangtze River
+Tonle Sap,Cambodia,2700 (varies),10 (varies),Mekong River,Chaktomuk River
+Lake Winnipegosis,Canada,5370,12,Waterhen River,N/A
+Lake Manitoba,Canada,4624,7.2,Waterhen River,Dauphin River
+Red Lake,Canada,546,102,Various small streams,Chukuni River
+Nettilling Lake,Canada,5542,132,Amadjuak River,Koukdjuak River
+Lake Michigan-Huron,USA/Canada,117702,281,Saint Marys River,Straits of Mackinac
+Peipsi Lake,Estonia/Russia,3555,15,Various small streams,Narva River
+Lake Onega,Russia,9720,127,Svir River,Volkhov River
+Lake Khanka,Russia/China,4070,10.6,Sungacha River,Ussuri River
+Lake Balaton,Hungary,592,12,Zala River,Si�
+Lake Geneva,Switzerland/France,580,310,Rh�ne River,Rh�ne River
+Lake Biwa,Japan,670,104,Seta River,Yodo River
+Lake Toba,Indonesia,1130,505,Various small streams,Asahan River
+Lake Taupo,New Zealand,616,186,Various small streams,Waikato River
+Lake Rukwa,Tanzania,5760,13 (varies),Various small streams,Evaporation
+Lake Kivu,Rwanda/DR Congo,2700,485,Ruzizi River,Ruzizi River
+Lake Edward,Uganda/DR Congo,2325,112,Rwindi River,Semliki River
+Lake Mweru,Zambia/DR Congo,5120,37,Luapula River,Luapula River
+Lake R�gen,Germany,926,11,Various small streams,Various small streams
+Lake Chiemsee,Germany,80,73,Prien River,Alz River
+Lake Garda,Italy,370,346,Sarca River,Mincio River
+Lake Constance,Germany/Switzerland/Austria,536,254,Rhine River,Rhine River
+Lake Peipus,Estonia/Russia,3555,15,Various small streams,Narva River
+Lake Saimaa,Finland,4400,82,Various small streams,Vuoksi River
+Lake Vänern,Sweden,5650,106,Klarälven River,Göta älv River
+Lake Vättern,Sweden,1893,128,Various small streams,Motala Ström River
+Lake Mälaren,Sweden,1140,64,Various small streams,Norrström River
+Loch Ness,Scotland,56,230,River Oich,River Ness
+Lake Balqash,Kazakhstan,16400,26,Ili River,Evaporation
+Lake Sevan,Armenia,1260,83,Various small streams,Hrazdan River
+Lake Paranoá,Brazil,48,38,Various small streams,Paranoá River
+Lake Taimyr,Russia,4560,26,Various small streams,Lower Taymyra River
+Lake Matano,Indonesia,1640,590,Various small streams,Patea River
+Lake Mohave,USA,110,34,Colorado River,Colorado River
+Lake Naivasha,Kenya,139,8,Malewa River,Evaporation
+Lake Albert,Uganda/DR Congo,5300,51,Semliki River,Albert Nile

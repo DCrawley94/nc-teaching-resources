@@ -109,107 +109,88 @@ The three methods of patching `load_data` are functionally the same.
 
 ## More realistic example of `patch`:
 
-We have a function, `get_games`, which will query the `nc_games` database. Then format the response from the database and finally return the formatted response.
+We have a function, `run_and_log`, which runs a given function and returns a log message.
 
 This function has a dependency, what is that dependency?
 
-- The database/ database connection
+- Datetime - specifically the current timestamp.
 
-Querying the actual database isn't something I want to do for the following reasons:
+If I run this test without controlling datetime it will be different each time.
 
-- There could be hundreds of thousands of rows, this code is blocking and could take some time.
-- I don't want to be testing with real data, admittedly there's not much that could go wrong with a SELECT but if I was INSERTING or UPDATING data I definitely would not want this
-- The only functionality I really want to test is that the data returned from the SELECT is correctly formatted.
+**The only functionality I really want to test is that the the log message is created and returned successfully**
 
-Therefore I can patch the connection in order to control what is returned by the `run` method.
+Therefore I can patch datetime in order to control what is returned by the `strftime` method.
 
 **ask students preference between context manager and decorator - if there's time we can always do a refactor at the end**
 
-### Test 1: Handles case of no data returned:
+### Test 1: Handles case of function with return value:
 
 **start by asking students for help in creating the mock functionality - hopefully the struggle and we can work towards a solution together**
 
 Start off by creating a mock connection class and using that and the return value:
 
 ```py
-class MockConnection:
-    def run(self, query):
-        return []
+class MockDateObj:
+    def strftime(self, format):
+        return '2024-05-09 09:57:07'
 
-@patch('src.example_2.Connection', return_value = MockConnection())
-def test_get_games_no_data(mock_conn):
+@patch('src.example_2.datetime')
+def test_log_message_func_with_return_value(mock_dt):
     # I can leverage the functionality of the `mock`
-    # This is essentially saying that Connection will return a Mock and that Mock will have a `run` method`
-    assert get_games() == []
+    # This is essentially saying that datetime.now will return a Mock and that Mock will have a `strftime` method`
+    def func_with_return():
+        return 'test func response'
+
+    mock_dt.now.return_value = MockDateObj()
+
+    assert run_and_log(func_with_return) == (
+        "2024-05-09 09:57:07 - func_with_return ran successfully: "
+        "test func response")
 ```
 
 ❗ Refactor to **lazy attributes**!
 
 ```py
-@patch('src.example_2.Connection')
-def test_get_games_no_data(mock_conn):
-    mock_conn().run.return_value = []
-    # I can leverage the functionality of the `mock`
-    # This is essentially saying that Connection will return a Mock and that Mock will have a `run` method`
-    assert get_games() == []
+@patch("src.example_2.datetime")
+def test_log_message_func_with_return_value(mock_dt):
+    def func_with_return():
+        return "test func response"
+
+    mock_dt.now().strftime = Mock(return_value="2024-05-09 09:57:07")
+
+    assert run_and_log(func_with_return) == (
+        "2024-05-09 09:57:07 - func_with_return ran successfully: " "test func response"
+    )
 ```
 
-### Test 2: Handle single returned row:
+### Test 2: Handle no return value:
 
 ```py
-@patch('src.example_2.Connection')
-def test_get_games_single_row(mock_conn):
-    mock_conn().run.return_value = [
-        [1, 'Skyrim 2', 1999, 'www.website.com', 'PS2']]
+@patch("src.example_2.datetime")
+def test_log_message_func_with_no_return_value(mock_dt):
+    def func_no_return():
+        pass
 
-    assert get_games() == [
-        {
-            'games_id': 1,
-            'game_title': 'Skyrim 2',
-            'release_year': 1999,
-            'image_url': 'www.website.com',
-            'console_name': 'PS2'
-        }
-    ]
+    mock_dt.now().strftime = Mock(return_value="2024-05-09 09:57:07")
+
+    assert (
+        run_and_log(func_no_return)
+        == "2024-05-09 09:57:07 - func_no_return ran successfully"
+    )
 ```
 
 ### Test 3: Test error handling
 
 ```py
-from pg8000.exceptions import DatabaseError
+@patch("src.example_2.datetime")
+def test_log_message_function_exception(mock_dt):
+    def func_raising_error():
+        raise Exception("Something went wrong")
 
-# ~~~~~
+    mock_dt.now().strftime.return_value = "2024-05-09 09:57:07"
 
-def test_get_games_handles_db_error():
-    with patch('src.example_2.Connection') as mock_conn:
-        mock_conn().run.side_effect = DatabaseError
-
-        assert get_games() == 'Error querying the database'
-```
-
-### Test 4: Multiple returned rows (only if there's time)
-
-```py
-@patch('src.example_2.Connection')
-def test_get_games_multi_row(mock_conn):
-    mock_conn().run.return_value = [
-        [1, 'game1', 1999, 'www.website.com', 'PS2'],
-        [2, 'game2', 2001, 'www.website2.com', 'Xbox']]
-
-    assert get_games() == [
-        {
-            'games_id': 1,
-            'game_title': 'game1',
-            'release_year': 1999,
-            'image_url': 'www.website.com',
-            'console_name': 'PS2'
-        },
-        {
-            'games_id': 2,
-            'game_title': 'game2',
-            'release_year': 2001,
-            'image_url': 'www.website2.com',
-            'console_name': 'Xbox'
-        },
-    ]
+    assert run_and_log(func_raising_error) == (
+        "2024-05-09 09:57:07 - func_raising_error encountered an error: "
+        "Something went wrong"
+    )
 ```
