@@ -15,7 +15,6 @@ def test_process_data_2():
         assert process_data() == "The processed data is 15"
 
 
-@patch("src.example_1.load_data")
-def test_process_data_3(mocked_load_data):
-    mocked_load_data.return_value = 8
+@patch("src.example_1.load_data", return_value=8)
+def test_process_data_3(patch_load_data):
     assert process_data() == "The processed data is 15"

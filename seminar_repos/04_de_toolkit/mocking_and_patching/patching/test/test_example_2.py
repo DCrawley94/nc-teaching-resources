@@ -8,7 +8,3 @@ def test_log_message_func_with_return_value():
 
 def test_log_message_func_with_no_return_value():
     pass
-
-
-def test_log_message_function_exception():
-    pass

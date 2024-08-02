@@ -181,6 +181,8 @@ def test_log_message_func_with_no_return_value(mock_dt):
 
 ### Test 3: Test error handling
 
+**THIS IS OKAY BUT COULD MAYBE IMPROVE IT TO MAKE IT USE SIDE_EFFECT**
+
 ```py
 @patch("src.example_2.datetime")
 def test_log_message_function_exception(mock_dt):

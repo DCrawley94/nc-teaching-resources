@@ -25,6 +25,7 @@ def create_file_report(bucket_name):
         bucket_data = s3.list_objects_v2(Bucket=bucket_name)
 
         if "Contents" in bucket_data:
+            # Create and return file report
             response = {
                 bucket_name: {
                     "object_count": bucket_data["KeyCount"],
@@ -34,8 +35,10 @@ def create_file_report(bucket_name):
                     ],
                 }
             }
+
             return response
 
+        # Return message if no contents found
         return f"No objects found in {bucket_name}"
     except ClientError as c:
         return f"ClientError occurred: {c}"
