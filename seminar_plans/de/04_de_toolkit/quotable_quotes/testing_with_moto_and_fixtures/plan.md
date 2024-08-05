@@ -69,7 +69,9 @@ def test_returns_empty_bucket_message(aws_credentials):
         assert result == "No objects found in test_bucket"
 ```
 
-**STUDENTS MIGHT ASK TO DO S3_CLIENT FIXTURE WHICH IS ALSO OKAY AND LEAVES ROOM FOR FIXTURES FOR BUCKET CREATION ETC.**
+**STUDENTS MIGHT ASK TO DO S3_CLIENT FIXTURE - THIS IS A GREAT OPPORTUNITY FOR AN EARLY FIXTURE REFACTOR - START WITH CODE ABOVE AND REFACTOR TO FIXTURE BELOW**
+
+**REALLY HAMMER HOME THAT YIELD IS PAUSING THE EXECUTION WHILE STILL IN MOCK_AWS CONTEXT!!!**
 
 ```py
 @pytest.fixture
@@ -127,7 +129,7 @@ def test_returns_information_about_single_s3_object(aws_credentials):
 
 ### Test 3: **Probably breeze over this to get onto fixtures - only difference from previous code is extra objects**
 
-**PSEUDOCODE BEFORE IMPLEMENTING**
+- CAN JUST TALK ABOUT THIS RATHER THAN IMPLEMENT
 
 ```py
 def test_returns_information_about_multiple_s3_objects(aws_credentials):
@@ -161,6 +163,8 @@ def test_returns_information_about_multiple_s3_objects(aws_credentials):
 ```
 
 ## Fixtures Refactor:
+
+**BEFORE THIS TALK ABOUT TESTING THE ERROR AND HOW THAT COULD BE DONE**
 
 **Ask students to take a look at the tests we've written and see if there's anything that could maybe be improved**
 

@@ -1,5 +1,6 @@
 import boto3
 from botocore.exceptions import ClientError
+from pprint import pprint
 
 """
     Creates an easily digestible report about the contents of a given s3 bucket
@@ -16,6 +17,9 @@ from botocore.exceptions import ClientError
             ],
         }
     }
+
+    Arguments:
+        bucket_name: name of the bucket to create a report for
 """
 
 
@@ -23,7 +27,6 @@ def create_file_report(bucket_name):
     try:
         s3 = boto3.client("s3")
         bucket_data = s3.list_objects_v2(Bucket=bucket_name)
-
         if "Contents" in bucket_data:
             # Create and return file report
             response = {
