@@ -1,4 +1,12 @@
-# When Can Kids Learn To Code?
+# How Can Kids Learn To Code?
+
+This talk was initially titled "When Can Kids Learn To Code" but that was before I actually planned the talk.
+
+What's the topic:
+
+- I'm going to talk about the skills that children can learn that are relevant to programming, and also why they should learn them
+- For the purpose of this talk I'll be more focussed on children aged 0-11
+- **However** that's not to say the things I'll be talking about are not relevant to older children as well!
 
 ## Intro
 
@@ -6,20 +14,12 @@ Who I am / What I do:
 
 - seminar lead
 - teach Data Engineering
-- Enthusiastic about learning + teaching Python
-
-What's the topic:
-
-- title is slightly misleading
-- it's actually about computational thinking skills and why children should learn them
-- For the purpose of this talk I'll be more focussed on children aged 0-11
-- **However** that's not to say the things I'll be talking about are not relevant to older children as well!
 
 Why I'm talking about it:
 
 - I used to work in the Early Years sector and this stuff interests me
-- Education is important
-- Children have brains like sponges - there's no better time to learn things
+- Education is important, especially at young ages
+- Children have brains like sponges - there's no better time to learn
 
 ## What are children able to learn?
 
@@ -47,7 +47,7 @@ Early Years:
 
 Preschool/Reception:
 
-- At age 4/5 children should start to build an understanding of rudimentary mathematics (spatial reasoning, comparisons, repeating patterns) and be engaging in creative play.
+- At age 4/5 children should start to build an understanding of rudimentary mathematics (spatial reasoning, comparisons, repeating patterns), among other things and be engaging in creative play.
 - If your child is regularly attending a nursery then they should have targeted activities to facilitate this development but you can do this at home as well.
 
 Primary:
@@ -95,3 +95,24 @@ Anna-Lena Popkes (Pow-keys?) who spoke at PyData London
 Open University
 
 OECD
+
+## Relevant Stuff:
+
+- Bee Bot - programming a path for a robot to follow
+- Scratch/Scratch Junior
+- Hedy - older kids can learn a subset of syntactically valid Python
+- Even older - can start to learn a bit with free online course if they're interest
+
+## Supporting Kids learning
+
+- make it entertaining and relevant to their interests
+- variety is good
+- don't be afraid to switch tracks
+- multiple shorted sessions are better than 1 long one
+- spacing is good
+- see if they're able to recall things
+- No one size fits all approach, you know your child best
+
+- Exercise patience with them
+- encourage them to try new things and make mistakes - resilience and perseverance is important
+- learn together and show interest in what they're doing
