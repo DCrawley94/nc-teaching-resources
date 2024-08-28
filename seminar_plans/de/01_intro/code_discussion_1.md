@@ -1,4 +1,4 @@
-# Code Discussion 1
+# Tuesday Code Discussion - Functions
 
 **Emphasise that we do not expect all challenges to be completed - in fact it is very rare that they'll be able to complete everything and that is intentional**
 

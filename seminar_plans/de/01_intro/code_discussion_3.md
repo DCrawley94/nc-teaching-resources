@@ -1,4 +1,4 @@
-# Thursday Code discussion
+# Thursday Code Discussion - Debugging
 
 Start by looking at the first debugging problem - but focus on imports
 
