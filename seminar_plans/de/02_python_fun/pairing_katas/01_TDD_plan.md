@@ -110,3 +110,15 @@ def sum_alphabet_indices(sentence):
 
     return total
 ```
+
+```py
+
+def sum_alphabet_indices(sentence):
+    total_sum = 0
+
+    for char in sentence:
+        if "a" <= char <= "z":
+            total_sum += ord(char) - ord("a")
+
+    return total_sum
+```
