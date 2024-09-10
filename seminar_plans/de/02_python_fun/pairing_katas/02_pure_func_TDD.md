@@ -1,6 +1,6 @@
 # Pure Functions and Immutability
 
-Introduce the problem on Figjam (link here when made), when talking through it emphasise that the functions returns a **new** dictionary and is a **pure** function.
+Introduce the problem on Figjam [link](https://www.figma.com/board/YwULSdLcEBiRj9ofmxqGM2/Pure-Function-Testing?node-id=0-1&t=4BbrE7MdKjD4lwG2-1), when talking through it emphasise that the functions returns a **new** dictionary and is a **pure** function.
 
 ## TDD
 
