@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 """
 correct_language takes a list of dictionary profiles
 and returns a new list of profiles where each "language" value is changed to
@@ -20,4 +22,7 @@ correct_language([
 
 
 def correct_language(profiles):
-    pass
+    profiles_copy = deepcopy(profiles)
+    for profile in profiles_copy:
+        profile["language"] = "Python"
+    return profiles_copy
