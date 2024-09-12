@@ -2,6 +2,10 @@
 
 ## Learning Objectives
 
+- Discuss dependency injection as a design pattern and how it relates to mocking.
+- Know how to use the Mock objects to test functions
+- Know how to use the unittest library to create Mock objects
+
 ## Plan
 
 ### Intro
@@ -90,6 +94,61 @@ def test_process_numbers_applies_given_filter_function_to_the_input_list():
 
     assert process_numbers([1, 2, 3, 4, 5], test_filter_fn) == 6
     assert has_been_called is True
+```
+
+Finally test the optional argument of a transformation function - for example a function that doubles numbers.
+
+```py
+def test_process_function_applies_both_filter_and_tranform_funcs():
+    def test_filter_fn(input_list):
+        return [1, 3, 5]
+
+    transform_has_been_called = False
+    transform_call_list = []
+
+    def test_transform_fn(input_list):
+        nonlocal transform_has_been_called # Emphasise the need for nonlocal
+        transform_has_been_called = True
+        transform_call_list.append(input_list)
+        return [2, 6, 10]
+
+    assert process_numbers([1, 2, 3, 4, 5], test_filter_fn, test_transform_fn) == 18
+
+    assert transform_has_been_called is True
+    assert transform_call_list == [[1, 3, 5]]
+```
+
+#### `unittest.mock`
+
+```py
+def test_process_numbers_returns_processed_numbers():
+    test_num_list = [1, 2, 3, 4, 5]
+    expected_return = 18
+
+    assert process_numbers(test_num_list) == expected_return
+
+
+@pytest.mark.skip()
+def test_filter_function_is_invoked_with_numbers_list():
+    test_num_list = [1, 2, 3, 4, 5]
+    test_filter_fn = Mock(return_value=[2, 4])
+
+    process_numbers(test_num_list, test_filter_fn)
+
+    test_filter_fn.assert_called_with(test_num_list)
+
+
+@pytest.mark.skip()
+def test_transform_function_is_invoked_with_filtered_numbers():
+    test_num_list = [1, 2, 3, 4, 5]
+    filtered_numbers = [2, 4]
+
+    test_filter_fn = Mock(return_value=filtered_numbers)
+    test_transform_fn = Mock(return_value=[1, 2])
+
+    process_numbers(test_num_list, test_filter_fn, test_transform_fn)
+
+    test_transform_fn.assert_called_with(filtered_numbers)
 ```
 
 Possible Solution:
