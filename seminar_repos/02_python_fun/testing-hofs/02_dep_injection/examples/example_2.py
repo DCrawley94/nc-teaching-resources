@@ -6,7 +6,7 @@ def double_numbers(numbers):
     return [n * 2 for n in numbers]
 
 
-def process_numbers(numbers, filter_func, transform_func=None):
+def process_numbers(numbers, filter_func, transform_func):
     """
     This function processes a given list of numbers, first by filtering the
     list using the given filter function, and then transforming the remaining
