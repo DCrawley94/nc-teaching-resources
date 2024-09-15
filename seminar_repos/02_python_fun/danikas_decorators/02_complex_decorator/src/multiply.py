@@ -6,16 +6,14 @@ by a given number and return that result of that multiplication.
 def my_maths_func():
     return 4 + 2
 
-my_maths_func = multiply(3)(my_maths_func)
-
 my_maths_func() # 18
 """
 
 
 def multiply(num):
     def outer_wrapper(func):
-        def inner_wrapper(*args):
-            return num * func(*args)
+        def inner_wrapper(*args):  # packs arguments into a tuple
+            return func(*args) * num  # unpacks arguments into function call
 
         return inner_wrapper
 

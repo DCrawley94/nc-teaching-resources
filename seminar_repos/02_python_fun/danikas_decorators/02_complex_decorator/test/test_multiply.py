@@ -1,54 +1,57 @@
 from src.multiply import multiply
 
 
-def test_multiply_returns_function():
-    result = multiply(3)
-
-    assert callable(result)
-
-
-def test_returned_func_returns_second_func():
-    def quick_maths():
-        return 2 + 2 - 1
-
-    result = multiply(2)(quick_maths)
-
-    assert callable(result)
+# multiply should return a function
+def test_multiply_returns_a_function():
+    output = multiply(3)
+    assert callable(output)
 
 
-def test_multiply_wrapper_calls_given_function_once():
+# returned function should also return a a function
+def test_returned_function_returns_second_func():
+    def dummy_func():
+        return 5
+
+    output = multiply(3)(dummy_func)
+    assert callable(output)
+
+
+# decorated function is called
+def test_multiply_calls_decorated_function():
     has_been_called = False
 
-    @multiply(5)
+    @multiply(3)
     def test_func():
         nonlocal has_been_called
         has_been_called = True
-        return 0
+        return 5
 
     test_func()
 
     assert has_been_called
 
 
-def test_multiply_returns_the_multiplied_result():
+# final function should return multiplied value
+def test_multiply_returns_result_of_decorated_func_multiplied_by_given_number():
     @multiply(2)
-    def quick_maths():
-        return 2 + 2 - 1
+    def test_func():
+        return 5
 
-    result_1 = quick_maths()
+    output = test_func()
 
-    assert result_1 == 6
+    assert output == 10
 
 
-def test_multiply_invokes_given_function_when_function_accepts_args():
-    passed_args = None
+def test_multiply_function_can_decorate_functions_that_accept_args():
+    @multiply(5)
+    def test_func(a, b):
+        return a + b
 
-    @multiply(2)
-    def mock_func(arg_1, arg_2):
-        nonlocal passed_args
-        passed_args = [arg_1, arg_2]
-        return arg_1 + arg_2
+    output = test_func(2, 2)
 
-    mock_func(1, 2)
+    assert output == 20
 
-    assert passed_args == [1, 2]
+
+# my_maths_func = multiply(3)
+# my_maths_func = decorated_multiply(my_maths_func)
+# my_maths_func() # 18
