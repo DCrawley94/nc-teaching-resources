@@ -1,4 +1,5 @@
 from src.example import count_ice_creams
+import pytest
 
 
 def test_empty_list_returns_0():
@@ -14,7 +15,7 @@ def test_none_nested_list_no_ice_cream_returns_0():
     assert result == expected
 
 
-def test_none_nested_list_with_ice_cream_returns_2():
+def test_none_nested_list_with_ice_cream_returns_count_of_ice_creams():
     input_1 = ["ice cream", "egg", "hello northcoders", "ice cream"]
     expected = 2
 

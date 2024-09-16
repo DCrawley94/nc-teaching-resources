@@ -143,6 +143,21 @@ def test_extra_nested_list_single_item():
     assert count_ice_creams(nested_ice_cream) == 1
 ```
 
+Solution with recursion:
+
+```py
+def count_ice_creams(food_list):
+    count = 0
+
+    for item in food_list:
+        if isinstance(item, list):
+            return count_ice_creams(item)
+        elif item == 'ice cream':
+            count += 1
+
+    return count
+```
+
 **Ask if students want to see a nested for loop solution**
 
 Possible for loop solution:
@@ -151,20 +166,14 @@ Possible for loop solution:
 def count_ice_creams(food_list):
     count = 0
 
-    for el in food_list:
-        if el == 'ice cream':
-            count += 1
-        elif isinstance(el, list):
-            nested_food_list = el
-            for nested_el in nested_food_list:
-                if nested_el == 'ice cream':
+    for item in food_list:
+        if isinstance(item, list):
+            nested_food_list = item
+            for nested_item in nested_food_list:
+                if nested_item == "ice cream":
                     count += 1
-                elif isinstance(nested_el, list):
-                    extra_nested_food_list = nested_el
-                    for extra_nested_el in extra_nested_food_list:
-                        if extra_nested_el == 'ice cream':
-                            count += 1
-
+        elif item == "ice cream":
+            count += 1
     return count
 ```
 
