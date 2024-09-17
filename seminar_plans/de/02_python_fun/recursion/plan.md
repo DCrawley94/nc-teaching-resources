@@ -1,5 +1,7 @@
 # Recursion
 
+**Have first couple of tests written to get onto recursion a bit quicker**
+
 **Figjam**: https://www.figma.com/file/kQdwksC4zZUpRRNGVoo73M/Recursion?type=whiteboard&node-id=0-1&t=pKXaFcgAODJnWHAw-0
 
 ## Learning Objectives

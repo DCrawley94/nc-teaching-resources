@@ -9,12 +9,11 @@
 
 
 def count_ice_creams(food_list):
-    count = 0
-
+    counter = 0
     for item in food_list:
         if isinstance(item, list):
-            return count_ice_creams(item)
-        elif item == "ice cream":
-            count += 1
+            counter += count_ice_creams(item)
+        if item == "ice cream":
+            counter += 1
 
-    return count
+    return counter
