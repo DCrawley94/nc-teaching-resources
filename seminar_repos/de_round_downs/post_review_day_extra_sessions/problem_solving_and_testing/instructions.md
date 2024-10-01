@@ -1,9 +1,3 @@
-# Post Review Day - Problem Solving Refresher
-
-**This one was quite beefy but lead to some good discussions about simplifying logic and when to break out into util functions**
-
-Problem: https://l2c.northcoders.com/courses/de2-fun/review#sectionId=Advanced_Tasks,step=intro
-
 Advanced: Human Resources - remove_agents
 It turns out Northcoders is riddled with corporate spies! It's become obvious to the resident conspiracy theorist that the moles signify their presence to each other on the company's social media platform's interests and about_me section.
 
@@ -13,9 +7,9 @@ Your function should take a list of dictionaries representing users' social medi
 
 Do what you can.
 
+```py
 Examples of users to remove:
 
-```py
  sam = {
    'name': 'Sam',
    'age': 30,
@@ -53,18 +47,3 @@ Examples of users to remove:
 
   # removed because the interest Monopoly Express contains the letters in the correct order.
 ```
-
----
-
-Possible test breakdown:
-
-- no issues with employee
-- whole word mole found in about me
-- whole word mole found in interests list
-- letters spelling mole found in about me - all lowercase
-- letters spelling mole found in interests - all lowercase
-- moles with capital letters:
-  - in about me (whole word)
-  - in interests (whole word)
-  - in about me (separate letters)
-  - in interests (separate letters)
