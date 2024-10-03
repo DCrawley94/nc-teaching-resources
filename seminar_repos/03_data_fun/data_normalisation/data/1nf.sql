@@ -30,4 +30,14 @@ SELECT * FROM students;
 -- CREATE NEW TABLES HERE:
 
 
+CREATE TABLE students_1nf AS 
+    SELECT student_id, student_name, UNNEST(STRING_TO_ARRAY(courses, ', ')) AS course, age
+    FROM students;
 
+ALTER TABLE students_1nf
+ADD PRIMARY KEY(student_id, course);
+
+SELECT * FROM students_1nf;
+
+
+\d students_1nf;

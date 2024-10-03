@@ -11,7 +11,7 @@ Figjam: https://www.figma.com/board/qpkjWwy8n7cVYM370X8g3g/Requests-Seminar?node
 - https://swapi.dev/documentation
 -
 
-## Task 2 - `get_film_data`
+## Task 1 - `get_film_data`
 
 **For this task we will be making use of the Star Wars API**
 
@@ -51,6 +51,8 @@ Break down the problem into steps and pick on students to help write it:
 - Do we need any extra configuration for opening the file for write operations - `w` (can leave this and debug the UnsupportedOperation error with them)
 
 If using `.json()` explore why this isn't working (Incorrectly converting python dictionary to JSON string - use JSON library instead or just `.text` attribute as it's already JSON)
+
+**Right click and format JSON with prettier to make it more readable**
 
 ## Task 2 - `get_character_names`
 
@@ -112,4 +114,4 @@ https://docs.aiohttp.org/en/stable/
 
 **FINALLY: CHECK IF ANYONE HAS MADE A HELPDESK**
 
-Go over first task getting instructions
+Go over first task getting instructions: https://l2c.northcoders.com/courses/data-fun/nc-leaks

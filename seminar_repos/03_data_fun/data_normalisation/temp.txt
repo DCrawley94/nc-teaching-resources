@@ -1,0 +1,55 @@
+DROP DATABASE
+CREATE DATABASE
+You are now connected to database "normalisationsql" as user "danika".
+CREATE TABLE
+INSERT 0 14
+ student_no | mentor | classroom | subject  
+------------+--------+-----------+----------
+      10456 | Rose   | Zoom_12   | Maths
+      10456 | Rose   | Zoom_12   | Science
+      10456 | Rose   | Zoom_12   | English
+      10839 | Haz    | Zoom_08   | English
+      10839 | Haz    | Zoom_08   | Art
+      10839 | Haz    | Zoom_08   | P.E.
+      10931 | Rose   | Zoom_12   | Music
+      10931 | Rose   | Zoom_12   | French
+      10931 | Rose   | Zoom_12   | Business
+      11525 | Liam   | Zoom_15   | I.T.
+      11525 | Liam   | Zoom_15   | Art
+      12633 | Haz    | Zoom_08   | Science
+      12633 | Haz    | Zoom_08   | P.E.
+      12633 | Haz    | Zoom_08   | I.T.
+(14 rows)
+
+SELECT 5
+ALTER TABLE
+SELECT 14
+ALTER TABLE
+ student_no | subject  
+------------+----------
+      10456 | Maths
+      10456 | Science
+      10456 | English
+      10839 | English
+      10839 | Art
+      10839 | P.E.
+      10931 | Music
+      10931 | French
+      10931 | Business
+      11525 | I.T.
+      11525 | Art
+      12633 | Science
+      12633 | P.E.
+      12633 | I.T.
+(14 rows)
+
+              Table "public.nc_student_subject_2nf"
+   Column   |       Type        | Collation | Nullable | Default 
+------------+-------------------+-----------+----------+---------
+ student_no | integer           |           | not null | 
+ subject    | character varying |           | not null | 
+Indexes:
+    "nc_student_subject_2nf_pkey" PRIMARY KEY, btree (student_no, subject)
+Foreign-key constraints:
+    "nc_student_subject_2nf_student_no_fkey" FOREIGN KEY (student_no) REFERENCES nc_classroom_2nf(student_no)
+
