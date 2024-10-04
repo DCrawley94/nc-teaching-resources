@@ -1,11 +1,13 @@
 from db.seed import seed
-from db.connection import conn
+from db.connection import create_connection, close_connection
 from db.data.index import data
 
-
+conn = None
 try:
-    seed(**data)
+    conn = create_connection()
+    seed(conn, **data)
 except Exception as e:
-    print(e, '<<<')
+    print(e, "<<<")
 finally:
-    conn.close()
+    if conn:
+        close_connection(conn)

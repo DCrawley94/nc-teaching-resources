@@ -1,7 +1,5 @@
 # pg8000: Data Formatting with TDD
 
-Use repo found [here](/Users/danika/nc/teaching/examples/be-seeding)
-
 ## Learning Objectives
 
 - Be to identify when data needs to be manipulated before inserted into a database

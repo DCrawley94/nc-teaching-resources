@@ -2,9 +2,9 @@ import time
 
 
 def csv_reader(file_name):
-    file = open(file_name)
-    result = file.read().split("\n")
-    return result
+    with open(file_name) as f:
+        result = f.read().split("\n")
+        return result
 
 
 def csv_reader_gen(file_name):
@@ -13,7 +13,8 @@ def csv_reader_gen(file_name):
 
 
 if __name__ == "__main__":
-    csv_gen = csv_reader_gen("test/pizzas.csv")
+    csv_gen = csv_reader_gen("./pizzas.csv")
+
     while True:
         time.sleep(1)
         print(next(csv_gen))
