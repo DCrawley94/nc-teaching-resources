@@ -1,5 +1,8 @@
 from pg8000.native import Connection
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
 
 DB_USER = os.environ["DB_USER"]
 DB_PASS = os.environ["DB_PASS"]

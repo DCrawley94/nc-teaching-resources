@@ -2,6 +2,8 @@
 
 Figjam: https://www.figma.com/file/Ps3GlZgxKAM84cLEVmiSeZ/HTTP-Servers?type=whiteboard&t=XBS1TZhMYdVoPrpT-6
 
+**THIS NEEDS CHANGING TO COVER SIMPLE GET AND GET BY ID ENDPOINT**
+
 ## Introduce the Repo
 
 Explain that it's the same repo I was working in on Friday:
@@ -43,7 +45,7 @@ Demo it working by using Insomnia:
 
 - GET /api/games/:game_id
 
-While showing the healthcheck endpoint pick someone to help write a bit of pseudocode to break down what we need to do for our solution.
+After showing the healthcheck endpoint pick someone to help write a bit of pseudocode to break down what we need to do for our solution.
 
 Possible pseudocode:
 
@@ -54,21 +56,22 @@ Possible pseudocode:
 # Build up response and send
 ```
 
-## Starting writing out code:
+### Starting writing out code:
 
-- `import re` - we'll need this for checking the path - might not be nece
-- `from db.connection import conn` - we'll need this for querying the DB
-- `GET_GAME_BY_ID_REGEX = re.compile(r"/api/games/(\d+)")` - define a REGEX for matching the path
+- `import re` - we'll need this for checking the path
+- `from db.connection import create_connection` - we'll need this for querying the DB
+- `GET_GAME_BY_ID_REGEX = re.compile(r"/api/games/\d+")` - define a REGEX for matching the path
 
-Pick on people as I'm working through the solution, thing like:
+Pick on people as I'm working through the solution, things like:
 
 - How can I match any number of digits with regex?
 - how can I pull the game id from the url?
 - Ask someone to guide me through writing the SQL
 - How should we deal with column names? We can hardcode these but is there a better way?
-- WHat response code should I send?
+- When can I close the DB connection?
+- What response code should I send?
 - What content type should I specify?
-- What dod I need to do once I've finished setting headers? - end headers
+- What do I need to do once I've finished setting headers? - end headers
 - What data type should the response body be? - string therefore `json.dumps`
 - What encoding should it be in? - utf-8, should default to that but we can make sure with the `.encode` method
 
@@ -76,17 +79,17 @@ Possible solution:
 
 **TRY TO SHOW ZIP FUNCTION FOR BUILDING RESPONSE**
 
-Possible solution:
-
 ```py
 # check url - how do we match the url when the ID could be anything - Regex?
-if re.match(GET_GAME_BY_ID_REGEX, self.path):
+if re.fullmatch(GET_GAME_BY_ID_REGEX, self.path): # fullmatch will match the whole string/could possibly use normal match instead
     # Get game ID from url
-    game_id = int(re.match(GET_GAME_BY_ID_REGEX, self.path).group(1))
+    game_id = re.search(r"\d+", self.path)[0]
+    # game_id = int(re.match(GET_GAME_BY_ID_REGEX, self.path).group(1))
 
-    # Query the DB to get the game with correct ID - what format will this return?
+    # Create connection:
     conn = create_connection()
 
+    # Query the DB to get the game with correct ID - what format will this return?
     query_result = conn.run("""
     SELECT *
     FROM games
@@ -94,6 +97,9 @@ if re.match(GET_GAME_BY_ID_REGEX, self.path):
     """, game_id = game_id)[0]
 
     game_columns =  [col['name'] for col in conn.columns]
+
+    # After getting column data we can close the connection:
+    close_connection(conn)
 
     # Format response into more something more helpful
     game_data = dict(zip(game_columns, query_result))
@@ -116,7 +122,7 @@ if re.match(GET_GAME_BY_ID_REGEX, self.path):
 
 ```
 
-## Depending on time: Pseudocode the POST endpoint
+## Second Endpoint : POST new game
 
 - POST /api/games
 
@@ -152,12 +158,18 @@ def do_POST(self):
         RETURNING *;
         """
 
+        conn = create_connection()
+
         inserted_game = conn.run(insert_query_str, **new_game)[0]
 
         # More formatting of data returned from the query
         game_columns = [col['name'] for col in conn.columns]
+        # Can use zip instead ->
         formatted_game = {game_columns[i]: inserted_game[i]
                           for i in range(len(game_columns))}
+
+        close_connection(conn)
+
 
           # prepare response
         self.send_response(200)

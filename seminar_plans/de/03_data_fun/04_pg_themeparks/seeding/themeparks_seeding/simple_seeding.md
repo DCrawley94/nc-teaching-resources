@@ -75,6 +75,19 @@ Therefore that will need to be the first we create (and also insert data when we
 
 Table creation is already done - **Ask students why it was done in this order**
 
+```python
+conn.run("""
+    CREATE TABLE reviews (
+        review_id SERIAL PRIMARY KEY,
+        game_id INT REFERENCES games(game_id) NOT NULL,
+        username VARCHAR(50) NOT NULL,
+        comment VARCHAR NOT NULL,
+        rating INT NOT NULL
+    );
+    """)
+
+```
+
 ## Inserting games data
 
 Take the time to look at the data that needs to be inserted.
