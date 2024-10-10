@@ -1,16 +1,17 @@
-from db.connection import connect_to_db 
+from db.connection import create_connection, close_connection
 from db.utils import create_games_lookup, format_reviews, games_query_builder_example
-from pprint import pprint
+
 
 def seed(games, reviews):
-	# Drop tables
-	try:
-		conn = connect_to_db()
-		conn.run("DROP TABLE IF EXISTS reviews;")
-		conn.run("DROP TABLE IF EXISTS games;")
-		
-		# Create tables
-		conn.run("""
+    # Drop tables
+    conn = None
+    try:
+        conn = create_connection()
+        conn.run("DROP TABLE IF EXISTS reviews;")
+        conn.run("DROP TABLE IF EXISTS games;")
+
+        # Create tables
+        conn.run("""
 		CREATE TABLE games (
 				game_id SERIAL PRIMARY KEY,
 				game_title VARCHAR NOT NULL,
@@ -19,8 +20,8 @@ def seed(games, reviews):
 				image_url VARCHAR
 				);
 		""")
-		
-		conn.run("""
+
+        conn.run("""
 		CREATE TABLE reviews (
 				review_id SERIAL PRIMARY KEY,
 				game_id INT NOT NULL REFERENCES games(game_id),
@@ -30,14 +31,14 @@ def seed(games, reviews):
 				);
 		""")
 
-		#  ~~~~~  SOLUTION WITHOUT QUERY BUILDER UTIL  ~~~~~  
+        #  ~~~~~  SOLUTION WITHOUT QUERY BUILDER UTIL  ~~~~~
 
-		# Ready to collect inserted games for formatting reviews
-		inserted_games = []
+        # Ready to collect inserted games for formatting reviews
+        inserted_games = []
 
-		# insert prepared games data - horrible for loop style
-		for game in games:
-			insert_query = f"""
+        # insert prepared games data - horrible for loop style
+        for game in games:
+            insert_query = f"""
 			INSERT INTO games 
 			(game_title, release_year, console_name, image_url)
 			VALUES
@@ -49,21 +50,21 @@ def seed(games, reviews):
 			)
 			RETURNING *;
 			"""
-			# Note the quotation marks around the game title, console name and image url interpolated values
-			#  If you don't have these it will lead to syntax errors
+            # Note the quotation marks around the game title, console name and image url interpolated values
+            #  If you don't have these it will lead to syntax errors
 
-			inserted_row = conn.run(insert_query)
-			inserted_games.append(inserted_row[0])
+            inserted_row = conn.run(insert_query)
+            inserted_games.append(inserted_row[0])
 
-		# Create games_id lookup for formatting reviews
-		games_id_lookup = create_games_lookup(inserted_games)
-		
-		# Format them to get game_id instead of game_title
-		formatted_reviews = format_reviews(reviews, games_id_lookup)
+        # Create games_id lookup for formatting reviews
+        games_id_lookup = create_games_lookup(inserted_games)
 
-		# insert prepared reviews data - another horrible for loop
-		for review in formatted_reviews:
-			insert_query = f"""
+        # Format them to get game_id instead of game_title
+        formatted_reviews = format_reviews(reviews, games_id_lookup)
+
+        # insert prepared reviews data - another horrible for loop
+        for review in formatted_reviews:
+            insert_query = f"""
 			INSERT INTO reviews 
 			(game_id, username, comment, rating)
 			VALUES
@@ -75,12 +76,12 @@ def seed(games, reviews):
 			)
 			"""
 
-			conn.run(insert_query)
-	
-	except Exception as e:
-		print(e)
-	finally:
-		if conn:
-			conn.close()
-	
+            conn.run(insert_query)
 
+        print("db seeded")
+
+    except Exception as e:
+        print(e)
+    finally:
+        if conn:
+            close_connection(conn)

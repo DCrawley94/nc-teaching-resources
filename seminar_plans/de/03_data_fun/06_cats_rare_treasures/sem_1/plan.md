@@ -2,7 +2,10 @@
 
 ## Learning Objectives
 
--
+- Identify the difference between a unit test and an integration test in context.
+- Understand how create a GET endpoint using TDD
+- Understand how create an endpoint requiring a request body, using TDD
+- Develop and apply knowledge of error handling to integration testing
 
 ## Intro
 
@@ -28,12 +31,12 @@ Response:
 
 Pick on someone to identify the first test:
 
-- status 200, returns correct review
+- status 200, returns correct review:
 
 Ask for suggestions of other tests:
 
 - status 404, no review found
-- status 422, malformed review_id
+- status 422, malformed review_id?
 
 Ask for a volunteer to talk me through writing this test:
 
@@ -140,7 +143,7 @@ if len(review) == 0:
         status_code=404, detail=f"No review with id {review_id}")
 ```
 
-### 400/422 - malformed review
+### 400/422 - malformed review id
 
 More help with test.
 
@@ -184,6 +187,22 @@ def get_review_by_id(review_id:int):  # This is the key part!
     finally:
         if conn:
             conn.close()
+```
+
+400 response - no pydantic:
+
+```py
+except DatabaseError as db_error:
+        # This error handling is only required if you're not relying on
+        #   pydantics 422s
+        error = db_error.args[0]
+        error_code = error["C"]
+        error_message = error["M"]
+        if error_code == "22P02":
+            raise HTTPException(
+                status_code=400,
+                detail=f"review_id should be an integer - {error_message}",
+            )
 ```
 
 ## Part 2: POST
@@ -253,7 +272,7 @@ possible solution:
 
 ```py
 @app.post('/api/games', status_code=201)
-def post_game(new_game):
+def post_game(new_game: NewGame):
     conn = None
     try:
         conn = connect_to_db()
