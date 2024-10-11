@@ -1,0 +1,2 @@
+name: Get review by id
+url: http://localhost:8000/api/reviews/1

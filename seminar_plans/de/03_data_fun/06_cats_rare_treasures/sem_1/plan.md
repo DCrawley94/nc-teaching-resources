@@ -90,7 +90,7 @@ Questions to ask during:
 Possible solution:
 
 ```py
-from db.connection import connect_to_db
+from db.connection import create_connection, close_connection
 from server_utils import format_response
 
 # ...
@@ -99,7 +99,7 @@ from server_utils import format_response
 def get_review_by_id(review_id): # this can be typed - will need to be untyped to see later test fail
     conn = None
     try:
-        conn = connect_to_db()
+        conn = create_connection()
         review = conn.run("""
         SELECT review_id, game_title, username, comment, rating
         FROM reviews
@@ -112,7 +112,7 @@ def get_review_by_id(review_id): # this can be typed - will need to be untyped t
         return response
     finally:
         if conn:
-            conn.close()
+            close_connection(conn)
 ```
 
 ### 404 - no review
@@ -189,7 +189,7 @@ def get_review_by_id(review_id:int):  # This is the key part!
             conn.close()
 ```
 
-400 response - no pydantic:
+**AVOID THIS** - 400 response - no pydantic:
 
 ```py
 except DatabaseError as db_error:
@@ -275,7 +275,7 @@ possible solution:
 def post_game(new_game: NewGame):
     conn = None
     try:
-        conn = connect_to_db()
+        conn = create_connection()
         new_game = conn.run("""
         INSERT INTO games
         (game_title, release_year, console_name, image_url)
@@ -288,7 +288,7 @@ def post_game(new_game: NewGame):
         return response
     finally:
         if conn:
-            conn.close()
+            close_connection(conn)
 ```
 
 ### 400/422 - malformed game
