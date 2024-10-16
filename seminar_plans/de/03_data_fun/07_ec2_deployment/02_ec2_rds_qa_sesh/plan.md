@@ -46,9 +46,17 @@ Explanations from AWS (a bit sales-y but a good overview)
 
 [What is IAM?](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html)
 
+Use AWS Identity and Access Management (IAM) to manage and scale workload and workforce access securely supporting your agility and innovation in AWS.
+
+When working with AWS it is unwise to have unlimited access to everything - you can have users/roles etc with limited permissions (such as the students account)
+
 [RDS](https://aws.amazon.com/rds/)
 
 [What is RDS?](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html)
+
+Context
+
+As context for why you'd want to configure a connection between your EC2 instance and an RDS database, let's consider the following scenario: Your website presents a form to your users to fill in. You need to capture the form data in a database. You can host your website on an EC2 instance that's been configured as a web server, and you can capture the form data in an RDS database. The EC2 instance and the RDS database need to be connected to each other so that the form data can go from the EC2 instance to the RDS database. This tutorial explains how to configure that connection. Note that this is just one example of a use case for connecting an EC2 instance and an RDS database.
 
 ## How to create an RDS database
 
