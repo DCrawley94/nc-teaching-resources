@@ -5,7 +5,7 @@ __pycache__
 .pytest_cache
 data_eng_resources
 .terraform
-.terraform.lock.hcl
+**.terraform.lock.hcl
 **terraform.tfstate.backup
 *.tfstate
 
