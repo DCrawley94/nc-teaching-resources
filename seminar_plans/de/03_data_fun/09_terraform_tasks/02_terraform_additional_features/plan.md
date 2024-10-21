@@ -248,3 +248,19 @@ And of course we should put this file in the `.gitignore`!
 ---
 
 This isn't the only way to handle sensitive info but it is a good way of doing it. And as always for more info just look at the docs: https://developer.hashicorp.com/terraform/tutorials/configuration-language/sensitive-variables
+
+## More good practices
+
+Let's get tagging
+
+```hcl
+provider "aws" {
+ default_tags {
+   tags = {
+     Environment = "Test"
+     Owner       = "TFProviders"
+     Project     = "Test"
+   }
+ }
+}
+```

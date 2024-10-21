@@ -1,3 +1,5 @@
+
+
 data "aws_iam_policy_document" "tf-admin-access" {
   statement {
     effect    = "Allow"
@@ -6,16 +8,17 @@ data "aws_iam_policy_document" "tf-admin-access" {
   }
 }
 
+
 resource "aws_iam_user" "colleagues" {
   for_each = toset(var.colleagues)
-
-  name = "${each.key}_tf_admin_access"
+  name     = each.key
 }
 
-resource "aws_iam_user_policy" "colleague-tf-admin-access" {
-  for_each = aws_iam_user.colleagues
+resource "aws_iam_user_policy" "tf-admin-access" {
+  for_each = toset(var.colleagues)
 
   name   = "${each.key}_tf_admin_access"
-  user   = each.value.name
+  user   = each.key
   policy = data.aws_iam_policy_document.tf-admin-access.json
 }
+
