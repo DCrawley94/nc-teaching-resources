@@ -6,6 +6,37 @@
 
 # Useful Variables
 
-PYTHON_INTERPRETER=python
+PYTHON_INTERPRETER=python3
 PIP=pip
 SHELL=/bin/bash # If this isn't set the shell will default to `sh`
+
+PYTHONPATH=$(shell pwd)
+
+define execute_in_env
+	source venv/bin/activate && $1
+endef
+
+
+create-environment:
+	$(PYTHON_INTERPRETER) -m venv venv
+
+
+install-requirements: create-environment
+	$(call execute_in_env, $(PIP) install -r requirements.txt)
+
+unit-test: install-requirements
+	source venv/bin/activate && PYTHONPATH=$(PYTHONPATH) pytest -vvv
+
+# ~~~~~ Install code quality tools ~~~~~
+install-dev-tools: create-environment
+	source venv/bin/activate && $(PIP) install bandit safety flake8
+
+# ~~~~~ Run code quality checks ~~~~~
+security-checks: install-dev-tools
+	source venv/bin/activate && safety check -r ./requirements.txt
+	source venv/bin/activate && bandit -lll */*.py *c/*.py
+
+check-pep8-compliance: install-dev-tools
+	source venv/bin/activate && flake8 src test
+
+run-checks: unit-test security-checks check-pep8-compliance
