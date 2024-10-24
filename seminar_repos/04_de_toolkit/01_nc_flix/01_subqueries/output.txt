@@ -1,0 +1,83 @@
+
+RESEEDING DB
+
+You are now connected to database "bear_crimes" as user "danika".
+
+Bears more dangerous than Pooh:
+
+   bear_name    | danger_rating 
+----------------+---------------
+ Paddington     |             9
+ Yogi           |             7
+ The Care Bears |             9
+ Baloo          |             8
+ Fozzie Bear    |             7
+(5 rows)
+
+
+Average danger rating:
+
+ round 
+-------
+  7.29
+(1 row)
+
+
+Bears with a greater than average danger rating:
+
+   bear_name    | danger_rating 
+----------------+---------------
+ Paddington     |             9
+ The Care Bears |             9
+ Baloo          |             8
+(3 rows)
+
+
+Assigning bears a danger level:
+
+   bear_name    | danger_rating |  danger_level  
+----------------+---------------+----------------
+ Paddington     |             9 | very dangerous
+ Sooty          |             5 | not dangerous
+ Yogi           |             7 | dangerous
+ Pooh           |             6 | not dangerous
+ The Care Bears |             9 | very dangerous
+ Baloo          |             8 | dangerous
+ Fozzie Bear    |             7 | dangerous
+(7 rows)
+
+
+Danger level refactor:
+
+   bear_name    | danger_rating |      case      
+----------------+---------------+----------------
+ Paddington     |             9 | very dangerous
+ Sooty          |             5 | not dangerous
+ Yogi           |             7 | not dangerous
+ Pooh           |             6 | not dangerous
+ The Care Bears |             9 | very dangerous
+ Baloo          |             8 | very dangerous
+ Fozzie Bear    |             7 | not dangerous
+(7 rows)
+
+
+Dangerous Bear Crimes:
+
+ bear_id |   bear_name    |                               bear_description                               | danger_rating | crime_id 
+---------+----------------+------------------------------------------------------------------------------+---------------+----------
+       1 | Paddington     | Looks cute but will destroy everything you own with his neglectful silliness |             9 |        5
+       2 | Sooty          | Suspiciously quiet/ hiding something                                         |             5 |        4
+       3 | Yogi           | Notorious Picnic thief                                                       |             7 |        3
+       4 | Pooh           | Would sell his own Granny for a pot of honey                                 |             6 |        3
+       5 | The Care Bears | One of the most dangerous gangs operating in the Kingdom of Caring           |             9 |        4
+       6 | Baloo          | Enlists humans to do his bidding                                             |             8 |        3
+       7 | Fozzie Bear    | Do not trust a word he says Waka waka                                        |             7 |         
+(7 rows)
+
+         crime_description          
+------------------------------------
+ Thievery
+ Practicing magic without a license
+ Selling counterfeit marmalade
+(3 rows)
+

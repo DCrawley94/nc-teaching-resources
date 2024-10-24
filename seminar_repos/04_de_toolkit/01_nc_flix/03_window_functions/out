@@ -1,0 +1,170 @@
+
+Sales in the fourth quarter of 2022:
+
+ sales_period |             album_title             |          artist          | copies_sold | sold_in_4q_2022 
+--------------+-------------------------------------+--------------------------+-------------+-----------------
+ 2022_4Q      | Wednesday Morning, 3 A.M            | Simon & Garfunkel        |         809 |            7403
+ 2022_4Q      | EnRoute: John Scofield Trio LIVE    | John Scofield Trio       |         612 |            7403
+ 2022_4Q      | Nasty Gal                           | Betty Davis              |         369 |            7403
+ 2022_4Q      | The New Folk Sound of Terry Callier | Terry Callier            |         214 |            7403
+ 2022_4Q      | In a Silent Way                     | Miles Davis              |          65 |            7403
+ 2022_4Q      | Cold Sweat                          | James Brown              |         209 |            7403
+ 2022_4Q      | The Freewheelin' Bob Dylan          | Bob Dylan                |         246 |            7403
+ 2022_4Q      | My Favorite Things                  | John Coltrane            |         377 |            7403
+ 2022_4Q      | A Whole New Thing                   | Sly and the Family Stone |         816 |            7403
+ 2022_4Q      | Five Leaves Left                    | Nick Drake               |         400 |            7403
+ 2022_4Q      | Head Hunters                        | Herbie Hancock           |         409 |            7403
+ 2022_4Q      | In the Right Place                  | Dr. John                 |         912 |            7403
+ 2022_4Q      | Blue                                | Joni Mitchell            |         412 |            7403
+ 2022_4Q      | Concierto                           | Jim Hall                 |         612 |            7403
+ 2022_4Q      | Dirty Mind                          | Prince                   |         941 |            7403
+(15 rows)
+
+
+Sales over time of the album 'In the Right Place':
+
+ sales_period |    album_title     |  artist  | copies_sold | cumulative_sum 
+--------------+--------------------+----------+-------------+----------------
+ 2022_1Q      | In the Right Place | Dr. John |         222 |            222
+ 2022_2Q      | In the Right Place | Dr. John |         208 |            430
+ 2022_3Q      | In the Right Place | Dr. John |          94 |            524
+ 2022_4Q      | In the Right Place | Dr. John |         912 |           1436
+ 2023_1Q      | In the Right Place | Dr. John |         912 |           2348
+ 2023_2Q      | In the Right Place | Dr. John |          56 |           2404
+ 2023_3Q      | In the Right Place | Dr. John |         562 |           2966
+(7 rows)
+
+
+Sales in the fourth quarter by genre':
+
+             album_title             |          artist          | copies_sold | album_genre | sales_by_genre 
+-------------------------------------+--------------------------+-------------+-------------+----------------
+ Wednesday Morning, 3 A.M            | Simon & Garfunkel        |         809 | Folk        |           2081
+ The Freewheelin' Bob Dylan          | Bob Dylan                |         246 | Folk        |           2081
+ Five Leaves Left                    | Nick Drake               |         400 | Folk        |           2081
+ The New Folk Sound of Terry Callier | Terry Callier            |         214 | Folk        |           2081
+ Blue                                | Joni Mitchell            |         412 | Folk        |           2081
+ Dirty Mind                          | Prince                   |         941 | Funk        |           3247
+ Nasty Gal                           | Betty Davis              |         369 | Funk        |           3247
+ Cold Sweat                          | James Brown              |         209 | Funk        |           3247
+ A Whole New Thing                   | Sly and the Family Stone |         816 | Funk        |           3247
+ In the Right Place                  | Dr. John                 |         912 | Funk        |           3247
+ Head Hunters                        | Herbie Hancock           |         409 | Jazz        |           2075
+ EnRoute: John Scofield Trio LIVE    | John Scofield Trio       |         612 | Jazz        |           2075
+ In a Silent Way                     | Miles Davis              |          65 | Jazz        |           2075
+ Concierto                           | Jim Hall                 |         612 | Jazz        |           2075
+ My Favorite Things                  | John Coltrane            |         377 | Jazz        |           2075
+(15 rows)
+
+
+Sales in the fourth quarter by genre':
+
+ sales_period |             album_title             |          artist          | copies_sold | cumulative_sum_by_album 
+--------------+-------------------------------------+--------------------------+-------------+-------------------------
+ 2022_1Q      | A Whole New Thing                   | Sly and the Family Stone |         674 |                     674
+ 2022_2Q      | A Whole New Thing                   | Sly and the Family Stone |         257 |                     931
+ 2022_3Q      | A Whole New Thing                   | Sly and the Family Stone |         666 |                    1597
+ 2022_4Q      | A Whole New Thing                   | Sly and the Family Stone |         816 |                    2413
+ 2023_1Q      | A Whole New Thing                   | Sly and the Family Stone |         816 |                    3229
+ 2023_2Q      | A Whole New Thing                   | Sly and the Family Stone |         302 |                    3531
+ 2023_3Q      | A Whole New Thing                   | Sly and the Family Stone |         123 |                    3654
+ 2022_1Q      | Blue                                | Joni Mitchell            |         589 |                     589
+ 2022_2Q      | Blue                                | Joni Mitchell            |         184 |                     773
+ 2022_3Q      | Blue                                | Joni Mitchell            |         256 |                    1029
+ 2022_4Q      | Blue                                | Joni Mitchell            |         412 |                    1441
+ 2023_1Q      | Blue                                | Joni Mitchell            |         412 |                    1853
+ 2023_2Q      | Blue                                | Joni Mitchell            |          99 |                    1952
+ 2023_3Q      | Blue                                | Joni Mitchell            |         995 |                    2947
+ 2022_1Q      | Cold Sweat                          | James Brown              |         815 |                     815
+ 2022_2Q      | Cold Sweat                          | James Brown              |        1000 |                    1815
+ 2022_3Q      | Cold Sweat                          | James Brown              |          29 |                    1844
+ 2022_4Q      | Cold Sweat                          | James Brown              |         209 |                    2053
+ 2023_1Q      | Cold Sweat                          | James Brown              |         209 |                    2262
+ 2023_2Q      | Cold Sweat                          | James Brown              |         456 |                    2718
+ 2023_3Q      | Cold Sweat                          | James Brown              |        1005 |                    3723
+ 2022_1Q      | Concierto                           | Jim Hall                 |         479 |                     479
+ 2022_2Q      | Concierto                           | Jim Hall                 |         288 |                     767
+ 2022_3Q      | Concierto                           | Jim Hall                 |         306 |                    1073
+ 2022_4Q      | Concierto                           | Jim Hall                 |         612 |                    1685
+ 2023_1Q      | Concierto                           | Jim Hall                 |         612 |                    2297
+ 2023_2Q      | Concierto                           | Jim Hall                 |         145 |                    2442
+ 2023_3Q      | Concierto                           | Jim Hall                 |         263 |                    2705
+ 2022_1Q      | Dirty Mind                          | Prince                   |         894 |                     894
+ 2022_2Q      | Dirty Mind                          | Prince                   |        1008 |                    1902
+ 2022_3Q      | Dirty Mind                          | Prince                   |         412 |                    2314
+ 2022_4Q      | Dirty Mind                          | Prince                   |         941 |                    3255
+ 2023_1Q      | Dirty Mind                          | Prince                   |         941 |                    4196
+ 2023_2Q      | Dirty Mind                          | Prince                   |         100 |                    4296
+ 2023_3Q      | Dirty Mind                          | Prince                   |         169 |                    4465
+ 2022_1Q      | EnRoute: John Scofield Trio LIVE    | John Scofield Trio       |         512 |                     512
+ 2022_2Q      | EnRoute: John Scofield Trio LIVE    | John Scofield Trio       |         945 |                    1457
+ 2022_3Q      | EnRoute: John Scofield Trio LIVE    | John Scofield Trio       |         256 |                    1713
+ 2022_4Q      | EnRoute: John Scofield Trio LIVE    | John Scofield Trio       |         612 |                    2325
+ 2023_1Q      | EnRoute: John Scofield Trio LIVE    | John Scofield Trio       |         612 |                    2937
+ 2023_2Q      | EnRoute: John Scofield Trio LIVE    | John Scofield Trio       |         941 |                    3878
+ 2023_3Q      | EnRoute: John Scofield Trio LIVE    | John Scofield Trio       |         404 |                    4282
+ 2022_1Q      | Five Leaves Left                    | Nick Drake               |         321 |                     321
+ 2022_2Q      | Five Leaves Left                    | Nick Drake               |         456 |                     777
+ 2022_3Q      | Five Leaves Left                    | Nick Drake               |          20 |                     797
+ 2022_4Q      | Five Leaves Left                    | Nick Drake               |         400 |                    1197
+ 2023_1Q      | Five Leaves Left                    | Nick Drake               |         400 |                    1597
+ 2023_2Q      | Five Leaves Left                    | Nick Drake               |         116 |                    1713
+ 2023_3Q      | Five Leaves Left                    | Nick Drake               |         321 |                    2034
+ 2022_1Q      | Head Hunters                        | Herbie Hancock           |         497 |                     497
+ 2022_2Q      | Head Hunters                        | Herbie Hancock           |         411 |                     908
+ 2022_3Q      | Head Hunters                        | Herbie Hancock           |         100 |                    1008
+ 2022_4Q      | Head Hunters                        | Herbie Hancock           |         409 |                    1417
+ 2023_1Q      | Head Hunters                        | Herbie Hancock           |         409 |                    1826
+ 2023_2Q      | Head Hunters                        | Herbie Hancock           |         245 |                    2071
+ 2023_3Q      | Head Hunters                        | Herbie Hancock           |         542 |                    2613
+ 2022_1Q      | In a Silent Way                     | Miles Davis              |         428 |                     428
+ 2022_2Q      | In a Silent Way                     | Miles Davis              |        1053 |                    1481
+ 2022_3Q      | In a Silent Way                     | Miles Davis              |          19 |                    1500
+ 2022_4Q      | In a Silent Way                     | Miles Davis              |          65 |                    1565
+ 2023_1Q      | In a Silent Way                     | Miles Davis              |          65 |                    1630
+ 2023_2Q      | In a Silent Way                     | Miles Davis              |         218 |                    1848
+ 2023_3Q      | In a Silent Way                     | Miles Davis              |         809 |                    2657
+ 2022_1Q      | In the Right Place                  | Dr. John                 |         222 |                     222
+ 2022_2Q      | In the Right Place                  | Dr. John                 |         208 |                     430
+ 2022_3Q      | In the Right Place                  | Dr. John                 |          94 |                     524
+ 2022_4Q      | In the Right Place                  | Dr. John                 |         912 |                    1436
+ 2023_1Q      | In the Right Place                  | Dr. John                 |         912 |                    2348
+ 2023_2Q      | In the Right Place                  | Dr. John                 |          56 |                    2404
+ 2023_3Q      | In the Right Place                  | Dr. John                 |         562 |                    2966
+ 2022_1Q      | My Favorite Things                  | John Coltrane            |         325 |                     325
+ 2022_2Q      | My Favorite Things                  | John Coltrane            |         333 |                     658
+ 2022_3Q      | My Favorite Things                  | John Coltrane            |         349 |                    1007
+ 2022_4Q      | My Favorite Things                  | John Coltrane            |         377 |                    1384
+ 2023_1Q      | My Favorite Things                  | John Coltrane            |         377 |                    1761
+ 2023_2Q      | My Favorite Things                  | John Coltrane            |         203 |                    1964
+ 2023_3Q      | My Favorite Things                  | John Coltrane            |         302 |                    2266
+ 2022_1Q      | Nasty Gal                           | Betty Davis              |         809 |                     809
+ 2022_2Q      | Nasty Gal                           | Betty Davis              |         224 |                    1033
+ 2022_3Q      | Nasty Gal                           | Betty Davis              |         228 |                    1261
+ 2022_4Q      | Nasty Gal                           | Betty Davis              |         369 |                    1630
+ 2023_1Q      | Nasty Gal                           | Betty Davis              |         369 |                    1999
+ 2023_2Q      | Nasty Gal                           | Betty Davis              |         555 |                    2554
+ 2023_3Q      | Nasty Gal                           | Betty Davis              |         808 |                    3362
+ 2022_1Q      | The Freewheelin' Bob Dylan          | Bob Dylan                |        1008 |                    1008
+ 2022_2Q      | The Freewheelin' Bob Dylan          | Bob Dylan                |         359 |                    1367
+ 2022_3Q      | The Freewheelin' Bob Dylan          | Bob Dylan                |         100 |                    1467
+ 2022_4Q      | The Freewheelin' Bob Dylan          | Bob Dylan                |         246 |                    1713
+ 2023_1Q      | The Freewheelin' Bob Dylan          | Bob Dylan                |         246 |                    1959
+ 2023_2Q      | The Freewheelin' Bob Dylan          | Bob Dylan                |         654 |                    2613
+ 2023_3Q      | The Freewheelin' Bob Dylan          | Bob Dylan                |         597 |                    3210
+ 2022_1Q      | The New Folk Sound of Terry Callier | Terry Callier            |         903 |                     903
+ 2022_2Q      | The New Folk Sound of Terry Callier | Terry Callier            |         418 |                    1321
+ 2022_3Q      | The New Folk Sound of Terry Callier | Terry Callier            |        1254 |                    2575
+ 2022_4Q      | The New Folk Sound of Terry Callier | Terry Callier            |         214 |                    2789
+ 2023_1Q      | The New Folk Sound of Terry Callier | Terry Callier            |         214 |                    3003
+ 2023_2Q      | The New Folk Sound of Terry Callier | Terry Callier            |         541 |                    3544
+ 2023_3Q      | The New Folk Sound of Terry Callier | Terry Callier            |         283 |                    3827
+ 2022_1Q      | Wednesday Morning, 3 A.M            | Simon & Garfunkel        |        1043 |                    1043
+ 2022_2Q      | Wednesday Morning, 3 A.M            | Simon & Garfunkel        |         437 |                    1480
+ 2022_3Q      | Wednesday Morning, 3 A.M            | Simon & Garfunkel        |         184 |                    1664
+ 2022_4Q      | Wednesday Morning, 3 A.M            | Simon & Garfunkel        |         809 |                    2473
+ 2023_1Q      | Wednesday Morning, 3 A.M            | Simon & Garfunkel        |         809 |                    3282
+ 2023_2Q      | Wednesday Morning, 3 A.M            | Simon & Garfunkel        |         325 |                    3607
+ 2023_3Q      | Wednesday Morning, 3 A.M            | Simon & Garfunkel        |         612 |                    4219
+(105 rows)
+

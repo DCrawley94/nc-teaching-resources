@@ -1,0 +1,21 @@
+You are now connected to database "nc_art_gallery" as user "poonamrajput".
+ sale_date  |  artist_name  | sales_price | rolling_total 
+------------+---------------+-------------+---------------
+ 2024-04-10 | Kate Smith    |      300.00 |        300.00
+ 2024-04-01 | Natali Wein   |     2500.00 |       2500.00
+ 2024-04-10 | Natali Wein   |     2300.00 |       4800.00
+ 2024-04-15 | Nigel Dataman |     4000.00 |       4000.00
+ 2024-04-22 | Nigel Dataman |      200.00 |       4250.00
+ 2024-04-22 | Nigel Dataman |       50.00 |       4250.00
+(6 rows)
+
+ sale_date  |  artist_name  | sales_price | rolling_total 
+------------+---------------+-------------+---------------
+ 2024-04-01 | Natali Wein   |     2500.00 |       2500.00
+ 2024-04-10 | Kate Smith    |      300.00 |        300.00
+ 2024-04-10 | Natali Wein   |     2300.00 |       4800.00
+ 2024-04-15 | Nigel Dataman |     4000.00 |       4000.00
+ 2024-04-22 | Nigel Dataman |      200.00 |       4250.00
+ 2024-04-22 | Nigel Dataman |       50.00 |       4250.00
+(6 rows)
+
