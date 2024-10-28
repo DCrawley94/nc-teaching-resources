@@ -1,0 +1,80 @@
+You are now connected to database "bear_crimes" as user "danika".
+
+Average danger rating:
+
+ round 
+-------
+  7.29
+(1 row)
+
+
+Bears more dangerous than Pooh:
+
+   bear_name    | danger_rating 
+----------------+---------------
+ Paddington     |             9
+ Yogi           |             7
+ The Care Bears |             9
+ Baloo          |             8
+ Fozzie Bear    |             7
+(5 rows)
+
+
+Bears with a greater than average danger rating:
+
+   bear_name    | danger_rating 
+----------------+---------------
+ Paddington     |             9
+ The Care Bears |             9
+ Baloo          |             8
+(3 rows)
+
+
+Assigning bears a danger level:
+
+   bear_name    | danger_rating |  danger_level  
+----------------+---------------+----------------
+ Paddington     |             9 | very dangerous
+ Sooty          |             5 | not dangerous
+ Yogi           |             7 | dangerous
+ Pooh           |             6 | not dangerous
+ The Care Bears |             9 | very dangerous
+ Baloo          |             8 | dangerous
+ Fozzie Bear    |             7 | dangerous
+(7 rows)
+
+
+Danger level refactor:
+
+   bear_name    | danger_rating |      case      
+----------------+---------------+----------------
+ Paddington     |             9 | very dangerous
+ Sooty          |             5 | not dangerous
+ Yogi           |             7 | not dangerous
+ Pooh           |             6 | not dangerous
+ The Care Bears |             9 | very dangerous
+ Baloo          |             8 | very dangerous
+ Fozzie Bear    |             7 | not dangerous
+(7 rows)
+
+
+Dangerous Bear Crimes:
+
+         crime_description          
+------------------------------------
+ Thievery
+ Practicing magic without a license
+ Selling counterfeit marmalade
+(3 rows)
+
+      bear      | danger_rating | avg_danger_rating 
+----------------+---------------+-------------------
+ Paddington     |             9 |              7.29
+ Sooty          |             5 |              7.29
+ Yogi           |             7 |              7.29
+ Pooh           |             6 |              7.29
+ The Care Bears |             9 |              7.29
+ Baloo          |             8 |              7.29
+ Fozzie Bear    |             7 |              7.29
+(7 rows)
+
