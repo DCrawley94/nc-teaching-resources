@@ -1,0 +1,23 @@
+You are now connected to database "nc_albums" as user "danika".
+
+Sales in the fourth quarter of 2022:
+
+ sales_period |            album_title             |      artist_name      | copies_sold | sold_in_4q_2022 
+--------------+------------------------------------+-----------------------+-------------+-----------------
+ 2022_4Q      | London Calling                     | The Clash             |         809 |            7403
+ 2022_4Q      | Revolution Girl Style Now          | Bikini Kill           |         612 |            7403
+ 2022_4Q      | The Shape of Punk to Come          | Refused               |         369 |            7403
+ 2022_4Q      | Fidlar                             | Fidlar                |         214 |            7403
+ 2022_4Q      | Funky Kingston                     | Toots & The Maytals   |          65 |            7403
+ 2022_4Q      | Dude Ranch                         | Blink 182             |         209 |            7403
+ 2022_4Q      | Sing Sing Death House              | The Distillers        |         246 |            7403
+ 2022_4Q      | One Step Beyond...                 | Madness               |         377 |            7403
+ 2022_4Q      | Life's a Riot with Spy vs Spy      | Billy Bragg           |         816 |            7403
+ 2022_4Q      | CRU                                | Gnarwolves            |         400 |            7403
+ 2022_4Q      | Licensed to Ill                    | Beastie Boys          |         409 |            7403
+ 2022_4Q      | Punk in Drublic                    | NOFX                  |         912 |            7403
+ 2022_4Q      | Reinventing Axl Rose               | Against Me            |         412 |            7403
+ 2022_4Q      | Comfort To Me                      | Amyl and the Sniffers |         612 |            7403
+ 2022_4Q      | Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |         941 |            7403
+(15 rows)
+

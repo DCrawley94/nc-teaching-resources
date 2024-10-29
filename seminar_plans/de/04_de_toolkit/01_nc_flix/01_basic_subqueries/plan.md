@@ -1,5 +1,7 @@
 # Bear Crimes
 
+# ❗ **THIS SEMINAR WAS DONE IN 40 MINUTES - ADD MORE COMPLEX TASKS AS A BACKUP** ❗
+
 https://www.figma.com/board/H0W89WCAEKGlUZheGGtm4f/Subqueries?node-id=0-1&t=j5NbBz1jAfD57tj7-1
 
 ## Learning Objectives
@@ -49,19 +51,6 @@ WHERE danger_rating > (
 );
 ```
 
----
-
-## BREAK
-
-Switch back to Figjam and discuss different types of subquery:
-
-We saw a couple of different types of subquery this morning. What were they?
-
-- single value: Scalar subquery
-- multi-row: One column with multiple rows OR multiple columns and multiple rows
-
----
-
 ### 4
 
 - Write a query that will retrieve the bears and assign them a danger level based on their danger rating.
@@ -96,6 +85,19 @@ SELECT
     END
 FROM bears;
 ```
+
+---
+
+## BREAK
+
+Switch back to Figjam and discuss different types of subquery:
+
+We saw a couple of different types of subquery this morning. What were they?
+
+- single value: Scalar subquery
+- multi-row: One column with multiple rows OR multiple columns and multiple rows
+
+---
 
 ## Extra Multi-Row Subquery
 

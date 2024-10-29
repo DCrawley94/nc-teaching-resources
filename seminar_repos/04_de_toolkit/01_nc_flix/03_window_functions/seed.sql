@@ -1,115 +1,163 @@
+DROP DATABASE IF EXISTS nc_albums;
+CREATE DATABASE nc_albums;
+
+\c nc_albums
+
+CREATE TABLE artists (
+    artist_id SERIAL PRIMARY KEY,
+    artist_name VARCHAR(120)
+);
+
+INSERT INTO artists
+(artist_name)
+VALUES
+('Bikini Kill'),
+('The Clash'),
+('Toots & The Maytals'),
+('Against Me'),
+('Gnarwolves'),
+('Blink 182'),
+('Amyl and the Sniffers'),
+('Fidlar'),
+('Billy Bragg'),
+('Refused'),
+('The Distillers'),
+('NOFX'),
+('Beastie Boys'),
+('Madness'),
+('Dead Kennedys''');
+
+CREATE TABLE sales_periods (
+    period_id SERIAL PRIMARY KEY,
+    sales_period VARCHAR(120)
+);
+
+INSERT INTO sales_periods
+(sales_period)
+VALUES
+('2022_1Q'),
+('2022_2Q'),
+('2022_3Q'),
+('2022_4Q'),
+('2023_1Q'),
+('2023_2Q'),
+('2023_3Q');
+
 CREATE TABLE album_catalogue (
-	id INT PRIMARY KEY,
+	id SERIAL PRIMARY KEY,
 	album_title VARCHAR(120),
 	album_length INTERVAL,
 	album_genre VARCHAR(120),
-	artist VARCHAR(120),
+	artist_id INT REFERENCES artists(artist_id),
 	copies_sold INT,
-	sales_period VARCHAR(120)
-	
+	sales_period_id INT REFERENCES sales_periods(period_id)
 );
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (1,'Wednesday Morning, 3 A.M', '31M 38S', 'Folk', 'Simon & Garfunkel', 1043, '2022_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (2,'EnRoute: John Scofield Trio LIVE', '73M 48S', 'Jazz', 'John Scofield Trio', 512, '2022_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (3,'Nasty Gal', '39M 15S', 'Funk', 'Betty Davis', 809, '2022_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (4,'The New Folk Sound of Terry Callier', '37M 41S', 'Folk', 'Terry Callier', 903, '2022_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (5,'In a Silent Way', '38M 08S', 'Jazz', 'Miles Davis', 428, '2022_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (6,'Cold Sweat', '33M 43S', 'Funk', 'James Brown', 815, '2022_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (7,'The Freewheelin'' Bob Dylan', '44M 14S', 'Folk', 'Bob Dylan', 1008, '2022_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (8,'My Favorite Things', '40M 25S', 'Jazz', 'John Coltrane', 325, '2022_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (9,'A Whole New Thing', '38M 01S', 'Funk', 'Sly and the Family Stone', 674, '2022_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (10,'Five Leaves Left', '41M 43S', 'Folk', 'Nick Drake', 321, '2022_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (11,'Head Hunters', '41M 52S', 'Jazz', 'Herbie Hancock', 497, '2022_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (12,'In the Right Place', '33M 22S', 'Funk', 'Dr. John', 222, '2022_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (13,'Blue', '36M 15S', 'Folk', 'Joni Mitchell', 589, '2022_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (14,'Concierto', '38M 02S', 'Jazz', 'Jim Hall', 479, '2022_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (15,'Dirty Mind', '30M 14S', 'Funk', 'Prince', 894, '2022_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (16,'Wednesday Morning, 3 A.M', '31M 38S', 'Folk', 'Simon & Garfunkel', 437, '2022_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (17,'EnRoute: John Scofield Trio LIVE', '73M 48S', 'Jazz', 'John Scofield Trio', 945, '2022_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (18,'Nasty Gal', '39M 15S', 'Funk', 'Betty Davis', 224, '2022_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (19,'The New Folk Sound of Terry Callier', '37M 41S', 'Folk', 'Terry Callier', 418, '2022_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (20,'In a Silent Way', '38M 08S', 'Jazz', 'Miles Davis', 1053, '2022_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (21,'Cold Sweat', '33M 43S', 'Funk', 'James Brown', 1000, '2022_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (22,'The Freewheelin'' Bob Dylan', '44M 14S', 'Folk', 'Bob Dylan', 359, '2022_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (23,'My Favorite Things', '40M 25S', 'Jazz', 'John Coltrane', 333, '2022_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (24,'A Whole New Thing', '38M 01S', 'Funk', 'Sly and the Family Stone', 257, '2022_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (25,'Five Leaves Left', '41M 43S', 'Folk', 'Nick Drake', 456, '2022_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (26,'Head Hunters', '41M 52S', 'Jazz', 'Herbie Hancock', 411, '2022_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (27,'In the Right Place', '33M 22S', 'Funk', 'Dr. John', 208, '2022_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (28,'Blue', '36M 15S', 'Folk', 'Joni Mitchell', 184, '2022_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (29,'Concierto', '38M 02S', 'Jazz', 'Jim Hall', 288, '2022_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (30,'Dirty Mind', '30M 14S', 'Funk', 'Prince', 1008, '2022_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (31,'Wednesday Morning, 3 A.M', '31M 38S', 'Folk', 'Simon & Garfunkel', 184, '2022_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (32,'EnRoute: John Scofield Trio LIVE', '73M 48S', 'Jazz', 'John Scofield Trio', 256, '2022_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (33,'Nasty Gal', '39M 15S', 'Funk', 'Betty Davis', 228, '2022_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (34,'The New Folk Sound of Terry Callier', '37M 41S', 'Folk', 'Terry Callier', 1254, '2022_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (35,'In a Silent Way', '38M 08S', 'Jazz', 'Miles Davis', 19, '2022_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (36,'Cold Sweat', '33M 43S', 'Funk', 'James Brown', 29, '2022_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (37,'The Freewheelin'' Bob Dylan', '44M 14S', 'Folk', 'Bob Dylan', 100, '2022_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (38,'My Favorite Things', '40M 25S', 'Jazz', 'John Coltrane', 349, '2022_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (39,'A Whole New Thing', '38M 01S', 'Funk', 'Sly and the Family Stone', 666, '2022_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (40,'Five Leaves Left', '41M 43S', 'Folk', 'Nick Drake', 20, '2022_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (41,'Head Hunters', '41M 52S', 'Jazz', 'Herbie Hancock', 100, '2022_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (42,'In the Right Place', '33M 22S', 'Funk', 'Dr. John', 94, '2022_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (43,'Blue', '36M 15S', 'Folk', 'Joni Mitchell', 256, '2022_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (44,'Concierto', '38M 02S', 'Jazz', 'Jim Hall', 306, '2022_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (45,'Dirty Mind', '30M 14S', 'Funk', 'Prince', 412, '2022_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (46,'Wednesday Morning, 3 A.M', '31M 38S', 'Folk', 'Simon & Garfunkel', 809, '2022_4Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (47,'EnRoute: John Scofield Trio LIVE', '73M 48S', 'Jazz', 'John Scofield Trio', 612, '2022_4Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (48,'Nasty Gal', '39M 15S', 'Funk', 'Betty Davis', 369, '2022_4Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (49,'The New Folk Sound of Terry Callier', '37M 41S', 'Folk', 'Terry Callier', 214, '2022_4Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (50,'In a Silent Way', '38M 08S', 'Jazz', 'Miles Davis', 65, '2022_4Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (51,'Cold Sweat', '33M 43S', 'Funk', 'James Brown', 209, '2022_4Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (52,'The Freewheelin'' Bob Dylan', '44M 14S', 'Folk', 'Bob Dylan', 246, '2022_4Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (53,'My Favorite Things', '40M 25S', 'Jazz', 'John Coltrane', 377, '2022_4Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (54,'A Whole New Thing', '38M 01S', 'Funk', 'Sly and the Family Stone', 816, '2022_4Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (55,'Five Leaves Left', '41M 43S', 'Folk', 'Nick Drake', 400, '2022_4Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (56,'Head Hunters', '41M 52S', 'Jazz', 'Herbie Hancock', 409, '2022_4Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (57,'In the Right Place', '33M 22S', 'Funk', 'Dr. John', 912, '2022_4Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (58,'Blue', '36M 15S', 'Folk', 'Joni Mitchell', 412, '2022_4Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (59,'Concierto', '38M 02S', 'Jazz', 'Jim Hall', 612, '2022_4Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (60,'Dirty Mind', '30M 14S', 'Funk', 'Prince', 941, '2022_4Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (61,'Wednesday Morning, 3 A.M', '31M 38S', 'Folk', 'Simon & Garfunkel', 809, '2023_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (62,'EnRoute: John Scofield Trio LIVE', '73M 48S', 'Jazz', 'John Scofield Trio', 612, '2023_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (63,'Nasty Gal', '39M 15S', 'Funk', 'Betty Davis', 369, '2023_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (64,'The New Folk Sound of Terry Callier', '37M 41S', 'Folk', 'Terry Callier', 214, '2023_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (65,'In a Silent Way', '38M 08S', 'Jazz', 'Miles Davis', 65, '2023_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (66,'Cold Sweat', '33M 43S', 'Funk', 'James Brown', 209, '2023_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (67,'The Freewheelin'' Bob Dylan', '44M 14S', 'Folk', 'Bob Dylan', 246, '2023_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (68,'My Favorite Things', '40M 25S', 'Jazz', 'John Coltrane', 377, '2023_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (69,'A Whole New Thing', '38M 01S', 'Funk', 'Sly and the Family Stone', 816, '2023_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (70,'Five Leaves Left', '41M 43S', 'Folk', 'Nick Drake', 400, '2023_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (71,'Head Hunters', '41M 52S', 'Jazz', 'Herbie Hancock', 409, '2023_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (72,'In the Right Place', '33M 22S', 'Funk', 'Dr. John', 912, '2023_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (73,'Blue', '36M 15S', 'Folk', 'Joni Mitchell', 412, '2023_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (74,'Concierto', '38M 02S', 'Jazz', 'Jim Hall', 612, '2023_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (75,'Dirty Mind', '30M 14S', 'Funk', 'Prince', 941, '2023_1Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (76,'Wednesday Morning, 3 A.M', '31M 38S', 'Folk', 'Simon & Garfunkel', 325, '2023_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (77,'EnRoute: John Scofield Trio LIVE', '73M 48S', 'Jazz', 'John Scofield Trio', 941, '2023_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (78,'Nasty Gal', '39M 15S', 'Funk', 'Betty Davis', 555, '2023_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (79,'The New Folk Sound of Terry Callier', '37M 41S', 'Folk', 'Terry Callier', 541, '2023_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (80,'In a Silent Way', '38M 08S', 'Jazz', 'Miles Davis', 218, '2023_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (81,'Cold Sweat', '33M 43S', 'Funk', 'James Brown', 456, '2023_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (82,'The Freewheelin'' Bob Dylan', '44M 14S', 'Folk', 'Bob Dylan', 654, '2023_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (83,'My Favorite Things', '40M 25S', 'Jazz', 'John Coltrane', 203, '2023_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (84,'A Whole New Thing', '38M 01S', 'Funk', 'Sly and the Family Stone', 302, '2023_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (85,'Five Leaves Left', '41M 43S', 'Folk', 'Nick Drake', 116, '2023_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (86,'Head Hunters', '41M 52S', 'Jazz', 'Herbie Hancock', 245, '2023_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (87,'In the Right Place', '33M 22S', 'Funk', 'Dr. John', 56, '2023_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (88,'Blue', '36M 15S', 'Folk', 'Joni Mitchell', 99, '2023_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (89,'Concierto', '38M 02S', 'Jazz', 'Jim Hall', 145, '2023_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (90,'Dirty Mind', '30M 14S', 'Funk', 'Prince', 100, '2023_2Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (91,'Wednesday Morning, 3 A.M', '31M 38S', 'Folk', 'Simon & Garfunkel', 612, '2023_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (92,'EnRoute: John Scofield Trio LIVE', '73M 48S', 'Jazz', 'John Scofield Trio', 404, '2023_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (93,'Nasty Gal', '39M 15S', 'Funk', 'Betty Davis', 808, '2023_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (94,'The New Folk Sound of Terry Callier', '37M 41S', 'Folk', 'Terry Callier', 283, '2023_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (95,'In a Silent Way', '38M 08S', 'Jazz', 'Miles Davis', 809, '2023_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (96,'Cold Sweat', '33M 43S', 'Funk', 'James Brown', 1005, '2023_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (97,'The Freewheelin'' Bob Dylan', '44M 14S', 'Folk', 'Bob Dylan', 597, '2023_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (98,'My Favorite Things', '40M 25S', 'Jazz', 'John Coltrane', 302, '2023_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (99,'A Whole New Thing', '38M 01S', 'Funk', 'Sly and the Family Stone', 123, '2023_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (100,'Five Leaves Left', '41M 43S', 'Folk', 'Nick Drake', 321, '2023_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (101,'Head Hunters', '41M 52S', 'Jazz', 'Herbie Hancock', 542, '2023_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (102,'In the Right Place', '33M 22S', 'Funk', 'Dr. John', 562, '2023_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (103,'Blue', '36M 15S', 'Folk', 'Joni Mitchell', 995, '2023_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (104,'Concierto', '38M 02S', 'Jazz', 'Jim Hall', 263, '2023_3Q');
-INSERT INTO album_catalogue (id, album_title, album_length, album_genre, artist, copies_sold, sales_period) VALUES (105,'Dirty Mind', '30M 14S', 'Funk', 'Prince', 169, '2023_3Q');
+
+INSERT INTO album_catalogue 
+(album_title, album_length, album_genre, artist_id, copies_sold, sales_period_id) 
+VALUES 
+('London Calling', '65M 07S', 'Punk rock', 2, 1043, 1), 
+('Revolution Girl Style Now', '21M 29S', 'Riot grrrl', 1, 512, 1), 
+('The Shape of Punk to Come', '55M 11S', 'Hardcore punk', 10, 809, 1), 
+('Fidlar', '36M 30S', 'Skate punk', 8, 903, 1), 
+('Funky Kingston', '36M 30S', 'Ska', 3, 428, 1), 
+('Dude Ranch', '44M 54S', 'Skate punk', 6, 815, 1), 
+('Sing Sing Death House', '28M 43S', 'Riot grrrl', 11, 1008, 1), 
+('One Step Beyond...', '39M 02S', 'Ska', 14, 325, 1), 
+('Life''s a Riot with Spy vs Spy', '15M 57S', 'Folk-rock', 9, 674, 1), 
+('CRU', '12M 02S', 'Skate punk', 5, 321, 1), 
+('Licensed to Ill', '44M 32S', 'Hip hop', 13, 497, 1), 
+('Punk in Drublic', '39M 55S', 'Skate punk', 12, 222, 1), 
+('Reinventing Axl Rose', '30M 59S', 'Punk rock', 4, 589, 1), 
+('Comfort To Me', '34M 51S', 'Punk rock', 7, 479, 1), 
+('Fresh Fruit for Rotting Vegetables', '33M 03S', 'Hardcore punk', 15, 894, 1), 
+('London Calling', '65M 07S', 'Punk rock', 2, 437, 2), 
+('Revolution Girl Style Now', '21M 29S', 'Riot grrrl', 1, 945, 2), 
+('The Shape of Punk to Come', '55M 11S', 'Hardcore punk', 10, 224, 2), 
+('Fidlar', '36M 30S', 'Skate punk', 8, 418, 2), 
+('Funky Kingston', '36M 30S', 'Ska', 3, 1053, 2), 
+('Dude Ranch', '44M 54S', 'Skate punk', 6, 1000, 2), 
+('Sing Sing Death House', '28M 43S', 'Riot grrrl', 11, 359, 2), 
+('One Step Beyond...', '39M 02S', 'Ska', 14, 333, 2), 
+('Life''s a Riot with Spy vs Spy', '15M 57S', 'Folk-rock', 9, 257, 2), 
+('CRU', '12M 02S', 'Skate punk', 5, 456, 2), 
+('Licensed to Ill', '44M 32S', 'Hip hop', 13, 411, 2), 
+('Punk in Drublic', '39M 55S', 'Skate punk', 12, 208, 2), 
+('Reinventing Axl Rose', '30M 59S', 'Punk rock', 4, 184, 2), 
+('Comfort To Me', '34M 51S', 'Punk rock', 7, 288, 2), 
+('Fresh Fruit for Rotting Vegetables', '33M 03S', 'Hardcore punk', 15, 1008, 2), 
+('London Calling', '65M 07S', 'Punk rock', 2, 184, 3), 
+('Revolution Girl Style Now', '21M 29S', 'Riot grrrl', 1, 256, 3), 
+('The Shape of Punk to Come', '55M 11S', 'Hardcore punk', 10, 228, 3), 
+('Fidlar', '36M 30S', 'Skate punk', 8, 1254, 3), 
+('Funky Kingston', '36M 30S', 'Ska', 3, 19, 3), 
+('Dude Ranch', '44M 54S', 'Skate punk', 6, 29, 3), 
+('Sing Sing Death House', '28M 43S', 'Riot grrrl', 11, 100, 3), 
+('One Step Beyond...', '39M 02S', 'Ska', 14, 349, 3), 
+('Life''s a Riot with Spy vs Spy', '15M 57S', 'Folk-rock', 9, 666, 3), 
+('CRU', '12M 02S', 'Skate punk', 5, 20, 3), 
+('Licensed to Ill', '44M 32S', 'Hip hop', 13, 100, 3), 
+('Punk in Drublic', '39M 55S', 'Skate punk', 12, 94, 3), 
+('Reinventing Axl Rose', '30M 59S', 'Punk rock', 4, 256, 3), 
+('Comfort To Me', '34M 51S', 'Punk rock', 7, 306, 3), 
+('Fresh Fruit for Rotting Vegetables', '33M 03S', 'Hardcore punk', 15, 412, 3), 
+('London Calling', '65M 07S', 'Punk rock', 2, 809, 4), 
+('Revolution Girl Style Now', '21M 29S', 'Riot grrrl', 1, 612, 4), 
+('The Shape of Punk to Come', '55M 11S', 'Hardcore punk', 10, 369, 4), 
+('Fidlar', '36M 30S', 'Skate punk', 8, 214, 4), 
+('Funky Kingston', '36M 30S', 'Ska', 3, 65, 4), 
+('Dude Ranch', '44M 54S', 'Skate punk', 6, 209, 4), 
+('Sing Sing Death House', '28M 43S', 'Riot grrrl', 11, 246, 4), 
+('One Step Beyond...', '39M 02S', 'Ska', 14, 377, 4), 
+('Life''s a Riot with Spy vs Spy', '15M 57S', 'Folk-rock', 9, 816, 4), 
+('CRU', '12M 02S', 'Skate punk', 5, 400, 4), 
+('Licensed to Ill', '44M 32S', 'Hip hop', 13, 409, 4), 
+('Punk in Drublic', '39M 55S', 'Skate punk', 12, 912, 4), 
+('Reinventing Axl Rose', '30M 59S', 'Punk rock', 4, 412, 4), 
+('Comfort To Me', '34M 51S', 'Punk rock', 7, 612, 4), 
+('Fresh Fruit for Rotting Vegetables', '33M 03S', 'Hardcore punk', 15, 941, 4), 
+('London Calling', '65M 07S', 'Punk rock', 2, 809, 5), 
+('Revolution Girl Style Now', '21M 29S', 'Riot grrrl', 1, 612, 5), 
+('The Shape of Punk to Come', '55M 11S', 'Hardcore punk', 10, 369, 5), 
+('Fidlar', '36M 30S', 'Skate punk', 8, 214, 5), 
+('Funky Kingston', '36M 30S', 'Ska', 3, 65, 5), 
+('Dude Ranch', '44M 54S', 'Skate punk', 6, 209, 5), 
+('Sing Sing Death House', '28M 43S', 'Riot grrrl', 11, 246, 5), 
+('One Step Beyond...', '39M 02S', 'Ska', 14, 377, 5), 
+('Life''s a Riot with Spy vs Spy', '15M 57S', 'Folk-rock', 9, 816, 5), 
+('CRU', '12M 02S', 'Skate punk', 5, 400, 5), 
+('Licensed to Ill', '44M 32S', 'Hip hop', 13, 409, 5), 
+('Punk in Drublic', '39M 55S', 'Skate punk', 12, 912, 5), 
+('Reinventing Axl Rose', '30M 59S', 'Punk rock', 4, 412, 5), 
+('Comfort To Me', '34M 51S', 'Punk rock', 7, 612, 5), 
+('Fresh Fruit for Rotting Vegetables', '33M 03S', 'Hardcore punk', 15, 941, 5), 
+('London Calling', '65M 07S', 'Punk rock', 2, 325, 6), 
+('Revolution Girl Style Now', '21M 29S', 'Riot grrrl', 1, 941, 6), 
+('The Shape of Punk to Come', '55M 11S', 'Hardcore punk', 10, 555, 6), 
+('Fidlar', '36M 30S', 'Skate punk', 8, 541, 6), 
+('Funky Kingston', '36M 30S', 'Ska', 3, 218, 6), 
+('Dude Ranch', '44M 54S', 'Skate punk', 6, 456, 6), 
+('Sing Sing Death House', '28M 43S', 'Riot grrrl', 11, 654, 6), 
+('One Step Beyond...', '39M 02S', 'Ska', 14, 203, 6), 
+('Life''s a Riot with Spy vs Spy', '15M 57S', 'Folk-rock', 9, 302, 6), 
+('CRU', '12M 02S', 'Skate punk', 5, 116, 6), 
+('Licensed to Ill', '44M 32S', 'Hip hop', 13, 245, 6), 
+('Punk in Drublic', '39M 55S', 'Skate punk', 12, 56, 6), 
+('Reinventing Axl Rose', '30M 59S', 'Punk rock', 4, 99, 6), 
+('Comfort To Me', '34M 51S', 'Punk rock', 7, 145, 6), 
+('Fresh Fruit for Rotting Vegetables', '33M 03S', 'Hardcore punk', 15, 100, 6), 
+('London Calling', '65M 07S', 'Punk rock', 2, 612, 7), 
+('Revolution Girl Style Now', '21M 29S', 'Riot grrrl', 1, 404, 7), 
+('The Shape of Punk to Come', '55M 11S', 'Hardcore punk', 10, 808, 7), 
+('Fidlar', '36M 30S', 'Skate punk', 8, 283, 7), 
+('Funky Kingston', '36M 30S', 'Ska', 3, 809, 7), 
+('Dude Ranch', '44M 54S', 'Skate punk', 6, 1005, 7), 
+('Sing Sing Death House', '28M 43S', 'Riot grrrl', 11, 597, 7), 
+('One Step Beyond...', '39M 02S', 'Ska', 14, 302, 7), 
+('Life''s a Riot with Spy vs Spy', '15M 57S', 'Folk-rock', 9, 123, 7), 
+('CRU', '12M 02S', 'Skate punk', 5, 321, 7), 
+('Licensed to Ill', '44M 32S', 'Hip hop', 13, 542, 7), 
+('Punk in Drublic', '39M 55S', 'Skate punk', 12, 562, 7), 
+('Reinventing Axl Rose', '30M 59S', 'Punk rock', 4, 995, 7), 
+('Comfort To Me', '34M 51S', 'Punk rock', 7, 263, 7), 
+('Fresh Fruit for Rotting Vegetables', '33M 03S', 'Hardcore punk', 15, 169, 7);

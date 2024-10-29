@@ -1,0 +1,23 @@
+You are now connected to database "nc_albums" as user "danika".
+
+Ranking albums by album length:
+
+            album_title             | album_length | album_length_rank 
+------------------------------------+--------------+-------------------
+ London Calling                     | 01:05:07     |                 1
+ The Shape of Punk to Come          | 00:55:11     |                 2
+ Dude Ranch                         | 00:44:54     |                 3
+ Licensed to Ill                    | 00:44:32     |                 4
+ Punk in Drublic                    | 00:39:55     |                 5
+ One Step Beyond...                 | 00:39:02     |                 6
+ Fidlar                             | 00:36:30     |                 7
+ Funky Kingston                     | 00:36:30     |                 7
+ Comfort To Me                      | 00:34:51     |                 9
+ Fresh Fruit for Rotting Vegetables | 00:33:03     |                10
+ Reinventing Axl Rose               | 00:30:59     |                11
+ Sing Sing Death House              | 00:28:43     |                12
+ Revolution Girl Style Now          | 00:21:29     |                13
+ Life's a Riot with Spy vs Spy      | 00:15:57     |                14
+ CRU                                | 00:12:02     |                15
+(15 rows)
+
