@@ -12,12 +12,12 @@ Ranking albums by album length:
  One Step Beyond...                 | 00:39:02     |                 6
  Fidlar                             | 00:36:30     |                 7
  Funky Kingston                     | 00:36:30     |                 7
- Comfort To Me                      | 00:34:51     |                 9
- Fresh Fruit for Rotting Vegetables | 00:33:03     |                10
- Reinventing Axl Rose               | 00:30:59     |                11
- Sing Sing Death House              | 00:28:43     |                12
- Revolution Girl Style Now          | 00:21:29     |                13
- Life's a Riot with Spy vs Spy      | 00:15:57     |                14
- CRU                                | 00:12:02     |                15
+ Comfort To Me                      | 00:34:51     |                 8
+ Fresh Fruit for Rotting Vegetables | 00:33:03     |                 9
+ Reinventing Axl Rose               | 00:30:59     |                10
+ Sing Sing Death House              | 00:28:43     |                11
+ Revolution Girl Style Now          | 00:21:29     |                12
+ Life's a Riot with Spy vs Spy      | 00:15:57     |                13
+ CRU                                | 00:12:02     |                14
 (15 rows)
 

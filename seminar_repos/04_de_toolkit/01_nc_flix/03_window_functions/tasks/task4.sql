@@ -13,13 +13,11 @@ I need to get the following data:
 \c nc_albums
 
 \! echo "\nRanking albums by album length:\n"
-WITH album_details AS (
-    SELECT DISTINCT 
-        album_title,
-        album_length
-    FROM album_catalogue
-)
-SELECT *,
-     RANK() OVER (ORDER BY album_length DESC) AS album_length_rank
-FROM album_details
+
+SELECT DISTINCT
+    album_title,
+    album_length,
+    DENSE_RANK() OVER (ORDER BY album_length DESC) AS album_length_rank
+FROM album_catalogue
 ORDER BY album_length_rank;
+

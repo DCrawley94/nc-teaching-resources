@@ -2,22 +2,22 @@ You are now connected to database "nc_albums" as user "danika".
 
 Sales in the fourth quarter by genre':
 
-            album_title             |      artist_name      | copies_sold |  album_genre  | sales_by_genre 
-------------------------------------+-----------------------+-------------+---------------+----------------
- Life's a Riot with Spy vs Spy      | Billy Bragg           |         816 | Folk-rock     |            816
- Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |         941 | Hardcore punk |           1310
- The Shape of Punk to Come          | Refused               |         369 | Hardcore punk |           1310
- Licensed to Ill                    | Beastie Boys          |         409 | Hip hop       |            409
- London Calling                     | The Clash             |         809 | Punk rock     |           1833
- Reinventing Axl Rose               | Against Me            |         412 | Punk rock     |           1833
- Comfort To Me                      | Amyl and the Sniffers |         612 | Punk rock     |           1833
- Sing Sing Death House              | The Distillers        |         246 | Riot grrrl    |            858
- Revolution Girl Style Now          | Bikini Kill           |         612 | Riot grrrl    |            858
- One Step Beyond...                 | Madness               |         377 | Ska           |            442
- Funky Kingston                     | Toots & The Maytals   |          65 | Ska           |            442
- Punk in Drublic                    | NOFX                  |         912 | Skate punk    |           1735
- Fidlar                             | Fidlar                |         214 | Skate punk    |           1735
- Dude Ranch                         | Blink 182             |         209 | Skate punk    |           1735
- CRU                                | Gnarwolves            |         400 | Skate punk    |           1735
+            album_title             |      artist_name      | copies_sold |  album_genre  | sum  
+------------------------------------+-----------------------+-------------+---------------+------
+ Life's a Riot with Spy vs Spy      | Billy Bragg           |         816 | Folk-rock     |  816
+ Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |         941 | Hardcore punk | 1310
+ The Shape of Punk to Come          | Refused               |         369 | Hardcore punk | 1310
+ Licensed to Ill                    | Beastie Boys          |         409 | Hip hop       |  409
+ London Calling                     | The Clash             |         809 | Punk rock     | 1833
+ Reinventing Axl Rose               | Against Me            |         412 | Punk rock     | 1833
+ Comfort To Me                      | Amyl and the Sniffers |         612 | Punk rock     | 1833
+ Sing Sing Death House              | The Distillers        |         246 | Riot grrrl    |  858
+ Revolution Girl Style Now          | Bikini Kill           |         612 | Riot grrrl    |  858
+ One Step Beyond...                 | Madness               |         377 | Ska           |  442
+ Funky Kingston                     | Toots & The Maytals   |          65 | Ska           |  442
+ Punk in Drublic                    | NOFX                  |         912 | Skate punk    | 1735
+ Fidlar                             | Fidlar                |         214 | Skate punk    | 1735
+ Dude Ranch                         | Blink 182             |         209 | Skate punk    | 1735
+ CRU                                | Gnarwolves            |         400 | Skate punk    | 1735
 (15 rows)
 

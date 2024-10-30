@@ -15,12 +15,14 @@ for the album 'Licensed to Ill'.
 
 \! echo "\nSales over time of the album 'Licensed to Ill':\n"
 
-SELECT sales_period,
-     album_title,
-     artist_name,
-     copies_sold,
-     SUM(copies_sold) OVER(ORDER BY sales_period ASC) AS cumulative_sum
-FROM album_catalogue
-JOIN artists ON artists.artist_id = album_catalogue.artist_id
-JOIN sales_periods ON sales_periods.period_id = album_catalogue.sales_period_id
+
+SELECT
+    sales_period,
+    album_title,
+    artist_name,
+    copies_sold,
+    SUM(copies_sold) OVER(ORDER BY sales_period) AS cumulative_sales_total
+FROM album_catalogue AS c
+LEFT OUTER JOIN artists AS a ON c.artist_id = a.artist_id
+LEFT OUTER JOIN sales_periods AS s ON c.sales_period_id = s.period_id
 WHERE album_title = 'Licensed to Ill';

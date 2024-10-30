@@ -16,12 +16,14 @@ for all albums in the sales_period of '2022_4Q'.
 
 \! echo "\nSales in the fourth quarter by genre':\n"
 
-SELECT album_title,
+SELECT 
+    album_title,
     artist_name,
     copies_sold,
     album_genre,
-    SUM(copies_sold) OVER(PARTITION BY album_genre) AS sales_by_genre
-FROM album_catalogue
-JOIN artists ON artists.artist_id = album_catalogue.artist_id
-JOIN sales_periods ON sales_periods.period_id = album_catalogue.sales_period_id
+    SUM(copies_sold) OVER (PARTITION BY album_genre )
+FROM album_catalogue AS c
+LEFT OUTER JOIN artists AS a ON c.artist_id = a.artist_id
+LEFT OUTER JOIN sales_periods AS s ON c.sales_period_id = s.period_id
 WHERE sales_period = '2022_4Q';
+

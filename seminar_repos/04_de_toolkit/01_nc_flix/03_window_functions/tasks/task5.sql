@@ -16,11 +16,12 @@ for all artists.
 
 \! echo "\nCumulative sales by album':\n"
 
-SELECT sales_period,
+SELECT 
+    sales_period,
     album_title,
     artist_name,
     copies_sold,
-    SUM(copies_sold) OVER(PARTITION BY album_title ORDER BY sales_period ASC) AS cumulative_sum_by_album
-FROM album_catalogue
-JOIN artists ON artists.artist_id = album_catalogue.artist_id
-JOIN sales_periods ON sales_periods.period_id = album_catalogue.sales_period_id;
+    SUM(copies_sold) OVER (PARTITION BY artist_name ORDER BY sales_period)
+FROM album_catalogue AS c
+LEFT OUTER JOIN artists AS a ON c.artist_id = a.artist_id
+LEFT OUTER JOIN sales_periods AS s ON c.sales_period_id = s.period_id;

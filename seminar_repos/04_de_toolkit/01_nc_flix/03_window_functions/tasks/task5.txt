@@ -2,112 +2,112 @@ You are now connected to database "nc_albums" as user "danika".
 
 Cumulative sales by album':
 
- sales_period |            album_title             |      artist_name      | copies_sold | cumulative_sum_by_album 
---------------+------------------------------------+-----------------------+-------------+-------------------------
- 2022_1Q      | CRU                                | Gnarwolves            |         321 |                     321
- 2022_2Q      | CRU                                | Gnarwolves            |         456 |                     777
- 2022_3Q      | CRU                                | Gnarwolves            |          20 |                     797
- 2022_4Q      | CRU                                | Gnarwolves            |         400 |                    1197
- 2023_1Q      | CRU                                | Gnarwolves            |         400 |                    1597
- 2023_2Q      | CRU                                | Gnarwolves            |         116 |                    1713
- 2023_3Q      | CRU                                | Gnarwolves            |         321 |                    2034
- 2022_1Q      | Comfort To Me                      | Amyl and the Sniffers |         479 |                     479
- 2022_2Q      | Comfort To Me                      | Amyl and the Sniffers |         288 |                     767
- 2022_3Q      | Comfort To Me                      | Amyl and the Sniffers |         306 |                    1073
- 2022_4Q      | Comfort To Me                      | Amyl and the Sniffers |         612 |                    1685
- 2023_1Q      | Comfort To Me                      | Amyl and the Sniffers |         612 |                    2297
- 2023_2Q      | Comfort To Me                      | Amyl and the Sniffers |         145 |                    2442
- 2023_3Q      | Comfort To Me                      | Amyl and the Sniffers |         263 |                    2705
- 2022_1Q      | Dude Ranch                         | Blink 182             |         815 |                     815
- 2022_2Q      | Dude Ranch                         | Blink 182             |        1000 |                    1815
- 2022_3Q      | Dude Ranch                         | Blink 182             |          29 |                    1844
- 2022_4Q      | Dude Ranch                         | Blink 182             |         209 |                    2053
- 2023_1Q      | Dude Ranch                         | Blink 182             |         209 |                    2262
- 2023_2Q      | Dude Ranch                         | Blink 182             |         456 |                    2718
- 2023_3Q      | Dude Ranch                         | Blink 182             |        1005 |                    3723
- 2022_1Q      | Fidlar                             | Fidlar                |         903 |                     903
- 2022_2Q      | Fidlar                             | Fidlar                |         418 |                    1321
- 2022_3Q      | Fidlar                             | Fidlar                |        1254 |                    2575
- 2022_4Q      | Fidlar                             | Fidlar                |         214 |                    2789
- 2023_1Q      | Fidlar                             | Fidlar                |         214 |                    3003
- 2023_2Q      | Fidlar                             | Fidlar                |         541 |                    3544
- 2023_3Q      | Fidlar                             | Fidlar                |         283 |                    3827
- 2022_1Q      | Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |         894 |                     894
- 2022_2Q      | Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |        1008 |                    1902
- 2022_3Q      | Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |         412 |                    2314
- 2022_4Q      | Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |         941 |                    3255
- 2023_1Q      | Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |         941 |                    4196
- 2023_2Q      | Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |         100 |                    4296
- 2023_3Q      | Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |         169 |                    4465
- 2022_1Q      | Funky Kingston                     | Toots & The Maytals   |         428 |                     428
- 2022_2Q      | Funky Kingston                     | Toots & The Maytals   |        1053 |                    1481
- 2022_3Q      | Funky Kingston                     | Toots & The Maytals   |          19 |                    1500
- 2022_4Q      | Funky Kingston                     | Toots & The Maytals   |          65 |                    1565
- 2023_1Q      | Funky Kingston                     | Toots & The Maytals   |          65 |                    1630
- 2023_2Q      | Funky Kingston                     | Toots & The Maytals   |         218 |                    1848
- 2023_3Q      | Funky Kingston                     | Toots & The Maytals   |         809 |                    2657
- 2022_1Q      | Licensed to Ill                    | Beastie Boys          |         497 |                     497
- 2022_2Q      | Licensed to Ill                    | Beastie Boys          |         411 |                     908
- 2022_3Q      | Licensed to Ill                    | Beastie Boys          |         100 |                    1008
- 2022_4Q      | Licensed to Ill                    | Beastie Boys          |         409 |                    1417
- 2023_1Q      | Licensed to Ill                    | Beastie Boys          |         409 |                    1826
- 2023_2Q      | Licensed to Ill                    | Beastie Boys          |         245 |                    2071
- 2023_3Q      | Licensed to Ill                    | Beastie Boys          |         542 |                    2613
- 2022_1Q      | Life's a Riot with Spy vs Spy      | Billy Bragg           |         674 |                     674
- 2022_2Q      | Life's a Riot with Spy vs Spy      | Billy Bragg           |         257 |                     931
- 2022_3Q      | Life's a Riot with Spy vs Spy      | Billy Bragg           |         666 |                    1597
- 2022_4Q      | Life's a Riot with Spy vs Spy      | Billy Bragg           |         816 |                    2413
- 2023_1Q      | Life's a Riot with Spy vs Spy      | Billy Bragg           |         816 |                    3229
- 2023_2Q      | Life's a Riot with Spy vs Spy      | Billy Bragg           |         302 |                    3531
- 2023_3Q      | Life's a Riot with Spy vs Spy      | Billy Bragg           |         123 |                    3654
- 2022_1Q      | London Calling                     | The Clash             |        1043 |                    1043
- 2022_2Q      | London Calling                     | The Clash             |         437 |                    1480
- 2022_3Q      | London Calling                     | The Clash             |         184 |                    1664
- 2022_4Q      | London Calling                     | The Clash             |         809 |                    2473
- 2023_1Q      | London Calling                     | The Clash             |         809 |                    3282
- 2023_2Q      | London Calling                     | The Clash             |         325 |                    3607
- 2023_3Q      | London Calling                     | The Clash             |         612 |                    4219
- 2022_1Q      | One Step Beyond...                 | Madness               |         325 |                     325
- 2022_2Q      | One Step Beyond...                 | Madness               |         333 |                     658
- 2022_3Q      | One Step Beyond...                 | Madness               |         349 |                    1007
- 2022_4Q      | One Step Beyond...                 | Madness               |         377 |                    1384
- 2023_1Q      | One Step Beyond...                 | Madness               |         377 |                    1761
- 2023_2Q      | One Step Beyond...                 | Madness               |         203 |                    1964
- 2023_3Q      | One Step Beyond...                 | Madness               |         302 |                    2266
- 2022_1Q      | Punk in Drublic                    | NOFX                  |         222 |                     222
- 2022_2Q      | Punk in Drublic                    | NOFX                  |         208 |                     430
- 2022_3Q      | Punk in Drublic                    | NOFX                  |          94 |                     524
- 2022_4Q      | Punk in Drublic                    | NOFX                  |         912 |                    1436
- 2023_1Q      | Punk in Drublic                    | NOFX                  |         912 |                    2348
- 2023_2Q      | Punk in Drublic                    | NOFX                  |          56 |                    2404
- 2023_3Q      | Punk in Drublic                    | NOFX                  |         562 |                    2966
- 2022_1Q      | Reinventing Axl Rose               | Against Me            |         589 |                     589
- 2022_2Q      | Reinventing Axl Rose               | Against Me            |         184 |                     773
- 2022_3Q      | Reinventing Axl Rose               | Against Me            |         256 |                    1029
- 2022_4Q      | Reinventing Axl Rose               | Against Me            |         412 |                    1441
- 2023_1Q      | Reinventing Axl Rose               | Against Me            |         412 |                    1853
- 2023_2Q      | Reinventing Axl Rose               | Against Me            |          99 |                    1952
- 2023_3Q      | Reinventing Axl Rose               | Against Me            |         995 |                    2947
- 2022_1Q      | Revolution Girl Style Now          | Bikini Kill           |         512 |                     512
- 2022_2Q      | Revolution Girl Style Now          | Bikini Kill           |         945 |                    1457
- 2022_3Q      | Revolution Girl Style Now          | Bikini Kill           |         256 |                    1713
- 2022_4Q      | Revolution Girl Style Now          | Bikini Kill           |         612 |                    2325
- 2023_1Q      | Revolution Girl Style Now          | Bikini Kill           |         612 |                    2937
- 2023_2Q      | Revolution Girl Style Now          | Bikini Kill           |         941 |                    3878
- 2023_3Q      | Revolution Girl Style Now          | Bikini Kill           |         404 |                    4282
- 2022_1Q      | Sing Sing Death House              | The Distillers        |        1008 |                    1008
- 2022_2Q      | Sing Sing Death House              | The Distillers        |         359 |                    1367
- 2022_3Q      | Sing Sing Death House              | The Distillers        |         100 |                    1467
- 2022_4Q      | Sing Sing Death House              | The Distillers        |         246 |                    1713
- 2023_1Q      | Sing Sing Death House              | The Distillers        |         246 |                    1959
- 2023_2Q      | Sing Sing Death House              | The Distillers        |         654 |                    2613
- 2023_3Q      | Sing Sing Death House              | The Distillers        |         597 |                    3210
- 2022_1Q      | The Shape of Punk to Come          | Refused               |         809 |                     809
- 2022_2Q      | The Shape of Punk to Come          | Refused               |         224 |                    1033
- 2022_3Q      | The Shape of Punk to Come          | Refused               |         228 |                    1261
- 2022_4Q      | The Shape of Punk to Come          | Refused               |         369 |                    1630
- 2023_1Q      | The Shape of Punk to Come          | Refused               |         369 |                    1999
- 2023_2Q      | The Shape of Punk to Come          | Refused               |         555 |                    2554
- 2023_3Q      | The Shape of Punk to Come          | Refused               |         808 |                    3362
+ sales_period |            album_title             |      artist_name      | copies_sold | sum  
+--------------+------------------------------------+-----------------------+-------------+------
+ 2022_1Q      | Reinventing Axl Rose               | Against Me            |         589 |  589
+ 2022_2Q      | Reinventing Axl Rose               | Against Me            |         184 |  773
+ 2022_3Q      | Reinventing Axl Rose               | Against Me            |         256 | 1029
+ 2022_4Q      | Reinventing Axl Rose               | Against Me            |         412 | 1441
+ 2023_1Q      | Reinventing Axl Rose               | Against Me            |         412 | 1853
+ 2023_2Q      | Reinventing Axl Rose               | Against Me            |          99 | 1952
+ 2023_3Q      | Reinventing Axl Rose               | Against Me            |         995 | 2947
+ 2022_1Q      | Comfort To Me                      | Amyl and the Sniffers |         479 |  479
+ 2022_2Q      | Comfort To Me                      | Amyl and the Sniffers |         288 |  767
+ 2022_3Q      | Comfort To Me                      | Amyl and the Sniffers |         306 | 1073
+ 2022_4Q      | Comfort To Me                      | Amyl and the Sniffers |         612 | 1685
+ 2023_1Q      | Comfort To Me                      | Amyl and the Sniffers |         612 | 2297
+ 2023_2Q      | Comfort To Me                      | Amyl and the Sniffers |         145 | 2442
+ 2023_3Q      | Comfort To Me                      | Amyl and the Sniffers |         263 | 2705
+ 2022_1Q      | Licensed to Ill                    | Beastie Boys          |         497 |  497
+ 2022_2Q      | Licensed to Ill                    | Beastie Boys          |         411 |  908
+ 2022_3Q      | Licensed to Ill                    | Beastie Boys          |         100 | 1008
+ 2022_4Q      | Licensed to Ill                    | Beastie Boys          |         409 | 1417
+ 2023_1Q      | Licensed to Ill                    | Beastie Boys          |         409 | 1826
+ 2023_2Q      | Licensed to Ill                    | Beastie Boys          |         245 | 2071
+ 2023_3Q      | Licensed to Ill                    | Beastie Boys          |         542 | 2613
+ 2022_1Q      | Revolution Girl Style Now          | Bikini Kill           |         512 |  512
+ 2022_2Q      | Revolution Girl Style Now          | Bikini Kill           |         945 | 1457
+ 2022_3Q      | Revolution Girl Style Now          | Bikini Kill           |         256 | 1713
+ 2022_4Q      | Revolution Girl Style Now          | Bikini Kill           |         612 | 2325
+ 2023_1Q      | Revolution Girl Style Now          | Bikini Kill           |         612 | 2937
+ 2023_2Q      | Revolution Girl Style Now          | Bikini Kill           |         941 | 3878
+ 2023_3Q      | Revolution Girl Style Now          | Bikini Kill           |         404 | 4282
+ 2022_1Q      | Life's a Riot with Spy vs Spy      | Billy Bragg           |         674 |  674
+ 2022_2Q      | Life's a Riot with Spy vs Spy      | Billy Bragg           |         257 |  931
+ 2022_3Q      | Life's a Riot with Spy vs Spy      | Billy Bragg           |         666 | 1597
+ 2022_4Q      | Life's a Riot with Spy vs Spy      | Billy Bragg           |         816 | 2413
+ 2023_1Q      | Life's a Riot with Spy vs Spy      | Billy Bragg           |         816 | 3229
+ 2023_2Q      | Life's a Riot with Spy vs Spy      | Billy Bragg           |         302 | 3531
+ 2023_3Q      | Life's a Riot with Spy vs Spy      | Billy Bragg           |         123 | 3654
+ 2022_1Q      | Dude Ranch                         | Blink 182             |         815 |  815
+ 2022_2Q      | Dude Ranch                         | Blink 182             |        1000 | 1815
+ 2022_3Q      | Dude Ranch                         | Blink 182             |          29 | 1844
+ 2022_4Q      | Dude Ranch                         | Blink 182             |         209 | 2053
+ 2023_1Q      | Dude Ranch                         | Blink 182             |         209 | 2262
+ 2023_2Q      | Dude Ranch                         | Blink 182             |         456 | 2718
+ 2023_3Q      | Dude Ranch                         | Blink 182             |        1005 | 3723
+ 2022_1Q      | Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |         894 |  894
+ 2022_2Q      | Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |        1008 | 1902
+ 2022_3Q      | Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |         412 | 2314
+ 2022_4Q      | Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |         941 | 3255
+ 2023_1Q      | Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |         941 | 4196
+ 2023_2Q      | Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |         100 | 4296
+ 2023_3Q      | Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |         169 | 4465
+ 2022_1Q      | Fidlar                             | Fidlar                |         903 |  903
+ 2022_2Q      | Fidlar                             | Fidlar                |         418 | 1321
+ 2022_3Q      | Fidlar                             | Fidlar                |        1254 | 2575
+ 2022_4Q      | Fidlar                             | Fidlar                |         214 | 2789
+ 2023_1Q      | Fidlar                             | Fidlar                |         214 | 3003
+ 2023_2Q      | Fidlar                             | Fidlar                |         541 | 3544
+ 2023_3Q      | Fidlar                             | Fidlar                |         283 | 3827
+ 2022_1Q      | CRU                                | Gnarwolves            |         321 |  321
+ 2022_2Q      | CRU                                | Gnarwolves            |         456 |  777
+ 2022_3Q      | CRU                                | Gnarwolves            |          20 |  797
+ 2022_4Q      | CRU                                | Gnarwolves            |         400 | 1197
+ 2023_1Q      | CRU                                | Gnarwolves            |         400 | 1597
+ 2023_2Q      | CRU                                | Gnarwolves            |         116 | 1713
+ 2023_3Q      | CRU                                | Gnarwolves            |         321 | 2034
+ 2022_1Q      | One Step Beyond...                 | Madness               |         325 |  325
+ 2022_2Q      | One Step Beyond...                 | Madness               |         333 |  658
+ 2022_3Q      | One Step Beyond...                 | Madness               |         349 | 1007
+ 2022_4Q      | One Step Beyond...                 | Madness               |         377 | 1384
+ 2023_1Q      | One Step Beyond...                 | Madness               |         377 | 1761
+ 2023_2Q      | One Step Beyond...                 | Madness               |         203 | 1964
+ 2023_3Q      | One Step Beyond...                 | Madness               |         302 | 2266
+ 2022_1Q      | Punk in Drublic                    | NOFX                  |         222 |  222
+ 2022_2Q      | Punk in Drublic                    | NOFX                  |         208 |  430
+ 2022_3Q      | Punk in Drublic                    | NOFX                  |          94 |  524
+ 2022_4Q      | Punk in Drublic                    | NOFX                  |         912 | 1436
+ 2023_1Q      | Punk in Drublic                    | NOFX                  |         912 | 2348
+ 2023_2Q      | Punk in Drublic                    | NOFX                  |          56 | 2404
+ 2023_3Q      | Punk in Drublic                    | NOFX                  |         562 | 2966
+ 2022_1Q      | The Shape of Punk to Come          | Refused               |         809 |  809
+ 2022_2Q      | The Shape of Punk to Come          | Refused               |         224 | 1033
+ 2022_3Q      | The Shape of Punk to Come          | Refused               |         228 | 1261
+ 2022_4Q      | The Shape of Punk to Come          | Refused               |         369 | 1630
+ 2023_1Q      | The Shape of Punk to Come          | Refused               |         369 | 1999
+ 2023_2Q      | The Shape of Punk to Come          | Refused               |         555 | 2554
+ 2023_3Q      | The Shape of Punk to Come          | Refused               |         808 | 3362
+ 2022_1Q      | London Calling                     | The Clash             |        1043 | 1043
+ 2022_2Q      | London Calling                     | The Clash             |         437 | 1480
+ 2022_3Q      | London Calling                     | The Clash             |         184 | 1664
+ 2022_4Q      | London Calling                     | The Clash             |         809 | 2473
+ 2023_1Q      | London Calling                     | The Clash             |         809 | 3282
+ 2023_2Q      | London Calling                     | The Clash             |         325 | 3607
+ 2023_3Q      | London Calling                     | The Clash             |         612 | 4219
+ 2022_1Q      | Sing Sing Death House              | The Distillers        |        1008 | 1008
+ 2022_2Q      | Sing Sing Death House              | The Distillers        |         359 | 1367
+ 2022_3Q      | Sing Sing Death House              | The Distillers        |         100 | 1467
+ 2022_4Q      | Sing Sing Death House              | The Distillers        |         246 | 1713
+ 2023_1Q      | Sing Sing Death House              | The Distillers        |         246 | 1959
+ 2023_2Q      | Sing Sing Death House              | The Distillers        |         654 | 2613
+ 2023_3Q      | Sing Sing Death House              | The Distillers        |         597 | 3210
+ 2022_1Q      | Funky Kingston                     | Toots & The Maytals   |         428 |  428
+ 2022_2Q      | Funky Kingston                     | Toots & The Maytals   |        1053 | 1481
+ 2022_3Q      | Funky Kingston                     | Toots & The Maytals   |          19 | 1500
+ 2022_4Q      | Funky Kingston                     | Toots & The Maytals   |          65 | 1565
+ 2023_1Q      | Funky Kingston                     | Toots & The Maytals   |          65 | 1630
+ 2023_2Q      | Funky Kingston                     | Toots & The Maytals   |         218 | 1848
+ 2023_3Q      | Funky Kingston                     | Toots & The Maytals   |         809 | 2657
 (105 rows)
 

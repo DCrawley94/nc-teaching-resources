@@ -2,22 +2,3 @@ You are now connected to database "nc_albums" as user "danika".
 
 Percentage of total genre sales in Q1 2023':
 
-            album_title             |      artist_name      | copies_sold |  album_genre  | sales_by_genre | percent_of_genre_sales 
-------------------------------------+-----------------------+-------------+---------------+----------------+------------------------
- Life's a Riot with Spy vs Spy      | Billy Bragg           |         816 | Folk-rock     |            816 |                 100.00
- Fresh Fruit for Rotting Vegetables | Dead Kennedys'        |         941 | Hardcore punk |           1310 |                  71.83
- The Shape of Punk to Come          | Refused               |         369 | Hardcore punk |           1310 |                  28.17
- Licensed to Ill                    | Beastie Boys          |         409 | Hip hop       |            409 |                 100.00
- London Calling                     | The Clash             |         809 | Punk rock     |           1833 |                  44.14
- Comfort To Me                      | Amyl and the Sniffers |         612 | Punk rock     |           1833 |                  33.39
- Reinventing Axl Rose               | Against Me            |         412 | Punk rock     |           1833 |                  22.48
- Revolution Girl Style Now          | Bikini Kill           |         612 | Riot grrrl    |            858 |                  71.33
- Sing Sing Death House              | The Distillers        |         246 | Riot grrrl    |            858 |                  28.67
- One Step Beyond...                 | Madness               |         377 | Ska           |            442 |                  85.29
- Funky Kingston                     | Toots & The Maytals   |          65 | Ska           |            442 |                  14.71
- Punk in Drublic                    | NOFX                  |         912 | Skate punk    |           1735 |                  52.56
- CRU                                | Gnarwolves            |         400 | Skate punk    |           1735 |                  23.05
- Fidlar                             | Fidlar                |         214 | Skate punk    |           1735 |                  12.33
- Dude Ranch                         | Blink 182             |         209 | Skate punk    |           1735 |                  12.05
-(15 rows)
-

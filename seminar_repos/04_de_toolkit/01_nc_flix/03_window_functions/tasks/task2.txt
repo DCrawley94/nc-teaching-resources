@@ -2,14 +2,14 @@ You are now connected to database "nc_albums" as user "danika".
 
 Sales over time of the album 'Licensed to Ill':
 
- sales_period |   album_title   | artist_name  | copies_sold | cumulative_sum 
---------------+-----------------+--------------+-------------+----------------
- 2022_1Q      | Licensed to Ill | Beastie Boys |         497 |            497
- 2022_2Q      | Licensed to Ill | Beastie Boys |         411 |            908
- 2022_3Q      | Licensed to Ill | Beastie Boys |         100 |           1008
- 2022_4Q      | Licensed to Ill | Beastie Boys |         409 |           1417
- 2023_1Q      | Licensed to Ill | Beastie Boys |         409 |           1826
- 2023_2Q      | Licensed to Ill | Beastie Boys |         245 |           2071
- 2023_3Q      | Licensed to Ill | Beastie Boys |         542 |           2613
+ sales_period |   album_title   | artist_name  | copies_sold | cumulative_sales_total 
+--------------+-----------------+--------------+-------------+------------------------
+ 2022_1Q      | Licensed to Ill | Beastie Boys |         497 |                    497
+ 2022_2Q      | Licensed to Ill | Beastie Boys |         411 |                    908
+ 2022_3Q      | Licensed to Ill | Beastie Boys |         100 |                   1008
+ 2022_4Q      | Licensed to Ill | Beastie Boys |         409 |                   1417
+ 2023_1Q      | Licensed to Ill | Beastie Boys |         409 |                   1826
+ 2023_2Q      | Licensed to Ill | Beastie Boys |         245 |                   2071
+ 2023_3Q      | Licensed to Ill | Beastie Boys |         542 |                   2613
 (7 rows)
 
