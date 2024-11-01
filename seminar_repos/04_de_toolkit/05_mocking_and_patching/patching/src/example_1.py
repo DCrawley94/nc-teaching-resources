@@ -1,4 +1,8 @@
-from src.module_1 import load_data
+from random import randint
+
+
+def load_data():
+    return randint(10, 100)
 
 
 def process_data():
