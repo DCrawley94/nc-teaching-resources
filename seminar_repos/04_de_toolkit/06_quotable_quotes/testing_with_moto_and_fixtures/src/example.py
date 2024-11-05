@@ -1,6 +1,5 @@
 import boto3
 from botocore.exceptions import ClientError
-from pprint import pprint
 
 """
     Creates an easily digestible report about the contents of a given s3 bucket
@@ -8,7 +7,7 @@ from pprint import pprint
     Should create a report that looks like this:
 
     {
-        "example_bucket": {
+        "example-bucket": {
             "object_count": 3,
             "object_information": [
                 {"key": "lakes.csv", "file_size": 5159},

@@ -22,11 +22,11 @@ Have the code pre-written and test functions written but not implemented - no cr
 
 **PSEUDOCODE ALL TESTS BEFORE IMPLEMENTING**
 
-**Suppress deprecation warning:** `pytest -W ignore::DeprecationWarning`
+**Suppress deprecation warning:** `pytest -W ignore::DeprecationWarning` **OR** `pytest --disable-warnings`
 
 Work towards the solution shown below. Key points to make:
 
-- `aws_credentials` fixture to avoid affecting real infra - **MAKE SURE THIS FIXTURE IS USED IN TESTS**
+- `aws_credentials` fixture to avoid affecting real infra (will cover your back if you forget to use `mock_aws`) - **MAKE SURE THIS FIXTURE IS USED IN TESTS**
   - This will act in a similar way for moto but also covers your back if you make a mistake
 - `create_bucket` region
   - invoke `create_bucket` without config at first unless students tell me otherwise - see the error and ask students to identify the issue (defaults to `us-east-1`)
@@ -57,16 +57,16 @@ def aws_credentials():
 def test_returns_empty_bucket_message(aws_credentials):
     with mock_aws():
         boto3.client("s3").create_bucket(
-            Bucket="test_bucket",
+            Bucket="test-bucket",
             CreateBucketConfiguration={
                 "LocationConstraint": "eu-west-2"
                 # We need to specify the location otherwise it will default to 'us-east-1'
             },
         )
 
-        result = create_file_report("test_bucket")
+        result = create_file_report("test-bucket")
 
-        assert result == "No objects found in test_bucket"
+        assert result == "No objects found in test-bucket"
 ```
 
 **STUDENTS MIGHT ASK TO DO S3_CLIENT FIXTURE - THIS IS A GREAT OPPORTUNITY FOR AN EARLY FIXTURE REFACTOR - START WITH CODE ABOVE AND REFACTOR TO FIXTURE BELOW**
@@ -106,21 +106,22 @@ Work towards the solution shown below. Key points to make:
 - I know what the file size is by checking with a cheeky bash command: `wc -c test/test_files/*`
 
 ```py
+@pytest.mark.skip
 def test_returns_information_about_single_s3_object(aws_credentials):
     with mock_aws():
         s3 = boto3.client("s3")
         s3.create_bucket(
-            Bucket="test_bucket",
+            Bucket="test-bucket",
             CreateBucketConfiguration={"LocationConstraint": "eu-west-2"},
         )
 
         test_file_directory = f"{os.getcwd()}/test/test_files"
-        s3.upload_file(f"{test_file_directory}/rocks.json", "test_bucket", "rocks.json")
+        s3.upload_file(f"{test_file_directory}/rocks.json", "test-bucket", "rocks.json")
 
-        result = create_file_report("test_bucket")
+        result = create_file_report("test-bucket")
 
         assert result == {
-            "test_bucket": {
+            "test-bucket": {
                 "object_count": 1,
                 "object_information": [{"key": "rocks.json", "file_size": 12568}],
             }
