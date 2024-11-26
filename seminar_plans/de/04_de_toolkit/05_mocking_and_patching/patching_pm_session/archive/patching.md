@@ -1,7 +1,5 @@
 # Patching
 
-Urllib??
-
 ## Learning Objectives
 
 - Know how to use `patch` to temporarily replace a target object.
@@ -33,7 +31,43 @@ Previously we saw that we can do this via dependency injection - i.e. I could pa
 
 Now we're going to look at a different method of mocking. We're going to use `patch`.
 
-### Test 1: context manager
+## Introduce Patch
+
+Patch docs: https://docs.python.org/3/library/unittest.mock.html#unittest.mock.patch
+
+Things to point out in the docs:
+
+- can be used in multiple ways, we will look at a few of the options
+- target should be a string which points to the thing we want to mock
+- We should patch where an object is **used** not where it is **defined**
+- even if `load_data` is in a different location we'd still patch the 'example_1' file
+
+**Take the time to EXTRACT TO SEPARATE FILE TO DEMONSTRATE IT**
+
+### Test 1: start and stop
+
+Talk through the following:
+
+- create patcher and print, show that it is a `patch` object.
+- explain that currently it's not doing anything, show the dir and how it has a **start** and **stop** method.
+- show how we use these methods to enable and disable the mock.
+- the target is imported when the test is executed
+
+**Before starting and stopping the patcher print it to show it's a patch object - also print `load_data` to show that it isn't mocked until we call start**
+
+```py
+def test_process_data_1():
+    patcher = patch('src.example_1.load_data', return_value=8)
+
+    patcher.start()
+    assert process_data() == 15
+    patcher.stop()
+
+    # assert process_data() == 15
+    # Can include this to show that patch is disabled
+```
+
+### Test 2: context manager
 
 Repeat the test with a context manager:
 
@@ -53,15 +87,13 @@ Refactor to this:
 def test_process_data_2():
     with patch('src.example_1.load_data', return_value=8):
         assert process_data() == 15
-    # assert process_data() == 15
-    # Can include this to show that patch is disabled
 ```
 
 Highlight that the `with` context will call patcher start and stop.
 
 **Alias the patcher and print in tests - compare this to the print of `load_data` notice it is the same - therefore we can add functionality the the mock if we desire**
 
-### Test 2: Decorator
+### Test 3: Decorator
 
 Explain that we could use a **decorator**.
 

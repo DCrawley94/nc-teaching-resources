@@ -1,14 +1,14 @@
-from src.example_2 import run_and_log
+from src.example_2_difficult import run_and_log
 from unittest.mock import patch
+
 
 class TestDTStrfTime:
     def strftime(self, *args):
         return "2024-11-04 14:06:00"
 
 
-
 def test_log_message_func_with_return_value():
-    with patch("src.example_2.datetime") as patched_dt:
+    with patch("src.example_2_difficult.datetime") as patched_dt:
         patched_dt.now.return_value = TestDTStrfTime()
 
         # patched dt > has a now method
@@ -21,7 +21,7 @@ def test_log_message_func_with_return_value():
         )
 
 
-@patch("src.example_2.datetime")
+@patch("src.example_2_difficult.datetime")
 def test_log_message_function_exception(patched_dt):
     patched_dt.now().strftime.return_value = "2024-11-04 14:06:00"
 
