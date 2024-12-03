@@ -25,9 +25,15 @@ Pick a few challenges, ask who's seen it/solved it and ask how they did it and a
 
 ### **3**: is_falsy
 
-- can show `not` - e.g. `return not x`
-- https://docs.python.org/3/reference/expressions.html#not -> "The operator not yields True if its argument is false, False otherwise."
-  **WILL LIKELY BE ASKED ABOUT TRUTHY/FALSY VALUES AND WHAT THIS MEANS**
+can show `not` - e.g. `return not x`
+
+https://docs.python.org/3/reference/expressions.html#not -> "The operator not yields True if its argument is false, False otherwise."
+
+- In programming, truthy and falsy describe how values behave in logical conditions, like an if statement.
+- A truthy value evaluates to True in a condition, while a falsy value evaluates to False.
+  - Common falsy values in Python are 0, 0.0, "" (empty string), [] (empty list), {} (empty dictionary), set() (empty set), None, and False.
+  - Everything else, like non-zero numbers, non-empty strings, and populated collections, is truthy.
+- Think of it like this: Truthy means “has something,” and falsy means “empty or nothing.”
 
 ### **4**: check_if_key_exists
 
