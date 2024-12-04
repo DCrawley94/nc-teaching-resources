@@ -48,6 +48,8 @@ def collect_the_vowels(str):
 
 ---
 
+**talk about breaking this down into steps - following tests**
+
 ```py
 # This function takes an list of names.
 # The function should return an list containing the names of the people who
