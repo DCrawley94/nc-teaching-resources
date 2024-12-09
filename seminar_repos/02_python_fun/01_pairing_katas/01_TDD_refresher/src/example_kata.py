@@ -1,6 +1,3 @@
-from string import ascii_lowercase
-
-
 def sum_alphabet_indices(sentence):
     """
     - This function should take a **string** as argument and return an

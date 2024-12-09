@@ -1,5 +1,7 @@
 # Pytest Refresher and AAA
 
+https://www.figma.com/board/ymaj7LbWsxV44m6eBoGZBR/TDD-Intro?node-id=0-1&t=Q2lJ0IglJcc0XiU8-1
+
 ## Learning Objectives
 
 - Know how to set up a python virtual environment, ready for testing.
@@ -20,7 +22,6 @@ Ask students to guide me through the initial set up steps:
 - start virtual environment
 - install pytest to virtual environment
 - set up PYTHONPATH? - only do this if students ask for it, can be left until I start running tests
-- set local version? Can do this but not as important
 
 ## Introduce the problem itself
 
