@@ -1,5 +1,7 @@
 # Dependency Injection and `unittest.mock`
 
+- [Figjam](https://www.figma.com/board/zmnBCZFd2R1WQQOKp8ykOK/Testing-HOFs-2?node-id=0-1&t=pLSXjFe4scRWwd93-1)
+
 ## Learning Objectives
 
 - Discuss dependency injection as a design pattern and how it relates to mocking.

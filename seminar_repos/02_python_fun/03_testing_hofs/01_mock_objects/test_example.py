@@ -19,7 +19,7 @@ def test_function_returns_none():
     def test_func(arg):
         pass
 
-    assert iterate_and_do_work(input_1, test_func) == None
+    assert iterate_and_do_work(input_1, test_func) is None
 
 
 def test_passed_function_is_invoked():
