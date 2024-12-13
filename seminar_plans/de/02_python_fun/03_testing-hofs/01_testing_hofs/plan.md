@@ -51,6 +51,14 @@ def iterate_and_do_work(given_list, iteratee_func):
 # Hammer home that for this we really don't care what the function is doing
 # It just needs to be invoked correctly
 
+def test_function_returns_none():
+    input_1 = [1, 2, 3]
+
+    def test_func(arg):
+        pass
+
+    assert iterate_and_do_work(input_1, test_func) is None
+
 
 def test_iterate_and_do_work_invokes_passed_function():
     is_invoked = False
