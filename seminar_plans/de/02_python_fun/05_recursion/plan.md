@@ -77,10 +77,19 @@ Explain that any recursive solution can be written instead in an iterative way -
 Before moving to VSCode ask students what they think the base case/ recursive case/ recursive step might be.
 
 **Base case**: when there are no nested lists - the counting occurs within the for loop
+
 **Recursive case**: when there is a nested list - perform a recursive step to count values in that list and add to the total
+
 **Recursive step**: by passing a nested list each time, we eventually get closer to the lowest level of nesting (our base case)
 ay.
+
 **Recursive call**: call self
+
+---
+
+- The Base Case(s) are the points at which we stop making recursive calls and begin to return through the recursive calls that have been made.
+- The Recursive Case(s) are the points at which we determine our steps are not complete and we cannot yet identify what should be returned. Note the recursive case is not always the opposite of the base case.
+- Thus we will take the Recursive Step to perform operations and make additional recursive call(s).
 
 ### Test 1: Single element list returns 1 or 0
 
