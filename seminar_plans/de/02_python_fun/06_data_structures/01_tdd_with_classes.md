@@ -33,22 +33,38 @@ And these methods:
 ```py
 # Behaviour:
 
-test_playlist = Playlist("Party Playlist")
+playlist = Playlist("Party Playlist")
 
-test_playlist.name # "Party Playlist"
-test_playlist.tracks # []
+playlist.name # "Party Playlist"
+playlist.tracks # []
 
-test_playlist.add_track("Firestarter") # returns: "Added Firestarter to Party Playlist"
-test_playlist.tracks # ["Firestarter"]
+playlist.add_track("Firestarter") # returns: "Added Firestarter to Party Playlist"
+playlist.tracks # ["Firestarter"]
 
-test_playlist.add_track() # returns: "Added "Never Gonna Give You Up to Party Playlist"
-test_playlist.tracks # ["Firestarter", "Never Gonna Give You Up"]
+playlist.add_track() # returns: "Added "Never Gonna Give You Up to Party Playlist"
+playlist.tracks # ["Firestarter", "Never Gonna Give You Up"]
 
-test_playlist.get_current_track() # Returns "Now playing: Firestarter"
+playlist.get_current_track() # Returns "Now playing: Firestarter"
 
-test_playlist.next_track()
+playlist.next_track()
 
-test_playlist.get_current_track() # Returns "Now playing: Never Gonna Give You Up"
+playlist.get_current_track() # Returns "Now playing: Never Gonna Give You Up"
+```
+
+## Start
+
+```py
+class Playlist:
+    pass
+
+    # TODO: attributes
+
+    # TODO: add_track
+
+    # TODO: get_current_track
+
+    # TODO: next_track
+
 ```
 
 ## Possible Solution
@@ -69,4 +85,72 @@ class Playlist:
 
     def next_track(self):
         self.curr_track_index += 1
+```
+
+## Tests
+
+```py
+# Test Attributes
+
+
+class TestPlaylistAttributes:
+    def test_name(self):
+        test_playlst = Playlist("Geoff")
+
+        assert test_playlst.name == "Geoff"
+
+    def test_tracks(self):
+        test_playlst = Playlist("Geoff")
+
+        assert test_playlst.tracks == []
+
+
+#  Test Methods
+class TestAddTrack:
+    def test_returns_formatted_string(self):
+        test_playlst = Playlist("Geoff")
+
+        result = test_playlst.add_track("Firestarter")
+
+        assert result == "Added Firestarter to Geoff"
+        assert test_playlst.tracks == ["Firestarter"]
+
+    def test_default_song(self):
+        test_playlst = Playlist("Geoff")
+
+        result = test_playlst.add_track()
+
+        assert result == "Added Never Gonna Give You Up to Geoff"
+        assert test_playlst.tracks == ["Never Gonna Give You Up"]
+
+    def test_multiple_tracks(self):
+        test_playlst = Playlist("Geoff")
+
+        test_playlst.add_track("Firestarter")
+        test_playlst.add_track("Breathe")
+        test_playlst.add_track("Out of Space")
+
+        assert test_playlst.tracks == ["Firestarter", "Breathe", "Out of Space"]
+
+
+class TestGetCurrentTrack:
+    def test_returns_formatted_now_playing_string_for_current_song(self):
+        test_playlist = Playlist("playlist name")
+        test_playlist.add_track("song name")
+        assert test_playlist.get_current_track() == "Now playing: song name"
+
+
+class TestNextTrack:
+    def test_moves_playlist_one_track_along(self):
+        test_playlist = Playlist("Party Playlist")
+
+        test_playlist.add_track("Firestarter")
+        test_playlist.add_track("Breathe")
+        test_playlist.add_track("Out of Space")
+
+        assert test_playlist.get_current_track() == "Now playing: Firestarter"
+
+        test_playlist.next_track()
+
+        assert test_playlist.get_current_track() == "Now playing: Breathe"
 ```

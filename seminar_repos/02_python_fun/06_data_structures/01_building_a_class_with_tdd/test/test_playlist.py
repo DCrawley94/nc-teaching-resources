@@ -1,65 +1,40 @@
 from src.playlist import Playlist
 
-# Test Attributes
-
 
 class TestPlaylistAttributes:
-    def test_name(self):
-        test_playlst = Playlist("Geoff")
-
-        assert test_playlst.name == "Geoff"
-
-    def test_tracks(self):
-        test_playlst = Playlist("Geoff")
-
-        assert test_playlst.tracks == []
-
-
-#  Test Methods
-class TestAddTrack:
-    def test_returns_formatted_string(self):
-        test_playlst = Playlist("Geoff")
-
-        result = test_playlst.add_track("Firestarter")
-
-        assert result == "Added Firestarter to Geoff"
-        assert test_playlst.tracks == ["Firestarter"]
-
-    def test_default_song(self):
-        test_playlst = Playlist("Geoff")
-
-        result = test_playlst.add_track()
-
-        assert result == "Added Never Gonna Give You Up to Geoff"
-        assert test_playlst.tracks == ["Never Gonna Give You Up"]
-
-    def test_multiple_tracks(self):
-        test_playlst = Playlist("Geoff")
-
-        test_playlst.add_track("Firestarter")
-        test_playlst.add_track("Breathe")
-        test_playlst.add_track("Out of Space")
-
-        assert test_playlst.tracks == ["Firestarter", "Breathe", "Out of Space"]
-
-
-class TestGetCurrentTrack:
-    def test_returns_formatted_now_playing_string_for_current_song(self):
-        test_playlist = Playlist("playlist name")
-        test_playlist.add_track("song name")
-        assert test_playlist.get_current_track() == "Now playing: song name"
-
-
-class TestNextTrack:
-    def test_moves_playlist_one_track_along(self):
+    def test_playlst_has_name_attribute(self):
         test_playlist = Playlist("Party Playlist")
 
-        test_playlist.add_track("Firestarter")
-        test_playlist.add_track("Breathe")
-        test_playlist.add_track("Out of Space")
+        assert test_playlist.name == "Party Playlist"
 
-        assert test_playlist.get_current_track() == "Now playing: Firestarter"
+    def test_playlist_has_tracks_attribute(self):
+        test_playlist = Playlist("Party Playlist")
 
-        test_playlist.next_track()
+        assert test_playlist.tracks == []
 
-        assert test_playlist.get_current_track() == "Now playing: Breathe"
+
+class TestAddTrack:
+    # Test return value: "Added Firestarter to Party Playlist"
+    def test_returns_confirmation_of_added_song(self):
+        test_playlist = Playlist("Party Playlist")
+
+        result = test_playlist.add_track("Bee Gees - Tragedy")
+
+        assert result == "Added Bee Gees - Tragedy to Party Playlist"
+
+    # Test appends song to track list
+    def test_adds_track_to_track_list(self):
+        test_playlist = Playlist("Party Playlist")
+
+        test_playlist.add_track("Orbital - Dirty Rat")
+
+        assert test_playlist.tracks == ["Orbital - Dirty Rat"]
+
+    # Test default song added
+    def test_adds_default_track_when_none_specified(self):
+        test_playlist = Playlist("Party Playlist")
+
+        result = test_playlist.add_track()
+
+        assert result == "Added Never Gonna Give You Up to Party Playlist"
+        assert test_playlist.tracks == ["Never Gonna Give You Up"]
