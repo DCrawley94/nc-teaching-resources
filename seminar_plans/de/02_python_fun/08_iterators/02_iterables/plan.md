@@ -1,3 +1,5 @@
+Figjam: https://www.figma.com/board/jo0mMFVZ9swiQ34dPjqbfn/Iterables?node-id=0-1&t=GFSy1Uf5uwbzmLZ0-1
+
 ## Learning Objectives:
 
 - Know how to implement the **iterator protocol** using the correct magic methods

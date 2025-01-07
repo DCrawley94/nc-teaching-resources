@@ -122,7 +122,7 @@ What attribute (if any) might we need to assign in the initialisation method?
 
 Ask students to identify appropriate tests to build up the functionality of the class.
 
-### Test 1: Type of Iterator
+### Test 1: Type of Iterator - **WE MIGHT NOT REALLY NEED THIS TBH - IT'S IMPLIED BY THE OTHER TESTS ANYWAY**
 
 Might not be obvious to students but mentions that this is quite a useful one as it ensures that our class has the correct methods to be an iterator.
 
