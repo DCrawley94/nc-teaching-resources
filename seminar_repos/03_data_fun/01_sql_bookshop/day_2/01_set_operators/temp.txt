@@ -1,0 +1,109 @@
+You are now connected to database "set_operators_example" as user "danika".
+
+Unique Employees and Contractors:
+
+  name   
+---------
+ Grace
+ Diana
+ Eve
+ Bob
+ Frank
+ Charlie
+ Hank
+ Alice
+(8 rows)
+
+\All Employees and Contractors:
+
+  name   
+---------
+ Alice
+ Bob
+ Charlie
+ Diana
+ Eve
+ Frank
+ Grace
+ Charlie
+ Diana
+ Hank
+(10 rows)
+
+
+People who are both Employees and Contractors:
+
+  name   
+---------
+ Charlie
+ Diana
+(2 rows)
+
+
+Employees who are not Contractors:
+
+ name  
+-------
+ Eve
+ Alice
+ Bob
+(3 rows)
+
+
+Contractors who are not Employees:
+
+ name  
+-------
+ Grace
+ Frank
+ Hank
+(3 rows)
+
+
+Unique departments across both Employees and Contractors:
+
+ department  
+-------------
+ Finance
+ HR
+ Marketing
+ Engineering
+(4 rows)
+
+\Common departments across Employees and Contractors:
+
+ department  
+-------------
+ Marketing
+ Engineering
+(2 rows)
+
+\Departments that have Employees and *no* Contractors:
+
+ department 
+------------
+ HR
+(1 row)
+
+\Unique salaries across Employees and Contractors:
+
+ salary 
+--------
+  50000
+  70000
+  58000
+  55000
+  75000
+  72000
+  60000
+(7 rows)
+
+\Unique salaries across Employees and Contractors:
+
+ salary 
+--------
+  72000
+  75000
+  60000
+(3 rows)
+

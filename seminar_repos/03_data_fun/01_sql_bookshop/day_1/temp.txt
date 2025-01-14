@@ -1,4 +1,7 @@
 You are now connected to database "animal_crimes" as user "danika".
+
+All Cats:
+
  cat_id |  cat_name   |                                  cat_description                                  | danger_rating | crime_id 
 --------+-------------+-----------------------------------------------------------------------------------+---------------+----------
       1 | Salem       | Sassy magical house cat banished from the world of magic                          |             7 |        4
@@ -10,11 +13,8 @@ You are now connected to database "animal_crimes" as user "danika".
       6 | Garfield    | Hates Mondays, loves Lasagne                                                      |            10 |        2
 (7 rows)
 
- bear_id |   bear_name    |                          bear_description                          | danger_rating | crime_id | crime_id |         crime_description          
----------+----------------+--------------------------------------------------------------------+---------------+----------+----------+------------------------------------
-       2 | Sooty          | Suspiciously quiet/ hiding something                               |             5 |        4 |        4 | Practicing magic without a license
-       5 | The Care Bears | One of the most dangerous gangs operating in the Kingdom of Caring |             9 |        4 |        4 | Practicing magic without a license
-(2 rows)
+
+Dangerous Cats:
 
  cat_id | cat_name |                                  cat_description                                  | danger_rating | crime_id 
 --------+----------+-----------------------------------------------------------------------------------+---------------+----------
@@ -23,31 +23,49 @@ You are now connected to database "animal_crimes" as user "danika".
       6 | Garfield | Hates Mondays, loves Lasagne                                                      |            10 |        2
 (3 rows)
 
-   bear_name    | danger_rating 
-----------------+---------------
- Paddington     |             9
- Sooty          |             5
- Yogi           |             7
- Pooh           |             6
- The Care Bears |             9
- Baloo          |             8
- Fozzie Bear    |             7
-(7 rows)
 
- cat_id | cat_name |            cat_description             | danger_rating | crime_id 
---------+----------+----------------------------------------+---------------+----------
-      2 | Nyan Cat | Irritating but fabulous, heart of gold |             5 |        5
+Rude Bear:
+
+ bear_name | bear_description 
+-----------+------------------
+(0 rows)
+
+
+Magic Bears:
+
+   bear_name    |         crime_description          
+----------------+------------------------------------
+ The Care Bears | Practicing magic without a license
 (1 row)
 
-UPDATE 7
+
+Least Dangerous Cat:
+
+            cat_description             
+----------------------------------------
+ Irritating but fabulous, heart of gold
+(1 row)
+
+
+Updating Dangerous Cat:
+
+UPDATE 1
  cat_id |  cat_name   |                                  cat_description                                  | danger_rating | crime_id 
 --------+-------------+-----------------------------------------------------------------------------------+---------------+----------
-      1 | Salem       | Sassy magical house cat banished from the world of magic                          |            10 |        4
-      2 | Nyan Cat    | Irritating but fabulous, heart of gold                                            |            10 |        5
-      3 | Scar        | Scary intimidating all round bad guy, uncle of Simba                              |            10 |        3
-      4 | Jess        | Postman Pat's longtime companion                                                  |            10 |         
-      5 | Top Cat     | A streetwise wily feline who always managed to outwit his nemesis, Officer Dibble |            10 |        3
-      7 | Snagglepuss | A light pink anthropomorphic puma wearing a bow tie                               |            10 |        1
+      1 | Salem       | Sassy magical house cat banished from the world of magic                          |             7 |        4
+      2 | Nyan Cat    | Irritating but fabulous, heart of gold                                            |             5 |        5
+      3 | Scar        | Scary intimidating all round bad guy, uncle of Simba                              |             9 |        3
+      4 | Jess        | Postman Pat's longtime companion                                                  |             6 |         
+      5 | Top Cat     | A streetwise wily feline who always managed to outwit his nemesis, Officer Dibble |             9 |        3
+      7 | Snagglepuss | A light pink anthropomorphic puma wearing a bow tie                               |             7 |        1
       6 | Garfield    | Hates Mondays, loves Lasagne                                                      |            10 |        2
 (7 rows)
+
+
+Removing Non Dangerous Bears:
+
+DELETE 0
+ bear_id | bear_name | bear_description | danger_rating | crime_id 
+---------+-----------+------------------+---------------+----------
+(0 rows)
 

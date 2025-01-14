@@ -27,7 +27,7 @@ CREATE TABLE june_staff(
 );
 
 CREATE TABLE mar_staff(
-   staff_id SERIAL PRIMARY KEY,
+    staff_id SERIAL PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,
     surname VARCHAR(50),
     title VARCHAR(20) NOT NULL
