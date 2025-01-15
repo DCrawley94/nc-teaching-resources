@@ -27,6 +27,3 @@ VALUES
 
 -- ############################ --
 
-SELECT * FROM tropical_fruits
-EXCEPT
-SELECT * FROM my_fruit_bowl;

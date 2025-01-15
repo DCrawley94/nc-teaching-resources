@@ -14,7 +14,8 @@ Unique Employees and Contractors:
  Alice
 (8 rows)
 
-\All Employees and Contractors:
+
+All Employees and Contractors:
 
   name   
 ---------
@@ -70,7 +71,8 @@ Unique departments across both Employees and Contractors:
  Engineering
 (4 rows)
 
-\Common departments across Employees and Contractors:
+
+Common departments across Employees and Contractors:
 
  department  
 -------------
@@ -78,32 +80,23 @@ Unique departments across both Employees and Contractors:
  Engineering
 (2 rows)
 
-\Departments that have Employees and *no* Contractors:
 
- department 
-------------
- HR
-(1 row)
+Departments that have Employees and *no* Contractors:
 
-\Unique salaries across Employees and Contractors:
 
- salary 
---------
-  50000
-  70000
-  58000
-  55000
-  75000
-  72000
-  60000
-(7 rows)
+Unique salaries across Employees and Contractors:
 
-\Unique salaries across Employees and Contractors:
+\Matching salaries across Employees and Contractors:
 
- salary 
---------
-  72000
-  75000
-  60000
-(3 rows)
+\Average department salaries across Employees and Contractors:
+
+ average_dept_salary | department  |  job_type  
+---------------------+-------------+------------
+            60000.00 | Marketing   | contractor
+            72333.33 | Engineering | contractor
+            55000.00 | Finance     | contractor
+            50000.00 | HR          | employee
+            59000.00 | Marketing   | employee
+            73500.00 | Engineering | employee
+(6 rows)
 

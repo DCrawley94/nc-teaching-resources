@@ -29,13 +29,3 @@ ALTER TABLE
       10088 | Simon        | Javascript |  20
 (10 rows)
 
-                    Table "public.students_1nf"
-    Column    |       Type        | Collation | Nullable | Default 
---------------+-------------------+-----------+----------+---------
- student_id   | integer           |           | not null | 
- student_name | character varying |           |          | 
- course       | text              |           | not null | 
- age          | integer           |           |          | 
-Indexes:
-    "students_1nf_pkey" PRIMARY KEY, btree (student_id, course)
-

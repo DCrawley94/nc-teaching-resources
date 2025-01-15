@@ -1,43 +1,34 @@
-DROP DATABASE IF EXISTS northcoders_test;
-CREATE DATABASE northcoders_test;
+DROP DATABASE IF EXISTS set_operators_example;
+CREATE DATABASE set_operators_example;
 
-\c northcoders_test;
+\c set_operators_example;
 
-CREATE TABLE june_staff(
-    staff_id SERIAL PRIMARY KEY,
-    first_name VARCHAR(50) NOT NULL,
-    surname VARCHAR(50),
-    seminar_grp INT,
-    title VARCHAR(20) NOT NULL
+CREATE TABLE employees (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    department VARCHAR(50),
+    salary INT
 );
 
-CREATE TABLE mar_staff(
-    staff_id SERIAL PRIMARY KEY,
-    firstname VARCHAR(50) NOT NULL,
-    surname VARCHAR(50),
-    job_role VARCHAR(20) NOT NULL
+CREATE TABLE contractors (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    department VARCHAR(50),
+    salary INT
 );
 
-
-INSERT INTO june_staff
-  (first_name, surname, seminar_grp, title)
+INSERT INTO employees (name, department, salary)
 VALUES
-  ('Alex', 'Swain', 1, 'M'),
-  ('Carrie', 'Platten', 1, 'M'),
-  ('Eli', 'Wiggins', 2, 'SL'),
-  ('Kyle', 'McPhail',2 , 'M'),
-  ('Mick', 'Fay', 2, 'M');
+('Alice', 'Engineering', 75000),
+('Bob', 'Marketing', 60000),
+('Charlie', 'Engineering', 72000),
+('Diana', 'HR', 50000),
+('Eve', 'Marketing', 58000);
 
-
-INSERT INTO mar_staff
-  (firstname, surname, job_role)
+INSERT INTO contractors (name, department, salary)
 VALUES
-  ('Alex', 'Swain', 'M'),
-  ('Liam', 'Greenfield', 'CL'),
-  ('Mick', 'Fay', 'M'),
-  ('Kyle', 'McPhail','M'),
-  ('Chon', 'Lee', 'M');
-
-
--- SELECT firstname, surname, job_role FROM mar_staff UNION SELECT first_name, surname, title FROM june_staff;
-
+('Frank', 'Engineering', 70000),
+('Grace', 'Marketing', 60000),
+('Charlie', 'Engineering', 72000),
+('Diana', 'Finance', 55000),
+('Hank', 'Engineering', 75000);

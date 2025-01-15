@@ -4,12 +4,14 @@ CREATE DATABASE set_operators_example;
 \c set_operators_example;
 
 CREATE TABLE employees (
+    id SERIAL PRIMARY KEY,
     name VARCHAR(50),
     department VARCHAR(50),
     salary INT
 );
 
 CREATE TABLE contractors (
+    id SERIAL PRIMARY KEY,
     name VARCHAR(50),
     department VARCHAR(50),
     salary INT

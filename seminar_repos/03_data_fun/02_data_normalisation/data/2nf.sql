@@ -37,29 +37,32 @@ SELECT * FROM nc_classroom_1NF;
 
 -- CREATE NEW TABLES HERE:
 
-
-
--- student_no (PK) | mentor | classroom
-
-CREATE TABLE nc_classroom_2NF AS
+CREATE TABLE nc_student_2NF AS (
     SELECT DISTINCT student_no, mentor, classroom
-    FROM nc_classroom_1NF;
+    FROM nc_classroom_1NF
+);
 
-ALTER TABLE nc_classroom_2NF
-ADD PRIMARY KEY(student_no);
+ALTER TABLE nc_student_2NF
+ADD PRIMARY KEY (student_no);
 
--- student_no | subject
--- PK (student/subject)
--- FK student_no
 
-CREATE TABLE nc_student_subject_2nf AS
+
+CREATE TABLE nc_student_subject_2NF AS (
     SELECT student_no, subject
-    FROM nc_classroom_1NF;
+    FROM nc_classroom_1NF
+);
 
-ALTER TABLE nc_student_subject_2nf
-ADD PRIMARY KEY(student_no, subject),
-ADD FOREIGN KEY(student_no) REFERENCES nc_classroom_2NF(student_no);
+ALTER TABLE nc_student_subject_2NF
+ADD PRIMARY KEY (student_no, subject),
+ADD FOREIGN KEY (student_no) REFERENCES nc_student_2NF(student_no);
+
+SELECT * FROM nc_student_2NF;
+SELECT * FROM nc_student_subject_2NF;
 
 
-SELECT * FROM nc_student_subject_2nf;
-\d nc_student_subject_2nf;
+
+SELECT nc_student_2NF.student_no, mentor, classroom
+FROM nc_student_2NF
+JOIN nc_student_subject_2NF
+    ON nc_student_2NF.student_no = nc_student_subject_2NF.student_no
+WHERE subject = 'English';
