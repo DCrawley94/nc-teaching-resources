@@ -9,7 +9,6 @@
 Figjam: https://www.figma.com/board/qpkjWwy8n7cVYM370X8g3g/Requests-Seminar?node-id=0-1&t=uHinKeZowW4o5vGa-1
 
 - https://swapi.dev/documentation
--
 
 ## Task 1 - `get_film_data`
 
@@ -53,6 +52,17 @@ Break down the problem into steps and pick on students to help write it:
 If using `.json()` explore why this isn't working (Incorrectly converting python dictionary to JSON string - use JSON library instead or just `.text` attribute as it's already JSON)
 
 **Right click and format JSON with prettier to make it more readable**
+
+Alternative can use `JSON` library to format it:
+
+```py
+def get_film_data(film_id):
+    """gets data for given film_id and saves character data in a local file"""
+    film_data = requests.get(f"https://swapi.dev/api/films/{film_id}/").json()
+
+    with open("./star_wars_data/film.json", "w", encoding="utf-8") as f:
+        json.dump(film_data, f, indent=4)  # Can dump to file like object
+```
 
 ## Task 2 - `get_character_names`
 

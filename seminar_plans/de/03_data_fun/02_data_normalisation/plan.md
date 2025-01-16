@@ -1,6 +1,19 @@
-# 1nf and Q+A
+# Data Normalisation solution / Q+A
+
+This solution is for the student data tasks of the data normalisation sprint.
+
+The tasks can be found here:
+
+1. [1nf](https://l2c.northcoders.com/courses/data-fun/data-normalisation#sectionId=onenf_1,step=intro)
+2. [2nf](https://l2c.northcoders.com/courses/data-fun/data-normalisation#sectionId=twonf_1,step=intro)
+3. [3nf](https://l2c.northcoders.com/courses/data-fun/data-normalisation#sectionId=threenf_1,step=intro)
 
 ## 1 NF
+
+```txt
+All columns contain only "atomic" values - no lists, arrays, nested or complex data types
+There are no repeating groups.
+```
 
 Work through an example of 1nf with unnest/string_to_array or similar
 
@@ -25,7 +38,14 @@ SELECT * FROM students_1NF;
 
 ```
 
+`\d students_1nf;` to show table metadata
+
 ## 2 NF
+
+```txt
+It is already in 1NF.
+All non-key columns are dependent on the full primary key.
+```
 
 What is the issue with our data that means it's not in second normal form?
 
@@ -92,6 +112,11 @@ WHERE subject = 'English';
 ```
 
 ## 3 NF
+
+```txt
+It is already in 2NF.
+There are no transitive dependencies between columns.
+```
 
 We can see that the `classroom` is not directly related to the `student_id` - in fact the `classroom` number is set by the `mentor` and the mentor is set by the `student_id` . What this means is that the classroom is **transitively dependant** on the `student_id`!
 

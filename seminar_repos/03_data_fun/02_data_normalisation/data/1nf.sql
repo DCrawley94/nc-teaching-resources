@@ -29,14 +29,15 @@ SELECT * FROM students;
 
 -- CREATE NEW TABLES HERE:
 
-CREATE TABLE students_1NF AS (
-    SELECT student_id, student_name, UNNEST(STRING_TO_ARRAY(courses, ', ')) AS course, age
-    FROM students
+
+CREATE TABLE students_1nf AS (
+    SELECT
+        student_id,
+        student_name,
+        STRING_TO_TABLE(courses, ', ') AS course,
+        age
+    FROM 
+    students
 );
 
-
-ALTER TABLE students_1NF
-ADD PRIMARY KEY(student_id, course);
-
-
-SELECT * FROM students_1NF;
+SELECT * FROM students_1nf;

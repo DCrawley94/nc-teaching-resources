@@ -23,8 +23,6 @@ INSERT 0 14
 
 SELECT 5
 ALTER TABLE
-SELECT 14
-ALTER TABLE
  student_no | mentor | classroom 
 ------------+--------+-----------
       10456 | Rose   | Zoom_12
@@ -34,6 +32,8 @@ ALTER TABLE
       10931 | Rose   | Zoom_12
 (5 rows)
 
+SELECT 14
+ALTER TABLE
  student_no | subject  
 ------------+----------
       10456 | Maths
@@ -52,9 +52,13 @@ ALTER TABLE
       12633 | I.T.
 (14 rows)
 
- student_no | mentor | classroom 
-------------+--------+-----------
-      10456 | Rose   | Zoom_12
-      10839 | Haz    | Zoom_08
-(2 rows)
+              Table "public.nc_student_subject_2nf"
+   Column   |       Type        | Collation | Nullable | Default 
+------------+-------------------+-----------+----------+---------
+ student_no | integer           |           | not null | 
+ subject    | character varying |           | not null | 
+Indexes:
+    "nc_student_subject_2nf_pkey" PRIMARY KEY, btree (student_no, subject)
+Foreign-key constraints:
+    "nc_student_subject_2nf_student_no_fkey" FOREIGN KEY (student_no) REFERENCES nc_students_2nf(student_no)
 

@@ -14,7 +14,6 @@ INSERT 0 6
 (6 rows)
 
 SELECT 10
-ALTER TABLE
  student_id | student_name |   course   | age 
 ------------+--------------+------------+-----
       10015 | Joe          | Python     |  21

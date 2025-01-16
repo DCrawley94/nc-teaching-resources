@@ -10,8 +10,7 @@ CREATE TABLE nc_classroom_1NF
     student_no INT,
     mentor VARCHAR,
     classroom VARCHAR,
-    subject VARCHAR,
-    PRIMARY KEY (student_no, subject)
+    subject VARCHAR
 );
 
 INSERT INTO nc_classroom_1NF
@@ -37,15 +36,26 @@ SELECT * FROM nc_classroom_1NF;
 
 -- CREATE NEW TABLES HERE:
 
-CREATE TABLE nc_student_2NF AS (
-    SELECT DISTINCT student_no, mentor, classroom
+
+-- 2 TABLES
+
+-- Student Table (student_id, mentor, classroom)
+CREATE TABLE nc_students_2NF AS (
+    SELECT DISTINCT
+        student_no,
+        mentor,
+        classroom
     FROM nc_classroom_1NF
 );
 
-ALTER TABLE nc_student_2NF
+ALTER TABLE nc_students_2NF
 ADD PRIMARY KEY (student_no);
 
 
+SELECT * FROM nc_students_2NF;
+
+
+-- Subject Table
 
 CREATE TABLE nc_student_subject_2NF AS (
     SELECT student_no, subject
@@ -54,15 +64,15 @@ CREATE TABLE nc_student_subject_2NF AS (
 
 ALTER TABLE nc_student_subject_2NF
 ADD PRIMARY KEY (student_no, subject),
-ADD FOREIGN KEY (student_no) REFERENCES nc_student_2NF(student_no);
+ADD FOREIGN KEY (student_no) REFERENCES nc_students_2NF(student_no);
 
-SELECT * FROM nc_student_2NF;
+
 SELECT * FROM nc_student_subject_2NF;
 
+\d nc_student_subject_2NF
 
 
-SELECT nc_student_2NF.student_no, mentor, classroom
-FROM nc_student_2NF
-JOIN nc_student_subject_2NF
-    ON nc_student_2NF.student_no = nc_student_subject_2NF.student_no
-WHERE subject = 'English';
+
+
+
+
