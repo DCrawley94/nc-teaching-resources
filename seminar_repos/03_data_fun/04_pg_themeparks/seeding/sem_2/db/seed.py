@@ -15,14 +15,12 @@ def seed(conn, games, reviews):
     # Insert games
     insert_games(conn, games)
 
-    # - access to the inserted game data (game_id)
+    # access to the inserted game data (game_id)
     games_data = conn.run("SELECT game_title, game_id FROM games;")
 
     # - some way to link game_title (review data)
     # to the game_id in inserted games
     game_id_lookup = {game[0]: game[1] for game in games_data}
-
-    print(game_id_lookup)
 
     # - when inserting reviews - we can replace title with appropriate id
     insert_reviews(conn, reviews, game_id_lookup)
@@ -79,6 +77,14 @@ def insert_games(conn, games):
         )
 
 
+def create_games_lookup(inserted_games):
+    """
+    Should accept nested list of games and return dictionary
+        containing game title and game id
+    """
+    return {game[1]: game[0] for game in inserted_games}
+
+
 def insert_reviews(conn, reviews, game_id_lookup):
     insert_str = """
     INSERT INTO reviews
@@ -100,3 +106,20 @@ def insert_reviews(conn, reviews, game_id_lookup):
             comment=comment,
             rating=rating,
         )
+
+
+def create_insert_reviews_query(rows):
+    start_str = """
+    INSERT INTO reviews
+    (game_id, username, comment, rating)
+    VALUES
+    """
+
+    rows_to_insert = ",\n".join(
+        [
+            f"({game_id}, {username}, {comment}, {rating})"
+            for game_id, username, comment, rating in rows
+        ]
+    )
+
+    pprint(rows_to_insert)
