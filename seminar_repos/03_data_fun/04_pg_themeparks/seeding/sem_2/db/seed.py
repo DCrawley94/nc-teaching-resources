@@ -5,24 +5,29 @@ def seed(conn, games, reviews):
     print("seeding data ...")
     # Drop tables
 
+    print("dropping tables ...")
     conn.run("DROP TABLE IF EXISTS reviews;")
     conn.run("DROP TABLE IF EXISTS games;")
 
     # Create tables
+    print("creating tables ...")
     create_games_table(conn)
     create_reviews_table(conn)
 
     # Insert games
+    print("inserting games ...")
     insert_games(conn, games)
 
-    # access to the inserted game data (game_id)
-    games_data = conn.run("SELECT game_title, game_id FROM games;")
+    # Create a dictionary which links game_title > game_id
+    # Lookup Dictionary
 
-    # - some way to link game_title (review data)
-    # to the game_id in inserted games
-    game_id_lookup = {game[0]: game[1] for game in games_data}
+    # Select data from games table
+    game_data = conn.run("SELECT game_id, game_title FROM games;")
 
-    # - when inserting reviews - we can replace title with appropriate id
+    # Pass data to lookup util
+    game_id_lookup = create_game_lookup(game_data)
+
+    print("inserting reviews ...")
     insert_reviews(conn, reviews, game_id_lookup)
 
 
@@ -77,12 +82,8 @@ def insert_games(conn, games):
         )
 
 
-def create_games_lookup(inserted_games):
-    """
-    Should accept nested list of games and return dictionary
-        containing game title and game id
-    """
-    return {game[1]: game[0] for game in inserted_games}
+def create_game_lookup(game_rows):
+    return {game_name: game_id for game_id, game_name in game_rows}
 
 
 def insert_reviews(conn, reviews, game_id_lookup):
@@ -94,32 +95,15 @@ def insert_reviews(conn, reviews, game_id_lookup):
     """
 
     for review in reviews:
-        game_id = game_id_lookup[review["game_title"]]
         username = review["username"]
+        game_id = game_id_lookup[review["game_title"]]
         comment = review["comment"]
         rating = review["rating"]
 
         conn.run(
             insert_str,
-            game_id=game_id,
             username=username,
+            game_id=game_id,
             comment=comment,
             rating=rating,
         )
-
-
-def create_insert_reviews_query(rows):
-    start_str = """
-    INSERT INTO reviews
-    (game_id, username, comment, rating)
-    VALUES
-    """
-
-    rows_to_insert = ",\n".join(
-        [
-            f"({game_id}, {username}, {comment}, {rating})"
-            for game_id, username, comment, rating in rows
-        ]
-    )
-
-    pprint(rows_to_insert)
