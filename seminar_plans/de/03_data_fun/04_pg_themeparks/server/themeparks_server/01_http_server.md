@@ -2,8 +2,6 @@
 
 Figjam: https://www.figma.com/file/Ps3GlZgxKAM84cLEVmiSeZ/HTTP-Servers?type=whiteboard&t=XBS1TZhMYdVoPrpT-6
 
-**THIS NEEDS CHANGING TO COVER SIMPLE GET AND GET BY ID ENDPOINT**
-
 ## Introduce the Repo
 
 Explain that it's the same repo I was working in on Friday:

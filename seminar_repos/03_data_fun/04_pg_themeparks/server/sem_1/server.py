@@ -2,11 +2,8 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 import re
 
-from pprint import pprint
-
 from db.connection import create_connection, close_connection
-
-GAME_BY_ID_REGEX = re.compile(r"/api/games/(\d+)")
+from pprint import pprint
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -23,54 +20,56 @@ class Handler(BaseHTTPRequestHandler):
             # write body to response
             self.wfile.write(data.encode("utf-8"))
 
-        # /api/games/:game_id
+        # GET /api/games/:game_id
 
-        # check if url matches - regex - DONE
-        if re.match(GAME_BY_ID_REGEX, self.path):
-            game_id = re.match(GAME_BY_ID_REGEX, self.path).group(1)
+        # Conditional check the path
+        if re.search(r"/api/games/\d+", self.path):
+            # Pull game id from url
+            GAME_BY_ID_REGEX = re.compile(r"/api/games/(\d+)")
+            regex_match = re.match(GAME_BY_ID_REGEX, self.path)
+            game_id = regex_match.group(1)
 
-            # get game data for given ID - extract ID from the url
-            query_str = """
+            # Set up DB connection
+            conn = create_connection()
+
+            # Get games data for given id
+            get_game_by_id_query = """
             SELECT * FROM games
             WHERE game_id = :game_id;
             """
-
-            conn = create_connection()
-
-            game_data = conn.run(query_str, game_id=game_id)[0]
+            game_data = conn.run(get_game_by_id_query, game_id=game_id)[0]
             columns = [col["name"] for col in conn.columns]
 
-            # data formatting
-            formatted_game = dict(zip(columns, game_data))
+            # Manipulate returned row to match specification
 
-            # setting headers
+            # for loop/range
+            response_body = {"game": {}}
+            for i in range(len(columns)):
+                column = columns[i]
+                value = game_data[i]
+                response_body["game"][column] = value
+
+            # response_body = {"game": dict(zip(columns, game_data))}
+
+            # status code
             self.send_response(200)
+            # headers
             self.send_header("Content-Type", "application/json")
             self.end_headers()
 
-            # Converting to JSON
-            response_body = json.dumps({"game": formatted_game})
-
-            # send response
-            self.wfile.write(response_body.encode("utf-8"))
+            # write to response
+            # convert response dict into json
+            self.wfile.write(json.dumps(response_body).encode("utf-8"))
 
     def do_POST(self):
-        # match the url
         if self.path == "/api/games":
-            # extract the request body
             content_length = int(self.headers["Content-Length"])
             request_body = self.rfile.read(content_length).decode("utf-8")
 
-            print(request_body)
-
-        # INSERT SQL query
-
-        # format response
-        # set headers
-        # Json string
-        # write response body
+            pprint(request_body)
 
 
 server_address = ("", 8000)
-httpd = HTTPServer(server_address, Handler)
-httpd.serve_forever()
+
+with HTTPServer(server_address, Handler) as httpd:
+    httpd.serve_forever()

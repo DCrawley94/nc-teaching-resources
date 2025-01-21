@@ -2,7 +2,7 @@
 
 Seminar Plan: https://docs.google.com/document/d/1SYfTXdMvHSPXFNy_iEutsrZxjjf2L4wJc_dlLTL_bIE/edit?usp=sharing
 
-Figjam:
+Figjam: https://www.figma.com/board/8xusAORdkjb71iSgraHVhf/FastAPI-2?node-id=0-1&t=paiJAPGJTxePoQVv-1
 
 ## Learning Objectives
 
@@ -27,7 +27,40 @@ Pseudocode a solution to POST - hopefully outlining the following steps:
 - parametrise to avoid injection
 - format output to match requirements
 
-Students lead me through a solution - **Avoid types at first**
+Students lead me through a solution
+
+**TO RUN SERVER:**
+
+```sh
+fastapi dev server.py
+```
+
+---
+
+**If no type specified might have an error like this:**
+
+```json
+{
+	"detail": [
+		{
+			"type": "missing",
+			"loc": ["query", "game"],
+			"msg": "Field required",
+			"input": null
+		}
+	]
+}
+```
+
+Can fix with:
+
+```py
+# Type annotation
+def post_game(game: Game):
+    ...
+```
+
+---
 
 ```py
 @app.post("/api/games")
@@ -64,7 +97,11 @@ Steps for making a model:
 - Use type annotation to make sure that the game is the correct type
 
 ```py
+from fastapi import FastAPI
 from pydantic import BaseModel
+from db.connection import create_connection, close_connection
+
+app = FastAPI()
 
 
 class Game(BaseModel):
@@ -75,10 +112,26 @@ class Game(BaseModel):
 
 @app.post("/api/games")
 def post_game(game: Game):
-    # ...
+    conn = create_connection()
 
-    # conn.run args:
-    **dict(game)
+    inserted_game = conn.run(
+        """
+    INSERT INTO games
+    (game_title, release_year, console_name, image_url)
+    VALUES
+    (:game_title, :release_year, :console_name, :image_url)
+    RETURNING *;
+    """,
+        **dict(game),
+    )[0]
+
+    games_columns = [col["name"] for col in conn.columns]
+
+    close_connection(conn)
+
+    formatted_game_data = dict(zip(games_columns, inserted_game))
+
+    return {"game": formatted_game_data}
 ```
 
 **Demo what happens if we fuck up the request**
@@ -92,7 +145,7 @@ Point out that the requirements asked for a 201 status but we get a 200. How can
 Ask for students to talk through the process of making the DELETE endpoint.
 
 - How can we get the ID from the URL? No more regex 🎉
-- Paramterise the ID
+- Parametrise the ID
 - Set the status code
 
 Anything else? Do we need to return anything?
