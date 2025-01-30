@@ -1,5 +1,7 @@
 # Terraform
 
+Figjam: https://www.figma.com/board/GnU9VcCS5mapofQLn8GGrs/Moving-from-the-AWS-Console-to-Terraform?node-id=0-1&t=Lf5Hge7rKMmZqrEa-1
+
 ## Learning Objectives
 
 - Solidify our understanding of the relationship between all of the ways we have interacted with AWS so far.
