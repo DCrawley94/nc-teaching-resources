@@ -58,7 +58,7 @@ Create the RDS db with just the things we know are needed:
 resource "aws_db_instance" "rds_example" {
   allocated_storage = 10
   engine            = "postgresql"
-  engine_version    = "14.10-R2"
+  engine_version    = "14.10-R2"  # This is probably out of date so use one from RDS console page
   instance_class    = "db.t3.micro"
   username          = "postgres"
   password          = "password123"
@@ -71,6 +71,22 @@ Issues with the above:
 - `identifier` can only have certain characters in (error output tells you this)
 - `engine` should be "postgres" - in the argument reference there is a link to a list of available engines
 - `engine_version` should be "14.10" - again in the argument reference there is a link in the docs which can guide you to some documentation. It's a bit of a faff that involves list versions like so: `aws rds describe-db-engine-versions --engine postgres`. This command will give you a list of all the available postgres versions.
+
+Fixed:
+
+```tf
+resource "aws_db_instance" "default" {
+  allocated_storage   = 20
+  engine              = "postgres"
+  engine_version      = "13.18"
+  instance_class      = "db.t4g.micro"
+  username            = "postgres"
+  password            = "password123"
+  identifier          = "example-database"
+  skip_final_snapshot = true
+}
+
+```
 
 After fixing the above run `terraform apply` - this will take ages but you can see a database being initialised on the console while it's running. A great time to pause for questions.
 
@@ -127,7 +143,7 @@ Students will be unfamiliar with:
 
 Let's go through the process of setting up an EC2 in the console and seeing what happens to the security group:
 
-**We can see port range, protocol and source** - source doesn't share the name ``cidr` but that is what we want. Let's try:
+**We can see port range, protocol and source** - source doesn't share the name `cidr` but that is what we want. Let's try:
 
 ```tf
 resource "aws_instance" "ec2-instance" {

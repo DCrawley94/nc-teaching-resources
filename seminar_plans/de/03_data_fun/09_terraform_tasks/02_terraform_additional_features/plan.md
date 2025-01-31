@@ -1,5 +1,7 @@
 # Seminar 2
 
+Figjam: https://www.figma.com/board/zGVI79uvfX4deffsAb9F2F/Terraform-Features?node-id=0-1&t=BoUusK1O0WzLKBBu-1
+
 Useful links:
 
 [Terraform Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
@@ -23,7 +25,7 @@ Tell students that I've decided that the work I was doing with terraform yesterd
 
 Have studes walk me through the steps I need to take to set up remote terraform state.
 
-- s3 bucket > can I do this with terraform? Get students to walk me through it
+- s3 bucket > **can I do this with terraform?** Get students to walk me through it
 
 - How do I tell Terraform to use the remote bucket?
 
@@ -38,6 +40,8 @@ terraform {
 ```
 
 ## Next Step - I Need To Give Others Access To Use Terraform With My Backend
+
+**Stress that I do not recommend they create IAM users for pairing this way - this is purely for demonstration**
 
 Pick someone to be my first new member of staff.
 
@@ -69,6 +73,8 @@ resource "aws_iam_user_policy" "tf-state-access" {
   policy = data.aws_iam_policy_document.tf-state-access.json
 }
 ```
+
+**CREDS OFFSCREEN**
 
 Can show this working by exporting `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`. Explain that Terraform will prioritise environment variables over my aws config file.
 
