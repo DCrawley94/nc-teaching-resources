@@ -7,8 +7,7 @@ data "archive_file" "lambda" {
 
 resource "aws_lambda_function" "s3_file_reader" {
   function_name = var.lambda_name
-  s3_bucket     = aws_s3_bucket.code_bucket.bucket
-  s3_key        = "s3_file_reader/function.zip"
+  filename      = data.archive_file.lambda.output_path
   role          = aws_iam_role.lambda_role.arn
   handler       = "reader.lambda_handler"
   runtime       = "python3.12"

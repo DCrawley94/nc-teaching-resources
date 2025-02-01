@@ -33,10 +33,11 @@ Have studes walk me through the steps I need to take to set up remote terraform 
 terraform {
   backend "s3" {
     bucket = "dc-nc-tf-backend"
-    key    = "terraform-seminar-2.tfstate"
+    key    = "terraform-features/terraform-features-2.tfstate"
     region = "eu-west-2"
   }
 }
+
 ```
 
 ## Next Step - I Need To Give Others Access To Use Terraform With My Backend
@@ -88,6 +89,8 @@ resource "aws_s3_bucket" "test-bucket-2" {
 
 ## Now it's time for more staff
 
+**THIS WILL PROBABLY CAUSE ISSUES DUE TO HAVING CREATED AN ACCESS KEY ON THE CONSOLE - LEARNING OPPORTUNITY! - DELETE IN SECURITY CREDENTIALS TAB**
+
 Pick some more people to be my new staff members and start coding more iam users:
 
 ```hcl
@@ -124,6 +127,8 @@ Link: https://developer.hashicorp.com/terraform/language
 
 **Under resources/meta-arguments**
 
+**Skip `count` depending on time - `foreach` is better anyway 💅**
+
 count: https://developer.hashicorp.com/terraform/language/meta-arguments/count
 
 First attempt:
@@ -136,6 +141,8 @@ resource "aws_iam_user" "colleagues" {
 ```
 
 _Awful. Terrible. Not dry. Take a lap._
+
+Variables: https://developer.hashicorp.com/terraform/language/values/variables
 
 ```hcl
 variable "colleagues" {

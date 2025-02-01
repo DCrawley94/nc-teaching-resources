@@ -18,14 +18,15 @@ resource "aws_iam_role" "lambda_role" {
 
 data "aws_iam_policy_document" "cw_permissions" {
   statement {
-    actions   = ["logs:CreateLogGroup"]
-    resources = ["arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:*"]
+    actions = ["logs:CreateLogGroup"]
+    resources = [
+    "arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:*"]
   }
 
   statement {
     actions = ["logs:CreateLogStream", "logs:PutLogEvents"]
     resources = [
-      "arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:/aws/lambda/${var.lambda_name}:*"
+      "arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:log-group:/aws/lambda/${var.lambda_name}:*"
     ]
   }
 }
