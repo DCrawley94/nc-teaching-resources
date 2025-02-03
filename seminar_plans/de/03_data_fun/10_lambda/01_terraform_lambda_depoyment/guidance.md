@@ -42,6 +42,8 @@ We need to re-create that in terraform
 
 During the lecture they will have seen the code pasted. Creating a deployment package will be new to them so don;t expect them to know how to do this. It will be useful to show them the docs to prove you aren't making it up and also give them a hint that they will need to do it a little different if their lambda has dependencies.
 
+Information about `path.module`: https://developer.hashicorp.com/terraform/language/expressions/references#filesystem-and-workspace-info
+
 ```hcl
 data "archive_file" "lambda" {
   type        = "zip"
@@ -50,21 +52,7 @@ data "archive_file" "lambda" {
 }
 ```
 
-## Uploading the deployment package
-
-At this point explain that we're gonna store the code in S3 and then link it to lambda. It might be worthwhile pointing out that we don't **need** to store the code in S3, in fact as this is only a small lambda we'd we fine uploading directly.
-
 Reasons for uploading to S3 include [storage limitations](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html), [benefits of bucket versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html) and [security](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html) among others.
-
-Students should have seen s3 object uploading so can probably point you towards the correct resource:
-
-```hcl
-resource "aws_s3_object" "lambda_code" {
-  bucket = aws_s3_bucket.code_bucket.bucket
-  key = "s3_file_reader/function.zip"
-  source = "${path.module}/../function.zip"
-}
-```
 
 ## Creating the lambda function
 
@@ -75,6 +63,8 @@ This will probably include `function_name`, `role`, `runtime`. New things will b
 Look at the argument reference and point out that there are different args if you're using s3.
 
 ### IAM role
+
+[Docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role)
 
 As seen in the example we need an IAM role so might as well start there.
 
@@ -119,16 +109,13 @@ Students won't have seen `handler` before so quiz them on it and make sure they 
 ```hcl
 resource "aws_lambda_function" "s3_file_reader" {
   function_name = var.lambda_name
-  s3_bucket     = aws_s3_bucket.code_bucket.bucket
-  s3_key        = "s3_file_reader/function.zip"
+  filename      = data.archive_file.lambda.output_path
   role          = aws_iam_role.lambda_role.arn
   handler       = "reader.lambda_handler"
   runtime       = "python3.12"
   timeout       = 10 # default 3 seconds can lead to timeout
 }
 ```
-
-**Could even refactor the above to create a variable for the s3 key as it's hardcoded in two places at this point**
 
 ---
 
@@ -143,6 +130,20 @@ For this you can have look at how the cloudwatch permissions are created by the 
 For the resource arns you can make use of the data sources for region and caller identity to make your life easier and show their usefulness.
 
 > Policy Doc data source
+
+**START OFF BY COPYING STRAIGHT FROM CONSOLE INSTEAD OF USING DATA ATTRIBUTES**
+
+```hcl
+# data.tf
+
+data "aws_caller_identity" "current" {}
+
+data "aws_region" "current" {}
+```
+
+AWS caller identity: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity
+
+AWS region: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region
 
 ```hcl
 data "aws_iam_policy_document" "cw_document" {

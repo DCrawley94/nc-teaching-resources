@@ -22,7 +22,7 @@ provider "aws" {
       Repository    = "de-lambda-deployment"
       CostCentre    = "DE"
       Environment   = "dev"
-      RetentionDate = "2024-10-22"
+      RetentionDate = "2025-06-01"
     }
   }
 }
