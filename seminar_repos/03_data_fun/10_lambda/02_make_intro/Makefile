@@ -6,29 +6,24 @@
 
 # Useful Variables
 
-PYTHON_INTERPRETER=python3
+PYTHON_INTERPRETER=python
 PIP=pip
 SHELL=/bin/bash # If this isn't set the shell will default to `sh`
-
 PYTHONPATH=$(shell pwd)
 
-define execute_in_env
-	source venv/bin/activate && $1
-endef
-
+# $(info PYTHONPATH: $(PYTHONPATH))
 
 create-environment:
 	$(PYTHON_INTERPRETER) -m venv venv
 
-
 install-requirements: create-environment
-	$(call execute_in_env, $(PIP) install -r requirements.txt)
+	source venv/bin/activate && $(PIP) install -r requirements.txt
 
 unit-test: install-requirements
-	source venv/bin/activate && PYTHONPATH=$(PYTHONPATH) pytest -vvv
+	source venv/bin/activate && PYTHONPATH=$(PYTHONPATH) pytest
 
 # ~~~~~ Install code quality tools ~~~~~
-install-dev-tools: create-environment
+install-dev-tools:
 	source venv/bin/activate && $(PIP) install bandit safety flake8
 
 # ~~~~~ Run code quality checks ~~~~~
@@ -40,3 +35,6 @@ check-pep8-compliance: install-dev-tools
 	source venv/bin/activate && flake8 src test
 
 run-checks: unit-test security-checks check-pep8-compliance
+
+
+#  terraform 
