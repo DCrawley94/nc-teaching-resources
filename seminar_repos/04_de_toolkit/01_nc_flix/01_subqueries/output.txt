@@ -2,31 +2,31 @@ You are now connected to database "bear_crimes" as user "danika".
 
 Average danger rating:
 
- avg_danger_rating 
--------------------
-              7.29
+ average_danger_rating 
+-----------------------
+                  7.29
 (1 row)
 
 
 Bears more dangerous than Pooh:
 
-   bear_name    | danger_rating 
-----------------+---------------
- Paddington     |             9
- Yogi           |             7
- The Care Bears |             9
- Baloo          |             8
- Fozzie Bear    |             7
+   bear_name    | danger_rating |         crime_description          
+----------------+---------------+------------------------------------
+ Paddington     |             9 | Selling counterfeit marmalade
+ Yogi           |             7 | Thievery
+ The Care Bears |             9 | Practicing magic without a license
+ Baloo          |             8 | Thievery
+ Fozzie Bear    |             7 | 
 (5 rows)
 
 
 Bears with a greater than average danger rating:
 
-   bear_name    | danger_rating 
-----------------+---------------
- Paddington     |             9
- The Care Bears |             9
- Baloo          |             8
+   bear_name    |                               bear_description                               
+----------------+------------------------------------------------------------------------------
+ Paddington     | Looks cute but will destroy everything you own with his neglectful silliness
+ The Care Bears | One of the most dangerous gangs operating in the Kingdom of Caring
+ Baloo          | Enlists humans to do his bidding
 (3 rows)
 
 
@@ -59,6 +59,13 @@ Danger level refactor:
 
 
 Dangerous Bear Crimes:
+
+         crime_description          
+------------------------------------
+ Thievery
+ Practicing magic without a license
+ Selling counterfeit marmalade
+(3 rows)
 
          crime_description          
 ------------------------------------

@@ -40,6 +40,8 @@ WHERE danger_rating > (
 );
 ```
 
+**EXTRA: What if I want to know their crimes as well?**
+
 ### 3
 
 - Using a subquery select information about only the bears with a danger_rating greater than the average.
