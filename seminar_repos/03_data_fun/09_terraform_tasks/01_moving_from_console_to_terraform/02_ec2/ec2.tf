@@ -1,6 +1,6 @@
 
 resource "aws_instance" "ec2-example" {
-  ami             = "ami-0acc77abdfc7ed5a6"
+  ami             = "ami-091f18e98bc129c4e"
   instance_type   = "t3.micro"
   key_name        = "dc-ssh"
   security_groups = [aws_security_group.allow_ssh.name]
